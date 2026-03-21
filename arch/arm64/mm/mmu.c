@@ -605,6 +605,7 @@ static void __init map_mem(pgd_t *pgdp)
 #endif
 }
 
+#ifdef CONFIG_STRICT_KERNEL_RWX
 void mark_rodata_ro(void)
 {
 	unsigned long section_size;
@@ -619,6 +620,7 @@ void mark_rodata_ro(void)
 
 	debug_checkwx();
 }
+#endif
 
 static void __init map_kernel_segment(pgd_t *pgdp, void *va_start, void *va_end,
 				      pgprot_t prot, struct vm_struct *vma,
@@ -671,6 +673,7 @@ static void __init map_kernel_text_segment(pgd_t *pgdp, void *va_start, void *va
 }
 #endif
 
+#ifdef CONFIG_STRICT_KERNEL_RWX
 static int __init parse_rodata(char *arg)
 {
 	int ret = strtobool(arg, &rodata_enabled);
@@ -688,13 +691,18 @@ static int __init parse_rodata(char *arg)
 	return 0;
 }
 early_param("rodata", parse_rodata);
+#endif
 
 #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
 static int __init map_entry_trampoline(void)
 {
 	int i;
 
+#ifdef CONFIG_STRICT_KERNEL_RWX
 	pgprot_t prot = rodata_enabled ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+#else
+	pgprot_t prot = PAGE_KERNEL_EXEC;
+#endif
 	phys_addr_t pa_start = __pa_symbol(__entry_tramp_text_start);
 
 	/* The trampoline is always mapped and can therefore be global */
@@ -753,7 +761,11 @@ static void __init map_kernel(pgd_t *pgdp)
 	 * mapping to install SW breakpoints. Allow this (only) when
 	 * explicitly requested with rodata=off.
 	 */
+#ifdef CONFIG_STRICT_KERNEL_RWX
 	pgprot_t text_prot = rodata_enabled ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+#else
+	pgprot_t text_prot = PAGE_KERNEL_EXEC;
+#endif
 
 	/*
 	 * If we have a CPU that supports BTI and a kernel built for
