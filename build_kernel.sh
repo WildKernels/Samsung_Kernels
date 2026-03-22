@@ -17,17 +17,10 @@ export TARGET_SOC=s5e8835
 export BUILD_NUMBER=A546EXXUCDYDB
 make s5e8835-a54xnsxx_defconfig
 
-if [ "$KPM" = "1" ]; then
-    echo "[+] KPM build: disabling RWX protections"
-    scripts/config --disable ARCH_HAS_STRICT_MODULE_RWX
-    scripts/config --disable ARCH_HAS_STRICT_KERNEL_RWX
-    scripts/config --disable STRICT_KERNEL_RWX
-    scripts/config --disable STRICT_MODULE_RWX
-else
-    echo "[+] Normal build: keeping RWX protections enabled"
-fi
-
-# Debug check
-grep RWX .config
+#if [ "$KPM" = "1" ]; then
+#    scripts/config --enable KPM_BUILD
+#else
+#    scripts/config --disable KPM_BUILD
+#fi
 
 make
