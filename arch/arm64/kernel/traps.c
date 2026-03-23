@@ -645,9 +645,9 @@ do {										\
 		hi, lo, (uk).hi, (uk).lo);					\
 } while (0)
 
+#ifdef CONFIG_ARM64_PTR_AUTH
 static void show_pac_keys(struct ptrauth_keys_user *userk, struct ptrauth_keys_kernel *kernk)
 {
-#ifdef CONFIG_ARM64_PTR_AUTH
 	pr_crit("PtrAuth status: address auth? %d, generic auth? %d\n",
 		system_supports_address_auth(), system_supports_generic_auth());
 
@@ -663,8 +663,12 @@ static void show_pac_keys(struct ptrauth_keys_user *userk, struct ptrauth_keys_k
 
 	if (system_supports_generic_auth())
 		show_pac_key_single(APGA, userk->apga);
-#endif
 }
+#else
+static void show_pac_keys(void)
+{
+}
+#endif
 
 void do_el1_fpac(struct pt_regs *regs, unsigned long esr)
 {
@@ -677,7 +681,11 @@ void do_el1_fpac(struct pt_regs *regs, unsigned long esr)
 	if (IS_ENABLED(CONFIG_SEC_DEBUG_FAULT_MSG_ADV) && !user_mode(regs)) {
 		pr_auto(ASL1, "Wrong PAC detected on CPU%d, LR 0x%010lx, code 0x%08lx -- %s\n",
 			smp_processor_id(), regs->regs[30], esr, esr_get_class_string(esr));
+#ifdef CONFIG_ARM64_PTR_AUTH
 		show_pac_keys(&current->thread.keys_user, &current->thread.keys_kernel);
+#else
+		show_pac_keys();
+#endif
 	}
 
 	die("Oops - FPAC", regs, esr);
