@@ -1,9 +1,9 @@
 # Samsung defconfig for GKI build
 # SEC_PRODUCT_FEATURE_KNOX_SUPPORT_NPA
-CONFIG_KNOX_NCM=y
+# CONFIG_KNOX_NCM is not set
 
 # KNOX-DDAR
-CONFIG_DDAR=y
+# CONFIG_DDAR is not set
 
 # [ SEC_SELINUX_PORTING_COMMON
 CONFIG_EXT4_FS_SECURITY=y
@@ -23,37 +23,34 @@ CONFIG_CRYPTO_SKC_FIPS=y
 
 
 
-CONFIG_UH=y
+# CONFIG_UH is not set
+# CONFIG_UH_RKP is not set
+# CONFIG_UH_LKMAUTH is not set
+# CONFIG_UH_LKM_BLOCK is not set
+
+
+
+# CONFIG_RKP is not set
+# CONFIG_RKP_CFP_JOPP is not set
+# CONFIG_RKP_CFP is not set
+
+
+
+# CONFIG_KDP is not set
+
+
+
+# CONFIG_FIVE is not set
 
 
 
 
-CONFIG_RKP=y
+# CONFIG_PROCA is not set
 
 
 
 
-CONFIG_KDP=y
-
-
-
-
-CONFIG_FIVE=y
-
-
-
-
-CONFIG_PROCA=y
-
-
-
-
-CONFIG_PROCA_S_OS=y
-
-
-
-
-CONFIG_PROCA_CERTIFICATES_DB=y
+# CONFIG_PROCA_S_OS is not set
 
 
 
@@ -68,12 +65,12 @@ CONFIG_PROCA_CERTIFICATES_DB=y
 
 
 
-CONFIG_FIVE_GKI_10=y
+#CONFIG_FIVE_GKI_10 is not set
 
 
 
 
-CONFIG_PROCA_GKI_10=y
+#CONFIG_PROCA_GKI_10 is not set
 
 
 
@@ -160,35 +157,22 @@ CONFIG_GAF_V6=y
 
 
 
+# CONFIG_SECURITY_DEFEX is not set
 
 
 
 
+# CONFIG_SECURITY_DEFEX_USER is not set
 
 
 
 
-CONFIG_SECURITY_DEFEX=y
+# CONFIG_SECURITY_DEFEX_DTM is not set
 
 
 
 
-CONFIG_SECURITY_DEFEX_USER=y
-
-
-
-
-CONFIG_SECURITY_DEFEX_DTM=y
-
-
-
-
-CONFIG_SECURITY_DEFEX_IMR=y
-
-
-
-
-CONFIG_SECURITY_DEFEX_IMR_V2=y
+# CONFIG_SECURITY_DEFEX_IMR is not set
 
 
 
@@ -305,6 +289,7 @@ CONFIG_F2FS_FS_COMPRESSION=y
 
 
 CONFIG_EXT4_FS_POSIX_ACL=y
+
 
 
 
