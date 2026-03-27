@@ -11,7 +11,7 @@ export BUILD_NUMBER=S931BXXS6BYIF
 		
 		
 #2. sm8650 common config
-CHIPSET_NAME=perf
+CHIPSET_NAME=sun
 
 export ANDROID_BUILD_TOP=$(pwd)
 export TARGET_PRODUCT=perf
