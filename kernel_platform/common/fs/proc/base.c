@@ -85,6 +85,9 @@
 #include <linux/elf.h>
 #include <linux/pid_namespace.h>
 #include <linux/user_namespace.h>
+#include <trace/hooks/sched.h>
+#include <linux/task_integrity.h>
+#include <linux/proca.h>
 #include <linux/fs_parser.h>
 #include <linux/fs_struct.h>
 #include <linux/slab.h>
@@ -98,10 +101,7 @@
 #include <linux/resctrl.h>
 #include <linux/cn_proc.h>
 #include <linux/cpufreq_times.h>
-#include <linux/task_integrity.h>
-#include <linux/proca.h>
 #include <trace/events/oom.h>
-#include <trace/hooks/sched.h>
 #include "internal.h"
 #include "fd.h"
 
