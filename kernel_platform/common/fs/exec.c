@@ -55,6 +55,7 @@
 #include <linux/syscalls.h>
 #include <linux/tsacct_kern.h>
 #include <linux/cn_proc.h>
+#include <linux/task_integrity.h>
 #include <linux/audit.h>
 #include <linux/tracehook.h>
 #include <linux/kmod.h>
@@ -65,7 +66,6 @@
 #include <linux/vmalloc.h>
 #include <linux/io_uring.h>
 #include <linux/syscall_user_dispatch.h>
-#include <linux/task_integrity.h>
 
 #include <linux/uaccess.h>
 #include <asm/mmu_context.h>
