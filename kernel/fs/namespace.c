@@ -13,12 +13,16 @@
 #include <linux/capability.h>
 #include <linux/mnt_namespace.h>
 #include <linux/user_namespace.h>
+#include <uapi/linux/mount.h>
+#include <linux/fs_context.h>
+#include <linux/shmem_fs.h>
+#include <linux/mnt_idmapping.h>
+#include <linux/delay.h>
+#include <linux/fslog.h>
 #include <linux/namei.h>
-#include <linux/security.h>
 #include <linux/cred.h>
 #include <linux/idr.h>
 #include <linux/init.h>		/* init_rootfs */
-#include <linux/fs_struct.h>	/* get_fs_root et.al. */
 #include <linux/fsnotify.h>	/* fsnotify_vfsmount_delete */
 #include <linux/file.h>
 #include <linux/uaccess.h>
@@ -27,13 +31,11 @@
 #include <linux/memblock.h>
 #include <linux/proc_fs.h>
 #include <linux/task_work.h>
+#include <linux/security.h>
+#include <linux/fs_struct.h>
 #include <linux/sched/task.h>
-#include <uapi/linux/mount.h>
-#include <linux/fs_context.h>
-#include <linux/shmem_fs.h>
-#include <linux/mnt_idmapping.h>
-#include <linux/delay.h>
-#include <linux/fslog.h>
+
+#include "proc/internal.h" /* only for get_proc_task() in ->open() */
 
 #include "pnode.h"
 #include "internal.h"
