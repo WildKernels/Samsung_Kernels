@@ -21,6 +21,11 @@
 #include <linux/fs_struct.h>	/* get_fs_root et.al. */
 #include <linux/fsnotify.h>	/* fsnotify_vfsmount_delete */
 #include <linux/file.h>
+#include <linux/delay.h>
+#include <linux/fslog.h>
+#ifdef CONFIG_KDP_NS
+#include <linux/kdp.h>
+#endif
 #include <linux/uaccess.h>
 #include <linux/proc_ns.h>
 #include <linux/magic.h>
@@ -32,11 +37,6 @@
 #include <linux/fs_context.h>
 #include <linux/shmem_fs.h>
 #include <linux/mnt_idmapping.h>
-#include <linux/delay.h>
-#include <linux/fslog.h>
-#ifdef CONFIG_KDP_NS
-#include <linux/kdp.h>
-#endif
 
 #include "pnode.h"
 #include "internal.h"
