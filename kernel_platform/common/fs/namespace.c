@@ -13,6 +13,9 @@
 #include <linux/capability.h>
 #include <linux/mnt_namespace.h>
 #include <linux/user_namespace.h>
+#ifdef CONFIG_PROC_STLOG
+#include <linux/fslog.h>
+#endif
 #include <linux/namei.h>
 #include <linux/security.h>
 #include <linux/cred.h>
@@ -36,10 +39,6 @@
 #include "pnode.h"
 #include "internal.h"
 #include <trace/hooks/blk.h>
-
-#ifdef CONFIG_PROC_STLOG
-#include <linux/fslog.h>
-#endif
 #include <trace/hooks/fs.h>
 
 /* Maximum number of mounts in a mount namespace */
