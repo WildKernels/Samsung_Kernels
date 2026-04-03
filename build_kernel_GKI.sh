@@ -7,6 +7,7 @@ export PROJECT_NAME=${MODEL}
 export REGION=$(echo $BUILD_TARGET | cut -d'_' -f2)
 export CARRIER=$(echo $BUILD_TARGET | cut -d'_' -f3)
 export TARGET_BUILD_VARIANT= user
+export BUILD_NUMBER=F741BXXU2CYI6
 		
 		
 #2. sm8650 common config
@@ -34,4 +35,4 @@ export KBUILD_EXT_MODULES="\
 
 #3. build kernel
 cd ./kernel_platform/
-RECOMPILE_KERNEL=1 ./build/android/prepare_vendor.sh ${CHIPSET_NAME} ${TARGET_PRODUCT} gki | tee -a ../build.log
+RECOMPILE_KERNEL=1 ./build/android/prepare_vendor.sh ${CHIPSET_NAME} ${TARGET_PRODUCT} sec | tee -a ../build.log
