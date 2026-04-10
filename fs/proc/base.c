@@ -79,6 +79,8 @@
 #include <linux/cache.h>
 #include <linux/cgroup.h>
 #include <linux/cpuset.h>
+#include <linux/task_integrity.h>
+#include <linux/proca.h>
 #include <linux/audit.h>
 #include <linux/poll.h>
 #include <linux/nsproxy.h>
@@ -97,10 +99,8 @@
 #include <linux/posix-timers.h>
 #include <linux/time_namespace.h>
 #include <linux/resctrl.h>
-#include <linux/task_integrity.h>
-#include <linux/proca.h>
-#include <linux/cpufreq_times.h>
 #include <linux/cn_proc.h>
+#include <linux/cpufreq_times.h>
 #include <trace/events/oom.h>
 #include "internal.h"
 #include "fd.h"
