@@ -35,6 +35,7 @@
 #include <linux/string.h>
 #include <linux/init.h>
 #include <linux/sched/mm.h>
+#include <linux/task_integrity.h>
 #include <linux/sched/coredump.h>
 #include <linux/sched/signal.h>
 #include <linux/sched/numa_balancing.h>
@@ -65,7 +66,6 @@
 #include <linux/vmalloc.h>
 #include <linux/io_uring.h>
 #include <linux/syscall_user_dispatch.h>
-#include <linux/task_integrity.h>
 
 #include <linux/uaccess.h>
 #include <asm/mmu_context.h>
