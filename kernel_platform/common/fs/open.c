@@ -33,12 +33,12 @@
 #include <linux/dnotify.h>
 #include <linux/compat.h>
 
+#include "internal.h"
+#include <trace/hooks/syscall_check.h>
+
 #ifdef CONFIG_SECURITY_DEFEX
 #include <linux/defex.h>
 #endif
-
-#include "internal.h"
-#include <trace/hooks/syscall_check.h>
 
 int do_truncate(struct dentry *dentry, loff_t length, unsigned int time_attrs,
 	struct file *filp)
