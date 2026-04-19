@@ -14,6 +14,9 @@
 #include <linux/mnt_namespace.h>
 #include <linux/user_namespace.h>
 #include <linux/namei.h>
+#include <linux/security.h>
+#include <linux/fs_struct.h>
+#include <linux/sched/task.h>
 #ifdef CONFIG_PROC_STLOG
 #include <linux/fslog.h>
 #endif
@@ -22,8 +25,6 @@
 #include <linux/init.h>		/* init_rootfs */
 #include <linux/fsnotify.h>	/* fsnotify_vfsmount_delete */
 #include <linux/file.h>
-#include <trace/hooks/blk.h>
-#include <trace/hooks/fs.h>
 #include <linux/uaccess.h>
 #include <linux/proc_ns.h>
 #include <linux/magic.h>
@@ -34,14 +35,11 @@
 #include <linux/fs_context.h>
 #include <linux/shmem_fs.h>
 #include <linux/mnt_idmapping.h>
-#include <linux/security.h>
-#include <linux/fs_struct.h>
-#include <linux/sched/task.h>
-
-#include "proc/internal.h" /* only for get_proc_task() in ->open() */
 
 #include "pnode.h"
 #include "internal.h"
+#include <trace/hooks/blk.h>
+#include <trace/hooks/fs.h>
 
 /* Maximum number of mounts in a mount namespace */
 static unsigned int sysctl_mount_max __read_mostly = 100000;
