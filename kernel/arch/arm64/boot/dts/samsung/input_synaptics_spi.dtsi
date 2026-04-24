@@ -58,7 +58,7 @@
 };
 
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/input/sec_input_2023/touchscreen/synaptics/common_u/dts_spi/input-lsi-tsp-synaptics-spi.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/input/sec_input_2023/touchscreen/synaptics/common_u/dts_spi/input-lsi-tsp-synaptics-spi.e2s.dtsi */
 &pinctrl_6 {
 	tsp_spi_sleep: tsp_spi_sleep {
 		samsung,pins = "gpp9-3", "gpp9-2", "gpp9-1", "gpp9-0";

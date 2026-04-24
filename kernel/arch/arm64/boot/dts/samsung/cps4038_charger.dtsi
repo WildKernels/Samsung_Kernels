@@ -158,7 +158,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/wireless/cps4038/cps4038_charger.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/wireless/cps4038/cps4038_charger.e2s.dtsi */
 #include <dt-bindings/battery/sec-battery.h>
 
 &cps4038_charger {

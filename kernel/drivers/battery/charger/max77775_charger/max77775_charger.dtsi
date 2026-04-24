@@ -10,7 +10,7 @@
 };
 
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/max77775/max77775_charger.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/max77775/max77775_charger.e2s.dtsi */
 &max77775_charger {
 	charger,enable_sysovlo_irq;
 	charger,fac_vsys = <4400>;

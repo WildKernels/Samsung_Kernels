@@ -15,7 +15,7 @@
 };
 
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/sec_direct_charger/dts/e2s/sec_direct_charger.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/sec_direct_charger/dts/e2s/sec_direct_charger.dtsi */
 &smd {
 	sec-direct-charger {
 		charger,end_soc = <100>;

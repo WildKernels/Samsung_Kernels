@@ -516,7 +516,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/dts/e2s/battery_common.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/dts/e2s/battery_common.dtsi */
 #include <dt-bindings/battery/sec-battery.h>
 
 #define MAX_FV 4450
@@ -958,5 +958,5 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/dts/e2s/battery_common.06.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/dts/e2s/battery_common.06.dtsi */
 /* HWID06 */

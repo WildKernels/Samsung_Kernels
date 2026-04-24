@@ -20,7 +20,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/pca9481/pca9481_charger.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/pca9481/pca9481_charger.e2s.dtsi */
 &pca9481_charger {
 	pca9481,input-itopoff = <400000>; /* 400mA */
 	pca9481,fpdo_dc_input-itopoff = <1700000>; /* 1700mA */
@@ -29,4 +29,4 @@
 	pca9481,switching-frequency = <1000>; /* 300kHz */
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/pca9481/pca9481_charger.e2s.13.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/pca9481/pca9481_charger.e2s.13.dtsi */

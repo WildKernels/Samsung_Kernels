@@ -34,7 +34,7 @@
 };
 
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/max77775/max77775_charger.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/max77775/max77775_charger.e2s.dtsi */
 &max77775_charger {
 	charger,enable_sysovlo_irq;
 	charger,fac_vsys = <4400>;
@@ -1410,7 +1410,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/sensorhub/lsi/s5e9945/dts/sensorhub_s5e9945.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/sensorhub/lsi/s5e9945/dts/sensorhub_s5e9945.e2s.dtsi */
 / {
 	fragment@model {
 		target-path = "/";
@@ -1430,7 +1430,7 @@
 		};
 	};
 };
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/sensorhub/lsi/s5e9945/dts/sensorhub_s5e9945.e2s.11.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/sensorhub/lsi/s5e9945/dts/sensorhub_s5e9945.e2s.11.dtsi */
 / {
 	fragment@model {
 		target-path = "/";
@@ -2875,7 +2875,7 @@
 #endif
 
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/camera/lsi/optics/stk6d2x/stk6d2x.e2s.02.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/camera/lsi/optics/stk6d2x/stk6d2x.e2s.02.dtsi */
 #if !defined(CONFIG_SEC_FACTORY_INTERPOSER)
 &hsi2c_32 {
 	stk@47 {
@@ -3918,7 +3918,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/pca9481/pca9481_charger.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/pca9481/pca9481_charger.e2s.dtsi */
 &pca9481_charger {
 	pca9481,input-itopoff = <400000>; /* 400mA */
 	pca9481,fpdo_dc_input-itopoff = <1700000>; /* 1700mA */
@@ -3927,7 +3927,7 @@
 	pca9481,switching-frequency = <1000>; /* 300kHz */
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/pca9481/pca9481_charger.e2s.00.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/charger/pca9481/pca9481_charger.e2s.00.dtsi */
 &pca9481_charger {
 	pca9481,switching-frequency = <1000>; /* 1000kHz */
 };
@@ -4087,7 +4087,7 @@
 		    };
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/fuelgauge/max77775/e2s/max77775_fuelgauge.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/fuelgauge/max77775/e2s/max77775_fuelgauge.dtsi */
 &max77775_fuelgauge {
 	fuelgauge,capacity_calculation_type = <0x5C>;
 	fuelgauge,lost_soc_trig_soc = <1000>; /* 100.0% */
@@ -4844,7 +4844,7 @@
 };
 
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/input/sec_input_2023/touchscreen/synaptics/common_u/dts_spi/input-lsi-tsp-synaptics-spi.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/input/sec_input_2023/touchscreen/synaptics/common_u/dts_spi/input-lsi-tsp-synaptics-spi.e2s.dtsi */
 &pinctrl_6 {
 	tsp_spi_sleep: tsp_spi_sleep {
 		samsung,pins = "gpp9-3", "gpp9-2", "gpp9-1", "gpp9-0";
@@ -5214,7 +5214,7 @@
 };
 
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/sec_direct_charger/dts/e2s/sec_direct_charger.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/sec_direct_charger/dts/e2s/sec_direct_charger.dtsi */
 &smd {
 	sec-direct-charger {
 		charger,end_soc = <100>;
@@ -5392,7 +5392,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/wireless/cps4038/cps4038_charger.e2s.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/wireless/cps4038/cps4038_charger.e2s.dtsi */
 #include <dt-bindings/battery/sec-battery.h>
 
 &cps4038_charger {
@@ -5973,7 +5973,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/dts/e2s/battery_common.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/dts/e2s/battery_common.dtsi */
 #include <dt-bindings/battery/sec-battery.h>
 
 #define MAX_FV 4450
@@ -6415,7 +6415,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/dts/e2s/battery_common.06.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel/kmodule/battery/stable/eureka/common/dts/e2s/battery_common.06.dtsi */
 /* HWID06 */
 /* revision devicetree for general */
 #include "s5e9945.e2s_eur_openx.11.dtsi"
