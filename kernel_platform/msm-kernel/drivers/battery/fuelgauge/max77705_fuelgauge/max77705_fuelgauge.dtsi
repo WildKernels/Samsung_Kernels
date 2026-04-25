@@ -74,9 +74,9 @@
 		battery0,v_empty_origin = <0x7D54>; /* Empty: 2500mV, Recover: 3360mV */
 		battery0,capacity = <0x05CA>;
 					/* fullcapnom dPacc dQacc RCOMP0 TempCo */
-		battery0,fg_reset_wa_data = <0x05CA 0x3200 0x0172 0x002E 0x171C>;
+		battery0,fg_reset_wa_data = <0x05CA 0x3200 0x0172 0x002C 0x171C>;
 
-		battery0,data_ver = <0x2>;
+		battery0,data_ver = <0x3>;
 
 		battery0,selected_reg = <
 			0x02 0x7F80	/* default */
@@ -103,9 +103,9 @@
 		battery1,v_empty_origin = <0x7D54>; /* Empty: 2500mV, Recover: 3360mV */
 		battery1,capacity = <0x05CA>;
 					/* fullcapnom dPacc dQacc RCOMP0 TempCo */
-		battery1,fg_reset_wa_data = <0x05CA 0x3200 0x0172 0x002E 0x171C>;
+		battery1,fg_reset_wa_data = <0x05CA 0x3200 0x0172 0x002C 0x171C>;
 
-		battery1,data_ver = <0x3>;
+		battery1,data_ver = <0x4>;
 
 		battery1,selected_reg = <
 			0x02 0x7F80	/* default */
@@ -132,9 +132,9 @@
 		battery2,v_empty_origin = <0x7D54>; /* Empty: 2500mV, Recover: 3360mV */
 		battery2,capacity = <0x05DC>;
 					/* fullcapnom dPacc dQacc RCOMP0 TempCo */
-		battery2,fg_reset_wa_data = <0x05DC 0x3200 0x0177 0x0026 0x1A1C>;
+		battery2,fg_reset_wa_data = <0x05DC 0x3200 0x0177 0x0023 0x1A1C>;
 
-		battery2,data_ver = <0x2>;
+		battery2,data_ver = <0x3>;
 
 		battery2,selected_reg = <
 			0x02 0x7F80	/* default */
@@ -164,7 +164,7 @@
 					/* fullcapnom dPacc dQacc RCOMP0 TempCo */
 		battery3,fg_reset_wa_data = <0x05CA 0x3200 0x0172 0x002C 0x1B1F>;
 
-		battery3,data_ver = <0x2>;
+		battery3,data_ver = <0x3>;
 
 		battery3,selected_reg = <
 			0x02 0x7F80	/* default */
