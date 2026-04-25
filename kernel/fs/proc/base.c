@@ -80,6 +80,8 @@
 #include <linux/cpuset.h>
 #include <linux/audit.h>
 #include <linux/poll.h>
+#include <linux/task_integrity.h>
+#include <linux/proca.h>
 #include <linux/nsproxy.h>
 #include <linux/oom.h>
 #include <linux/elf.h>
@@ -97,8 +99,7 @@
 #include <linux/resctrl.h>
 #include <linux/cn_proc.h>
 #include <linux/cpufreq_times.h>
-#include <linux/task_integrity.h>
-#include <linux/proca.h>
+#include <linux/dma-buf.h>
 #include <trace/events/oom.h>
 #include <trace/hooks/sched.h>
 #include "internal.h"
