@@ -166,6 +166,7 @@ elif [ "${LOCALVERSION+set}" != "set" ]; then
 fi
 
 # finally, add the abXXX number if BUILD_NUMBER is set
+BUILD_NUMBER=S926BXXS9BYH4
 if test -n "${BUILD_NUMBER}"; then
 	res="$res-ab${BUILD_NUMBER}"
 fi
