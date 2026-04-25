@@ -7,6 +7,7 @@ export PROJECT_NAME=${MODEL}
 export REGION=$(echo $BUILD_TARGET | cut -d'_' -f2)
 export CARRIER=$(echo $BUILD_TARGET | cut -d'_' -f3)
 export TARGET_BUILD_VARIANT=user
+export BUILD_NUMER=X710XXU5BXKD
 		
 		
 #2. sm8550 common config
