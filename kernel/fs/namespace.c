@@ -18,6 +18,7 @@
 #include <linux/fslog.h>
 #include <linux/cred.h>
 #include <linux/idr.h>
+#include <linux/delay.h>
 #include <linux/init.h>		/* init_rootfs */
 #include <linux/fs_struct.h>	/* get_fs_root et.al. */
 #include <linux/fsnotify.h>	/* fsnotify_vfsmount_delete */
@@ -33,7 +34,6 @@
 #include <linux/fs_context.h>
 #include <linux/shmem_fs.h>
 #include <linux/mnt_idmapping.h>
-#include <linux/delay.h>
 
 #include "pnode.h"
 #include "internal.h"
