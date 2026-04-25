@@ -44,6 +44,7 @@
 #include <linux/spinlock.h>
 #include <linux/key.h>
 #include <linux/personality.h>
+#include <linux/task_integrity.h>
 #include <linux/binfmts.h>
 #include <linux/utsname.h>
 #include <linux/pid_namespace.h>
@@ -63,7 +64,6 @@
 #include <linux/vmalloc.h>
 #include <linux/io_uring.h>
 #include <linux/syscall_user_dispatch.h>
-#include <linux/task_integrity.h>
 #include <linux/coredump.h>
 
 #include <linux/uaccess.h>
