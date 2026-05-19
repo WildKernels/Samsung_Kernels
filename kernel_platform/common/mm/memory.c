@@ -78,6 +78,7 @@
 #include <linux/ptrace.h>
 #include <linux/vmalloc.h>
 #include <linux/sched/sysctl.h>
+#include <linux/zswap.h>
 
 #include <trace/events/kmem.h>
 #include <trace/hooks/mm.h>
