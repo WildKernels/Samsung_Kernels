@@ -80,9 +80,9 @@
 #include <linux/sched/sysctl.h>
 
 #include <trace/events/kmem.h>
+#include <trace/hooks/mm.h>
 
 #undef CREATE_TRACE_POINTS
-#include <trace/hooks/mm.h>
 
 #include <asm/io.h>
 #include <asm/mmu_context.h>
