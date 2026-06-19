@@ -11,4 +11,5 @@ export DEFCONFIG_OVERLAYS=""
 export PROJECT="mgk_64_k61"
 export MODE="user"
 
+chmod +x ./kernel_device_modules-6.1/build.sh
 ./kernel_device_modules-6.1/build.sh
