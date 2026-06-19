@@ -15,4 +15,5 @@ export PROJECT="mgk_64_k66"
 export MODE="user"
 export BUILD_NUMBER=A055FXXUEDZB2
 
+chmod +x ./kernel_device_modules-6.6/build.sh
 ./kernel_device_modules-6.6/build.sh
