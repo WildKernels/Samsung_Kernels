@@ -20,6 +20,9 @@ export TARGET_BOARD_PLATFORM=gki
 export ANDROID_PRODUCT_OUT=${ANDROID_BUILD_TOP}/out/target/product/${MODEL}
 export OUT_DIR=${ANDROID_BUILD_TOP}/out/msm-${CHIPSET_NAME}-${CHIPSET_NAME}-${TARGET_PRODUCT}
 
+# Set KERNEL_ONLY=1 to build only the kernel Image (no modules, dtbo, boot.img, etc.)
+# This significantly speeds up builds when you only need the kernel image
+export KERNEL_ONLY=1
 
 export KBUILD_EXT_MODULES="\
         ../vendor/qcom/opensource/display-drivers/msm \
