@@ -263,7 +263,7 @@ if [ "${RECOMPILE_KERNEL}" == "1" ]; then
   fi
   "${ROOT_DIR}/build_with_bazel.py" \
     -t "$KERNEL_TARGET" "$KERNEL_VARIANT" $LTO_KBUILD_ARG $EXTRA_KBUILD_ARGS --skip abl \
-    --out_dir "${ANDROID_KP_OUT_DIR}"
+    --out_dir "${ANDROID_KP_OUT_DIR}" $KERNEL_ONLY_ARG
 
   COPY_NEEDED=1
 fi
