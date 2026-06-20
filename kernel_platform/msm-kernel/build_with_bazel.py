@@ -78,7 +78,7 @@ class BazelBuilder:
         self.module = module
         self.project = project
         self.variant = variant
-	    self.kernel_only = kernel_only
+        self.kernel_only = kernel_only
         self.prepare_sec_env_files()
 
         if len(self.target_list) > 1 and out_dir:
