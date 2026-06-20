@@ -334,9 +334,9 @@ class BazelBuilder:
 
         logging.warning("Kernel Image not found at expected locations")
 
-	def build(self):
+    def build(self):
         """Determine which targets to build, then build them"""
-		if self.kernel_only:
+        if self.kernel_only:
             self.build_kernel_only()
             return
 		
@@ -487,7 +487,7 @@ def main():
 	default="eng",
         help="Specify the build variant (e.g. --variant eng)",
     )
-	parser.add_argument(
+    parser.add_argument(
         "--kernel-only",
         action="store_true",
         help="Build only the kernel Image (no modules, dtbo, boot.img, super.img, etc.) for faster builds",
