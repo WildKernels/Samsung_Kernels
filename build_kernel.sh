@@ -16,4 +16,4 @@ export ARCH=arm64
 export TARGET_SOC=s5e8535
 export BUILD_NUMBER=A166BXXU3BYF1
 make s5e8535-a16xxx_defconfig
-make
+make -j$(nproc) Image
