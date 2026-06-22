@@ -17,11 +17,4 @@ export ARCH=arm64
 export TARGET_SOC=s5e8835
 export BUILD_NUMBER=A546BXXUCDYDB
 make s5e8835-a54xnaxx_defconfig
-
-#if [ "$KPM" = "1" ]; then
-#    scripts/config --enable KPM_BUILD
-#else
-#    scripts/config --disable KPM_BUILD
-#fi
-
-make
+make -j$(nproc) Image
