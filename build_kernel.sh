@@ -16,4 +16,4 @@ export ARCH=arm64
 export TARGET_SOC=s5e8835
 export BUILD_NUMBER=X610XXS7BYB5
 make s5e8835-gts9fepwifixx_defconfig
-make
+make -j$(nproc) Image
