@@ -861,13 +861,13 @@ set -x
 (cd ${OUT_DIR} && make O=${OUT_DIR} ${TOOL_ARGS} "${MAKE_ARGS[@]}" ${MAKE_GOALS})
 set +x
 
-if [ -n "${POST_KERNEL_BUILD_CMDS}" ]; then
-  echo "========================================================"
-  echo " Running post-kernel-build command(s):"
-  set -x
-  eval ${POST_KERNEL_BUILD_CMDS}
-  set +x
-fi
+#if [ -n "${POST_KERNEL_BUILD_CMDS}" ]; then
+#  echo "========================================================"
+#  echo " Running post-kernel-build command(s):"
+#  set -x
+#  eval ${POST_KERNEL_BUILD_CMDS}
+#  set +x
+#fi
 
 if [ -n "${MODULES_ORDER}" ]; then
   echo "========================================================"
@@ -991,34 +991,34 @@ if [[ "${KL_DIR}" == "msm-kernel" ]] && [[ -n "${KBUILD_EXT_MODULES}" ]]; then
   EXT_MODULES=${KBUILD_EXT_MODULES}
 fi
 
-if [[ -z "${SKIP_EXT_MODULES}" ]] && [[ -n "${EXT_MODULES}" ]]; then
-  echo "========================================================"
-  echo " Building external modules and installing them into staging directory"
+#if [[ -z "${SKIP_EXT_MODULES}" ]] && [[ -n "${EXT_MODULES}" ]]; then
+#  echo "========================================================"
+#  echo " Building external modules and installing them into staging directory"
 
-  for EXT_MOD in ${EXT_MODULES}; do
+#  for EXT_MOD in ${EXT_MODULES}; do
     # The path that we pass in via the variable M needs to be a relative path
     # relative to the kernel source directory. The source files will then be
     # looked for in ${KERNEL_DIR}/${EXT_MOD_REL} and the object files (i.e. .o
     # and .ko) files will be stored in ${OUT_DIR}/${EXT_MOD_REL}. If we
     # instead set M to an absolute path, then object (i.e. .o and .ko) files
     # are stored in the module source directory which is not what we want.
-    EXT_MOD_REL=$(rel_path ${ROOT_DIR}/${EXT_MOD} ${KERNEL_DIR})
+#    EXT_MOD_REL=$(rel_path ${ROOT_DIR}/${EXT_MOD} ${KERNEL_DIR})
     # The output directory must exist before we invoke make. Otherwise, the
     # build system behaves horribly wrong.
-    mkdir -p ${OUT_DIR}/${EXT_MOD_REL}
-    set -x
-    make -C ${EXT_MOD} M=${EXT_MOD_REL} KERNEL_SRC=${ROOT_DIR}/${KERNEL_DIR}  \
-                       O=${OUT_DIR} ${TOOL_ARGS} "${MAKE_ARGS[@]}"
-    make -C ${EXT_MOD} M=${EXT_MOD_REL} KERNEL_SRC=${ROOT_DIR}/${KERNEL_DIR}  \
-                       O=${OUT_DIR} ${TOOL_ARGS} ${MODULE_STRIP_FLAG}         \
-                       INSTALL_MOD_PATH=${MODULES_STAGING_DIR}                \
-                       INSTALL_MOD_DIR="extra/${EXT_MOD}"                     \
-                       INSTALL_HDR_PATH="${KERNEL_UAPI_HEADERS_DIR}/usr"      \
-                       "${MAKE_ARGS[@]}" modules_install
-    set +x
-  done
+#    mkdir -p ${OUT_DIR}/${EXT_MOD_REL}
+#    set -x
+#    make -C ${EXT_MOD} M=${EXT_MOD_REL} KERNEL_SRC=${ROOT_DIR}/${KERNEL_DIR}  \
+#                       O=${OUT_DIR} ${TOOL_ARGS} "${MAKE_ARGS[@]}"
+#    make -C ${EXT_MOD} M=${EXT_MOD_REL} KERNEL_SRC=${ROOT_DIR}/${KERNEL_DIR}  \
+#                       O=${OUT_DIR} ${TOOL_ARGS} ${MODULE_STRIP_FLAG}         \
+#                       INSTALL_MOD_PATH=${MODULES_STAGING_DIR}                \
+#                       INSTALL_MOD_DIR="extra/${EXT_MOD}"                     \
+#                       INSTALL_HDR_PATH="${KERNEL_UAPI_HEADERS_DIR}/usr"      \
+#                       "${MAKE_ARGS[@]}" modules_install
+#    set +x
+#  done
 
-fi
+#fi
 
 if [ "${BUILD_GKI_CERTIFICATION_TOOLS}" = "1"  ]; then
   GKI_CERTIFICATION_TOOLS_TAR="gki_certification_tools.tar.gz"
@@ -1049,19 +1049,19 @@ if [ -n "${EXTRA_CMDS}" ]; then
   set +x
 fi
 
-OVERLAYS_OUT=""
-for ODM_DIR in ${ODM_DIRS}; do
-  OVERLAY_DIR=${ROOT_DIR}/device/${ODM_DIR}/overlays
+#OVERLAYS_OUT=""
+#for ODM_DIR in ${ODM_DIRS}; do
+#  OVERLAY_DIR=${ROOT_DIR}/device/${ODM_DIR}/overlays
 
-  if [ -d ${OVERLAY_DIR} ]; then
-    OVERLAY_OUT_DIR=${OUT_DIR}/overlays/${ODM_DIR}
-    mkdir -p ${OVERLAY_OUT_DIR}
-    make -C ${OVERLAY_DIR} DTC=${OUT_DIR}/scripts/dtc/dtc                     \
-                           OUT_DIR=${OVERLAY_OUT_DIR} "${MAKE_ARGS[@]}"
-    OVERLAYS=$(find ${OVERLAY_OUT_DIR} -name "*.dtbo")
-    OVERLAYS_OUT="$OVERLAYS_OUT $OVERLAYS"
-  fi
-done
+#  if [ -d ${OVERLAY_DIR} ]; then
+#    OVERLAY_OUT_DIR=${OUT_DIR}/overlays/${ODM_DIR}
+#    mkdir -p ${OVERLAY_OUT_DIR}
+#    make -C ${OVERLAY_DIR} DTC=${OUT_DIR}/scripts/dtc/dtc                     \
+#                           OUT_DIR=${OVERLAY_OUT_DIR} "${MAKE_ARGS[@]}"
+#    OVERLAYS=$(find ${OVERLAY_OUT_DIR} -name "*.dtbo")
+#    OVERLAYS_OUT="$OVERLAYS_OUT $OVERLAYS"
+#  fi
+#done
 
 echo "========================================================"
 echo " Copying files"
@@ -1155,17 +1155,17 @@ fi
 #  set +x
 #fi
 
-MODULES=$(find ${MODULES_STAGING_DIR} -type f -name "*.ko")
-if [ -n "${MODULES}" ]; then
-  if [ -n "${IN_KERNEL_MODULES}" -o -n "${EXT_MODULES}" -o -n "${EXT_MODULES_MAKEFILE}" ]; then
-    echo "========================================================"
-    echo " Copying modules files"
-    cp -p ${MODULES} ${DIST_DIR}
-    if [ "${COMPRESS_MODULES}" = "1" ]; then
-      echo " Archiving modules to ${MODULES_ARCHIVE}"
-      tar --transform="s,.*/,," -czf ${DIST_DIR}/${MODULES_ARCHIVE} ${MODULES[@]}
-    fi
-  fi
+#MODULES=$(find ${MODULES_STAGING_DIR} -type f -name "*.ko")
+#if [ -n "${MODULES}" ]; then
+#  if [ -n "${IN_KERNEL_MODULES}" -o -n "${EXT_MODULES}" -o -n "${EXT_MODULES_MAKEFILE}" ]; then
+#    echo "========================================================"
+#    echo " Copying modules files"
+#    cp -p ${MODULES} ${DIST_DIR}
+#    if [ "${COMPRESS_MODULES}" = "1" ]; then
+#      echo " Archiving modules to ${MODULES_ARCHIVE}"
+#      tar --transform="s,.*/,," -czf ${DIST_DIR}/${MODULES_ARCHIVE} ${MODULES[@]}
+#    fi
+#  fi
   if [ "${BUILD_INITRAMFS}" = "1" ]; then
     echo "========================================================"
     echo " Creating initramfs"
@@ -1200,83 +1200,83 @@ if [ "${BUILD_SYSTEM_DLKM}" = "1"  ]; then
 fi
 
 # Building abl.elf
-if [ -n "${ABL_SRC}" ]; then
-  if [ -e "${ROOT_DIR}/${ABL_SRC}" ]; then
-    if [ -n "${MSM_ARCH}" ]; then
-      [ -z "${TARGET_BUILD_VARIANT}" ] && TARGET_BUILD_VARIANT=userdebug
-      ABL_ENVIRON=("ABL_SRC=${ABL_SRC}")
-      ABL_ENVIRON+=("ABL_OUT_DIR=${COMMON_OUT_DIR}")
-      ABL_ENVIRON+=("ABL_IMAGE_DIR=${DIST_DIR}")
-      BUILD_VARIANTS=("${TARGET_BUILD_VARIANT}")
-      # Define COMPILE_ABL then need to compile userdebug and user abl
-      [ -n "${COMPILE_ABL}" ] && BUILD_VARIANTS=("userdebug" "user")
-      for variant in "${BUILD_VARIANTS[@]}"
-      do
-        ( env -i bash -c "source ${ABL_OLD_ENVIRONMENT}; \
-        export TARGET_BUILD_VARIANT=${variant}; \
-        export ${ABL_ENVIRON[*]} ; \
-        ./build/build_abl.sh ${MSM_ARCH}" )
-      done
-      if [ -e "${DIST_DIR}/abl_${TARGET_BUILD_VARIANT}.elf" ]; then
-        ln -sf ${DIST_DIR}/abl_${TARGET_BUILD_VARIANT}.elf ${DIST_DIR}/abl.elf
-      fi
-    else
-      echo "*** Warning *** Set a msm arch in build.confg.msm.kalama for compiling abl - ex: kalama"
-    fi
-  fi
-fi
-rm -f "${ABL_OLD_ENVIRONMENT}"
+#if [ -n "${ABL_SRC}" ]; then
+#  if [ -e "${ROOT_DIR}/${ABL_SRC}" ]; then
+#    if [ -n "${MSM_ARCH}" ]; then
+#      [ -z "${TARGET_BUILD_VARIANT}" ] && TARGET_BUILD_VARIANT=userdebug
+#      ABL_ENVIRON=("ABL_SRC=${ABL_SRC}")
+#      ABL_ENVIRON+=("ABL_OUT_DIR=${COMMON_OUT_DIR}")
+#      ABL_ENVIRON+=("ABL_IMAGE_DIR=${DIST_DIR}")
+#      BUILD_VARIANTS=("${TARGET_BUILD_VARIANT}")
+#      # Define COMPILE_ABL then need to compile userdebug and user abl
+#      [ -n "${COMPILE_ABL}" ] && BUILD_VARIANTS=("userdebug" "user")
+#      for variant in "${BUILD_VARIANTS[@]}"
+#      do
+#        ( env -i bash -c "source ${ABL_OLD_ENVIRONMENT}; \
+#        export TARGET_BUILD_VARIANT=${variant}; \
+#        export ${ABL_ENVIRON[*]} ; \
+#        ./build/build_abl.sh ${MSM_ARCH}" )
+#      done
+#      if [ -e "${DIST_DIR}/abl_${TARGET_BUILD_VARIANT}.elf" ]; then
+#        ln -sf ${DIST_DIR}/abl_${TARGET_BUILD_VARIANT}.elf ${DIST_DIR}/abl.elf
+#      fi
+#    else
+#      echo "*** Warning *** Set a msm arch in build.confg.msm.kalama for compiling abl - ex: kalama"
+#    fi
+#  fi
+#fi
+#rm -f "${ABL_OLD_ENVIRONMENT}"
 
-if [ -n "${VENDOR_DLKM_MODULES_LIST}" ]; then
-  build_vendor_dlkm
-fi
+#if [ -n "${VENDOR_DLKM_MODULES_LIST}" ]; then
+#  build_vendor_dlkm
+#fi
 
-if [ -n "${SUPER_IMAGE_CONTENTS}" ]; then
-  build_super
-fi
+#if [ -n "${SUPER_IMAGE_CONTENTS}" ]; then
+#  build_super
+#fi
 
-if [ -n "${UNSTRIPPED_MODULES}" ]; then
-  echo "========================================================"
-  echo " Copying unstripped module files for debugging purposes (not loaded on device)"
-  mkdir -p ${UNSTRIPPED_DIR}
-  for MODULE in ${UNSTRIPPED_MODULES}; do
-    find ${MODULES_PRIVATE_DIR} -name ${MODULE} -exec cp {} ${UNSTRIPPED_DIR} \;
-  done
-  if [ "${COMPRESS_UNSTRIPPED_MODULES}" = "1" ]; then
-    tar -czf ${DIST_DIR}/${UNSTRIPPED_MODULES_ARCHIVE} -C $(dirname ${UNSTRIPPED_DIR}) $(basename ${UNSTRIPPED_DIR})
-    rm -rf ${UNSTRIPPED_DIR}
-  fi
-fi
+#if [ -n "${UNSTRIPPED_MODULES}" ]; then
+#  echo "========================================================"
+#  echo " Copying unstripped module files for debugging purposes (not loaded on device)"
+#  mkdir -p ${UNSTRIPPED_DIR}
+#  for MODULE in ${UNSTRIPPED_MODULES}; do
+#    find ${MODULES_PRIVATE_DIR} -name ${MODULE} -exec cp {} ${UNSTRIPPED_DIR} \;
+#  done
+#  if [ "${COMPRESS_UNSTRIPPED_MODULES}" = "1" ]; then
+#    tar -czf ${DIST_DIR}/${UNSTRIPPED_MODULES_ARCHIVE} -C $(dirname ${UNSTRIPPED_DIR}) $(basename ${UNSTRIPPED_DIR})
+#    rm -rf ${UNSTRIPPED_DIR}
+#  fi
+#fi
 
 [ -n "${GKI_MODULES_LIST}" ] && cp ${ROOT_DIR}/${KERNEL_DIR}/${GKI_MODULES_LIST} ${DIST_DIR}/
 
 echo "========================================================"
 echo " Files copied to ${DIST_DIR}"
 
-if [ -n "${BUILD_BOOT_IMG}" -o -n "${BUILD_VENDOR_BOOT_IMG}" \
-      -o -n "${BUILD_VENDOR_KERNEL_BOOT}" ] ; then
-  build_boot_images
-fi
+#if [ -n "${BUILD_BOOT_IMG}" -o -n "${BUILD_VENDOR_BOOT_IMG}" \
+#      -o -n "${BUILD_VENDOR_KERNEL_BOOT}" ] ; then
+#  build_boot_images
+#fi
 
 if [ -n "${BUILD_GKI_ARTIFACTS}" ] ; then
   build_gki_artifacts
 fi
 
-if [ -n "${BUILD_DTBO_IMG}" ]; then
-  make_dtbo
-fi
+#if [ -n "${BUILD_DTBO_IMG}" ]; then
+#  make_dtbo
+#fi
 
 # No trace_printk use on build server build
-if readelf -a ${DIST_DIR}/vmlinux 2>&1 | grep -q trace_printk_fmt; then
-  echo "========================================================"
-  echo "WARN: Found trace_printk usage in vmlinux."
-  echo ""
-  echo "trace_printk will cause trace_printk_init_buffers executed in kernel"
-  echo "start, which will increase memory and lead warning shown during boot."
-  echo "We should not carry trace_printk in production kernel."
-  echo ""
-  if [ ! -z "${STOP_SHIP_TRACEPRINTK}" ]; then
-    echo "ERROR: stop ship on trace_printk usage." 1>&2
-    exit 1
-  fi
-fi
+#if readelf -a ${DIST_DIR}/vmlinux 2>&1 | grep -q trace_printk_fmt; then
+#  echo "========================================================"
+#  echo "WARN: Found trace_printk usage in vmlinux."
+#  echo ""
+#  echo "trace_printk will cause trace_printk_init_buffers executed in kernel"
+#  echo "start, which will increase memory and lead warning shown during boot."
+#  echo "We should not carry trace_printk in production kernel."
+#  echo ""
+#  if [ ! -z "${STOP_SHIP_TRACEPRINTK}" ]; then
+#    echo "ERROR: stop ship on trace_printk usage." 1>&2
+#    exit 1
+#  fi
+#fi
