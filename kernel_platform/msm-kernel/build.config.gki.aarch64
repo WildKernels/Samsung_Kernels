@@ -2,10 +2,7 @@
 . ${ROOT_DIR}/${KERNEL_DIR}/build.config.aarch64
 . ${ROOT_DIR}/${KERNEL_DIR}/build.config.gki
 
-MAKE_GOALS="${MAKE_GOALS}
-Image.lz4
-Image.gz
-"
+MAKE_GOALS="${MAKE_GOALS}"
 
 # Sync with BUILD.bazel
 ABI_DEFINITION=android/abi_gki_aarch64.xml
@@ -49,10 +46,7 @@ android/abi_gki_aarch64_honda
 android/abi_gki_aarch64_volvo
 "
 
-FILES="${FILES}
-arch/arm64/boot/Image.lz4
-arch/arm64/boot/Image.gz
-"
+FILES="${FILES}"
 
 # Update BUILD.bazel, define_common_kernels() if the value is not 1.
 TRIM_NONLISTED_KMI=${TRIM_NONLISTED_KMI:-1}
