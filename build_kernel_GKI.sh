@@ -40,6 +40,14 @@ export KBUILD_EXT_MODULES="../vendor/qcom/opensource/mm-drivers/msm_ext_display 
   ../vendor/qcom/opensource/audio-kernel \
   ../vendor/qcom/opensource/camera-kernel \
   "
+
+# Skip external modules, DTBs, DTBO, and DLKM images
+export SKIP_EXT_MODULES=1
+export BUILD_DTBO_IMG=""
+export BUILD_INITRAMFS=""
+export BUILD_SYSTEM_DLKM=""
+export BUILD_VENDOR_DLKM=""
+export BUILD_BOOT_IMG=""
   
 #3. build kernel
 RECOMPILE_KERNEL=1 ./kernel_platform/build/android/prepare_vendor.sh sec ${TARGET_PRODUCT}
