@@ -1,6 +1,7 @@
 ARCH=arm64
 MAKE_GOALS="
 Image
+modules
 "
 
 FILES="
