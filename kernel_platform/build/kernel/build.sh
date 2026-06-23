@@ -967,24 +967,24 @@ if [[ "${KL_DIR}" == "common" ]] && [[ "${KMI_SYMBOL_LIST_STRICT_MODE}" = "1" ]]
   fi
 fi
 
-if [ "${BUILD_INITRAMFS}" = "1" -o  -n "${IN_KERNEL_MODULES}" ]; then
-  echo "========================================================"
-  echo " Installing kernel modules into staging directory"
+#if [ "${BUILD_INITRAMFS}" = "1" -o  -n "${IN_KERNEL_MODULES}" ]; then
+#  echo "========================================================"
+#  echo " Installing kernel modules into staging directory"
+#
+#  (cd ${OUT_DIR} &&                                                           \
+#   make O=${OUT_DIR} ${TOOL_ARGS} ${MODULE_STRIP_FLAG}                        \
+#        INSTALL_MOD_PATH=${MODULES_STAGING_DIR} "${MAKE_ARGS[@]}" modules_install)
+#fi
 
-  (cd ${OUT_DIR} &&                                                           \
-   make O=${OUT_DIR} ${TOOL_ARGS} ${MODULE_STRIP_FLAG}                        \
-        INSTALL_MOD_PATH=${MODULES_STAGING_DIR} "${MAKE_ARGS[@]}" modules_install)
-fi
-
-if [[ -z "${SKIP_EXT_MODULES}" ]] && [[ -n "${EXT_MODULES_MAKEFILE}" ]]; then
-  echo "========================================================"
-  echo " Building and installing external modules using ${EXT_MODULES_MAKEFILE}"
-
-  make -f "${EXT_MODULES_MAKEFILE}" KERNEL_SRC=${ROOT_DIR}/${KERNEL_DIR} \
-          O=${OUT_DIR} ${TOOL_ARGS} ${MODULE_STRIP_FLAG}                 \
-          INSTALL_HDR_PATH="${KERNEL_UAPI_HEADERS_DIR}/usr"              \
-          INSTALL_MOD_PATH=${MODULES_STAGING_DIR} "${MAKE_ARGS[@]}"
-fi
+#if [[ -z "${SKIP_EXT_MODULES}" ]] && [[ -n "${EXT_MODULES_MAKEFILE}" ]]; then
+#  echo "========================================================"
+#  echo " Building and installing external modules using ${EXT_MODULES_MAKEFILE}"
+#
+#  make -f "${EXT_MODULES_MAKEFILE}" KERNEL_SRC=${ROOT_DIR}/${KERNEL_DIR} \
+#          O=${OUT_DIR} ${TOOL_ARGS} ${MODULE_STRIP_FLAG}                 \
+#          INSTALL_HDR_PATH="${KERNEL_UAPI_HEADERS_DIR}/usr"              \
+#          INSTALL_MOD_PATH=${MODULES_STAGING_DIR} "${MAKE_ARGS[@]}"
+#fi
 
 # SS Kbuild
 if [[ "${KL_DIR}" == "msm-kernel" ]] && [[ -n "${KBUILD_EXT_MODULES}" ]]; then
@@ -1108,33 +1108,33 @@ if [ -z "${SKIP_CP_KERNEL_HDR}" ]; then
   tar -czf ${KERNEL_UAPI_HEADERS_TAR} --directory=${KERNEL_UAPI_HEADERS_DIR} usr/
 fi
 
-if [ -z "${SKIP_CP_KERNEL_HDR}" ] ; then
-  echo "========================================================"
-  KERNEL_HEADERS_TAR=${DIST_DIR}/kernel-headers.tar.gz
-  echo " Copying kernel headers to ${KERNEL_HEADERS_TAR}"
-  pushd $ROOT_DIR/$KERNEL_DIR
-    find arch include $OUT_DIR -name *.h -print0               \
-            | tar -czf $KERNEL_HEADERS_TAR                     \
-              --absolute-names                                 \
-              --dereference                                    \
-              --transform "s,.*$OUT_DIR,,"                     \
-              --transform "s,^,kernel-headers/,"               \
-              --null -T -
-  popd
-fi
+#if [ -z "${SKIP_CP_KERNEL_HDR}" ] ; then
+#  echo "========================================================"
+#  KERNEL_HEADERS_TAR=${DIST_DIR}/kernel-headers.tar.gz
+#  echo " Copying kernel headers to ${KERNEL_HEADERS_TAR}"
+#  pushd $ROOT_DIR/$KERNEL_DIR
+#    find arch include $OUT_DIR -name *.h -print0               \
+#            | tar -czf $KERNEL_HEADERS_TAR                     \
+#              --absolute-names                                 \
+#              --dereference                                    \
+#              --transform "s,.*$OUT_DIR,,"                     \
+#              --transform "s,^,kernel-headers/,"               \
+#              --null -T -
+#  popd
+#fi
 
-if [ "${GENERATE_VMLINUX_BTF}" = "1" ]; then
-  echo "========================================================"
-  echo " Generating ${DIST_DIR}/vmlinux.btf"
+#if [ "${GENERATE_VMLINUX_BTF}" = "1" ]; then
+#  echo "========================================================"
+#  echo " Generating ${DIST_DIR}/vmlinux.btf"
 
-  (
-    cd ${DIST_DIR}
-    cp -a vmlinux vmlinux.btf
-    pahole -J vmlinux.btf
-    llvm-strip --strip-debug vmlinux.btf
-  )
+#  (
+#    cd ${DIST_DIR}
+#    cp -a vmlinux vmlinux.btf
+#    pahole -J vmlinux.btf
+#    llvm-strip --strip-debug vmlinux.btf
+#  )
 
-fi
+#fi
 
 if [ -n "${GKI_DIST_DIR}" ]; then
   echo "========================================================"
@@ -1143,17 +1143,17 @@ if [ -n "${GKI_DIST_DIR}" ]; then
   cp -rv ${GKI_DIST_DIR}/* ${DIST_DIR}/
 fi
 
-if [ -n "${DIST_CMDS}" ]; then
-  echo "========================================================"
-  echo " Running extra dist command(s):"
-  # if DIST_CMDS requires UAPI headers, make sure a warning appears!
-  if [ ! -d "${KERNEL_UAPI_HEADERS_DIR}/usr" ]; then
-    echo "WARN: running without UAPI headers"
-  fi
-  set -x
-  eval ${DIST_CMDS}
-  set +x
-fi
+#if [ -n "${DIST_CMDS}" ]; then
+#  echo "========================================================"
+#  echo " Running extra dist command(s):"
+#  # if DIST_CMDS requires UAPI headers, make sure a warning appears!
+#  if [ ! -d "${KERNEL_UAPI_HEADERS_DIR}/usr" ]; then
+#    echo "WARN: running without UAPI headers"
+#  fi
+#  set -x
+#  eval ${DIST_CMDS}
+#  set +x
+#fi
 
 MODULES=$(find ${MODULES_STAGING_DIR} -type f -name "*.ko")
 if [ -n "${MODULES}" ]; then
