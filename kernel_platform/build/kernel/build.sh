@@ -628,21 +628,21 @@ if [ -n "${KCONFIG_EXT_PREFIX}" ]; then
   MAKE_ARGS+=("KCONFIG_EXT_PREFIX=${KCONFIG_EXT_PREFIX}")
 fi
 
-if [ -n "${DTS_EXT_DIR}" ]; then
-  if [[ "${MAKE_GOALS}" =~ dtbs|\.dtb|\.dtbo ]]; then
+#if [ -n "${DTS_EXT_DIR}" ]; then
+#  if [[ "${MAKE_GOALS}" =~ dtbs|\.dtb|\.dtbo ]]; then
     # DTS_EXT_DIR needs to be relative to KERNEL_DIR but we allow one to set
     # it relative to ROOT_DIR for ease of use. So figure out what was used.
-    if [ -d "${ROOT_DIR}/${DTS_EXT_DIR}" ]; then
+#    if [ -d "${ROOT_DIR}/${DTS_EXT_DIR}" ]; then
       # DTS_EXT_DIR is currently relative to ROOT_DIR. So recalcuate it to be
       # relative to KERNEL_DIR
-      DTS_EXT_DIR=$(rel_path ${ROOT_DIR}/${DTS_EXT_DIR} ${KERNEL_DIR})
-    elif [ ! -d "${KERNEL_DIR}/${DTS_EXT_DIR}" ]; then
-      echo "Couldn't find the dtstree -- ${DTS_EXT_DIR}" >&2
-      exit 1
-    fi
-    MAKE_ARGS+=("dtstree=${DTS_EXT_DIR}")
-  fi
-fi
+#      DTS_EXT_DIR=$(rel_path ${ROOT_DIR}/${DTS_EXT_DIR} ${KERNEL_DIR})
+#    elif [ ! -d "${KERNEL_DIR}/${DTS_EXT_DIR}" ]; then
+#      echo "Couldn't find the dtstree -- ${DTS_EXT_DIR}" >&2
+#      exit 1
+#    fi
+#    MAKE_ARGS+=("dtstree=${DTS_EXT_DIR}")
+#  fi
+#fi
 
 cd ${ROOT_DIR}
 
