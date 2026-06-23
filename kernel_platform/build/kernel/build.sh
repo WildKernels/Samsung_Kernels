@@ -1166,38 +1166,38 @@ fi
 #      tar --transform="s,.*/,," -czf ${DIST_DIR}/${MODULES_ARCHIVE} ${MODULES[@]}
 #    fi
 #  fi
-  if [ "${BUILD_INITRAMFS}" = "1" ]; then
-    echo "========================================================"
-    echo " Creating initramfs"
-    rm -rf ${INITRAMFS_STAGING_DIR}
-    create_modules_staging "${MODULES_LIST}" ${MODULES_STAGING_DIR} \
-      ${INITRAMFS_STAGING_DIR} "${MODULES_BLOCKLIST}" "${MODULES_RECOVERY_LIST:-""}" \
-      "${MODULES_CHARGER_LIST:-""}" "-e" "${MODULES_LIST_ORDER}"
-    MODULES_ROOT_DIR=$(echo ${INITRAMFS_STAGING_DIR}/lib/modules/*)
-    if [ -n "${BUILD_VENDOR_BOOT_IMG}" ]; then
-      VENDOR_BOOT_NAME="vendor_boot"
-    elif [ -n "${BUILD_VENDOR_KERNEL_BOOT}" ]; then
-      VENDOR_BOOT_NAME="vendor_kernel_boot"
-    fi
-    MODULES_LOAD_FILES=( "modules.load" "modules.load.recovery" "modules.load.charger" )
-    for file in "${MODULES_LOAD_FILES[@]}"; do
-      [ -f ${MODULES_ROOT_DIR}/${file} ] && cp ${MODULES_ROOT_DIR}/${file} ${DIST_DIR}/${file}
-      [ -f ${MODULES_ROOT_DIR}/${file} -a -n "${VENDOR_BOOT_NAME}" ] && \
-              cp ${MODULES_ROOT_DIR}/${file} ${DIST_DIR}/${VENDOR_BOOT_NAME}.${file}
-    done
-    echo "${MODULES_OPTIONS}" > ${MODULES_ROOT_DIR}/modules.options
-    if [ -e "${MODULES_ROOT_DIR}/modules.blocklist" ]; then
-      cp ${MODULES_ROOT_DIR}/modules.blocklist ${DIST_DIR}/modules.blocklist
-    fi
+#  if [ "${BUILD_INITRAMFS}" = "1" ]; then
+#    echo "========================================================"
+#    echo " Creating initramfs"
+#    rm -rf ${INITRAMFS_STAGING_DIR}
+#    create_modules_staging "${MODULES_LIST}" ${MODULES_STAGING_DIR} \
+#      ${INITRAMFS_STAGING_DIR} "${MODULES_BLOCKLIST}" "${MODULES_RECOVERY_LIST:-""}" \
+#      "${MODULES_CHARGER_LIST:-""}" "-e" "${MODULES_LIST_ORDER}"
+#    MODULES_ROOT_DIR=$(echo ${INITRAMFS_STAGING_DIR}/lib/modules/*)
+#    if [ -n "${BUILD_VENDOR_BOOT_IMG}" ]; then
+#      VENDOR_BOOT_NAME="vendor_boot"
+#    elif [ -n "${BUILD_VENDOR_KERNEL_BOOT}" ]; then
+#      VENDOR_BOOT_NAME="vendor_kernel_boot"
+#    fi
+#    MODULES_LOAD_FILES=( "modules.load" "modules.load.recovery" "modules.load.charger" )
+#    for file in "${MODULES_LOAD_FILES[@]}"; do
+#      [ -f ${MODULES_ROOT_DIR}/${file} ] && cp ${MODULES_ROOT_DIR}/${file} ${DIST_DIR}/${file}
+#      [ -f ${MODULES_ROOT_DIR}/${file} -a -n "${VENDOR_BOOT_NAME}" ] && \
+#              cp ${MODULES_ROOT_DIR}/${file} ${DIST_DIR}/${VENDOR_BOOT_NAME}.${file}
+#    done
+#    echo "${MODULES_OPTIONS}" > ${MODULES_ROOT_DIR}/modules.options
+#    if [ -e "${MODULES_ROOT_DIR}/modules.blocklist" ]; then
+#      cp ${MODULES_ROOT_DIR}/modules.blocklist ${DIST_DIR}/modules.blocklist
+#    fi
 
-    mkbootfs "${INITRAMFS_STAGING_DIR}" >"${MODULES_STAGING_DIR}/initramfs.cpio"
-    ${RAMDISK_COMPRESS} "${MODULES_STAGING_DIR}/initramfs.cpio" >"${DIST_DIR}/initramfs.img"
-  fi
-fi
+#    mkbootfs "${INITRAMFS_STAGING_DIR}" >"${MODULES_STAGING_DIR}/initramfs.cpio"
+#    ${RAMDISK_COMPRESS} "${MODULES_STAGING_DIR}/initramfs.cpio" >"${DIST_DIR}/initramfs.img"
+#  fi
+#fi
 
-if [ "${BUILD_SYSTEM_DLKM}" = "1"  ]; then
-  build_system_dlkm
-fi
+#if [ "${BUILD_SYSTEM_DLKM}" = "1"  ]; then
+#  build_system_dlkm
+#fi
 
 # Building abl.elf
 #if [ -n "${ABL_SRC}" ]; then
