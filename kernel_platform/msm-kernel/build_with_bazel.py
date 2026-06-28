@@ -93,7 +93,7 @@ class BazelBuilder:
         self.project = project
         self.variant = variant
         self.chipname = chipname
-		self.kernel_only = kernel_only
+        self.kernel_only = kernel_only
         self.prepare_sec_env_files()
         self.prepare_sec_localversion_files()
 
