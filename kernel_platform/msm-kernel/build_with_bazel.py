@@ -462,10 +462,10 @@ class BazelBuilder:
         
     def build(self):
         """Determine which targets to build, then build them"""
-	    if self.kernel_only:
+        if self.kernel_only:
             self.build_kernel_only()
             return
-	        
+            
         targets_to_build = self.get_build_targets()
 
         if not targets_to_build:
