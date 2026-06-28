@@ -76,6 +76,8 @@
 #include <linux/security.h>
 #include <linux/ptrace.h>
 #include <linux/printk.h>
+#include <linux/task_integrity.h>
+#include <linux/proca.h>
 #include <linux/cache.h>
 #include <linux/cgroup.h>
 #include <linux/cpuset.h>
@@ -101,8 +103,6 @@
 #include <linux/ksm.h>
 #include <linux/cpufreq_times.h>
 #include <linux/dma-buf.h>
-#include <linux/task_integrity.h>
-#include <linux/proca.h>
 #include <trace/events/oom.h>
 #include <trace/hooks/sched.h>
 #include "internal.h"
