@@ -64,7 +64,7 @@ class Target:
 class BazelBuilder:
     """Helper class for building with Bazel"""
 
-    def __init__(self, target_list, skip_list, out_dir, cache_dir, dry_run, gki_headers, module, project, variant, chipname, user_opts):
+    def __init__(self, target_list, skip_list, out_dir, cache_dir, dry_run, gki_headers, module, project, variant, chipname, user_opts, kernel_only=False):
         BazelBuilder.targets_done = []
         self.workspace = os.path.realpath(
             os.path.join(os.path.dirname(os.path.realpath(__file__)), "..")
@@ -93,6 +93,7 @@ class BazelBuilder:
         self.project = project
         self.variant = variant
         self.chipname = chipname
+		self.kernel_only = kernel_only
         self.prepare_sec_env_files()
         self.prepare_sec_localversion_files()
 
@@ -398,8 +399,73 @@ class BazelBuilder:
         diff = difflib.unified_diff(lines1, lines2)
         return any(diff)
 
+    def build_kernel_only(self):
+        """Build only the kernel Image without modules, dtbo, boot.img, etc."""
+        if len(self.target_list) != 1:
+            logging.error("--kernel-only requires exactly one target-variant pair")
+            sys.exit(1)
+
+        t, v = self.target_list[0]
+        kernel_label = "//{}:{}_{}".format(self.kernel_dir, t, v)
+
+        if self.skip_list:
+            self.user_opts.extend(["--//msm-kernel:skip_{}=true".format(s) for s in self.skip_list])
+
+        self.user_opts.extend([
+            "--user_kmi_symbol_lists=//msm-kernel:android/abi_gki_aarch64_qcom",
+            "--ignore_missing_projects",
+        ])
+
+        if self.dry_run:
+            self.user_opts.append("--nobuild")
+
+        logging.info("Building kernel Image only: %s", kernel_label)
+        self.clean_legacy_generated_files()
+        self.build_targets([Target(self.workspace, t, v, kernel_label, self.out_dir)])
+
+        # Copy the Image to the expected output location
+        if not self.dry_run:
+            self._copy_kernel_image(t, v)
+
+    def _copy_kernel_image(self, target, variant):
+        """Copy the built kernel Image to the expected output directory."""
+        target_norm = target.replace("-", "_")
+        variant_norm = variant.replace("-", "_")
+        out_dir = DEFAULT_OUT_DIR.format(
+            workspace=self.workspace, target=target_norm, variant=variant_norm
+        )
+        dist_dir = os.path.join(out_dir, "dist")
+
+        # Source locations to check
+        possible_sources = [
+            "bazel-bin/msm-kernel/{}/arch/arm64/boot/Image".format(target_norm),
+            "bazel-bin/msm-kernel/{}/arch/arm64/boot/Image.gz".format(target_norm),
+        ]
+
+        # Also check with target as-is (with dashes)
+        possible_sources.extend([
+            "bazel-bin/msm-kernel/{}-{}_gki/arch/arm64/boot/Image".format(target_norm, variant_norm),
+        ])
+
+        os.makedirs(dist_dir, exist_ok=True)
+
+        for src in possible_sources:
+            src_path = os.path.join(self.workspace, src)
+            if os.path.exists(src_path):
+                dest = os.path.join(dist_dir, "Image")
+                logging.info("Copying %s to %s", src_path, dest)
+                subprocess.run(["cp", "-f", src_path, dest], check=True)
+                logging.info("Kernel Image copied successfully to %s", dest)
+                return
+
+        logging.warning("Kernel Image not found at expected locations")
+        
     def build(self):
         """Determine which targets to build, then build them"""
+	    if self.kernel_only:
+            self.build_kernel_only()
+            return
+	        
         targets_to_build = self.get_build_targets()
 
         if not targets_to_build:
@@ -652,6 +718,11 @@ def main():
         default="",
         help="Specify the build chipname (e.g. --chipname sm8750), it's set in sm8750 file under buildscript/boot_external/bootloaders",
     )
+    parser.add_argument(
+        "--kernel-only",
+        action="store_true",
+        help="Build only the kernel Image (no modules, dtbo, boot.img, super.img, etc.) for faster builds",
+    )
 
     args, user_opts = parser.parse_known_args(sys.argv[1:])
 
@@ -673,7 +744,8 @@ def main():
         args.project,
         args.variant,
         args.chipname,
-        user_opts
+        user_opts,
+        kernel_only=args.kernel_only
     )
     try:
         if args.menuconfig:
