@@ -26,6 +26,10 @@ export KBUILD_EXTRA_SYMBOLS=${ANDROID_BUILD_TOP}/out/vendor/qcom/opensource/mmrm
 # for Audio(techpack) driver build
 export MODNAME=audio_dlkm
 
+# Set KERNEL_ONLY=1 to build only the kernel Image (no modules, dtbo, boot.img, etc.)
+# This significantly speeds up builds when you only need the kernel image
+export KERNEL_ONLY=1
+
 export KBUILD_EXT_MODULES="\
 	../vendor/qcom/opensource/mmrm-driver \
         ../vendor/qcom/opensource/mm-drivers/msm_ext_display \
