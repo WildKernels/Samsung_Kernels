@@ -14,5 +14,6 @@ export LLVM=1
 export DEPMOD=depmod
 export ARCH=arm64
 export TARGET_SOC=s5e8835
+export BUILD_NUMBER=X610XXU7CYE1
 make s5e8835-gts9fepwifixx_defconfig
 make -j$(nproc) Image
