@@ -637,10 +637,10 @@ int parse_options_subcommand(int argc, const char **argv, const struct option *o
 	/* build usage string if it's not provided */
 	if (subcommands && !usagestr[0]) {
 		char *buf = NULL;
+		int i;
 
 		astrcatf(&buf, "%s %s [<options>] {", subcmd_config.exec_name, argv[0]);
 
-		int i;
 		for (i = 0; subcommands[i]; i++) {
 			if (i)
 				astrcat(&buf, "|");
