@@ -84,6 +84,8 @@
 #include <linux/nsproxy.h>
 #include <linux/oom.h>
 #include <linux/elf.h>
+#include <linux/task_integrity.h>
+#include <linux/proca.h>
 #include <linux/pid_namespace.h>
 #include <linux/user_namespace.h>
 #include <linux/fs_parser.h>
@@ -97,10 +99,8 @@
 #include <linux/posix-timers.h>
 #include <linux/time_namespace.h>
 #include <linux/resctrl.h>
-#include <linux/task_integrity.h>
-#include <linux/proca.h>
-#include <linux/cpufreq_times.h>
 #include <linux/cn_proc.h>
+#include <linux/cpufreq_times.h>
 #include <trace/events/oom.h>
 #include "internal.h"
 #include "fd.h"
