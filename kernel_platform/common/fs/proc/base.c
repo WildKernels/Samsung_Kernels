@@ -73,6 +73,8 @@
 #include <linux/module.h>
 #include <linux/mount.h>
 #include <linux/security.h>
+#include <linux/task_integrity.h>
+#include <linux/proca.h>
 #include <linux/ptrace.h>
 #include <linux/tracehook.h>
 #include <linux/printk.h>
@@ -99,9 +101,6 @@
 #include <linux/resctrl.h>
 #include <linux/cn_proc.h>
 #include <linux/cpufreq_times.h>
-#include <linux/cn_proc.h>
-#include <linux/task_integrity.h>
-#include <linux/proca.h>
 #include <trace/events/oom.h>
 #include "internal.h"
 #include "fd.h"
