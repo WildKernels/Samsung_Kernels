@@ -14,6 +14,10 @@
 #include <linux/mnt_namespace.h>
 #include <linux/user_namespace.h>
 #include <linux/namei.h>
+#include <linux/fslog.h>
+#ifdef CONFIG_KDP_NS
+#include <linux/kdp.h>
+#endif
 #include <linux/security.h>
 #include <linux/cred.h>
 #include <linux/idr.h>
@@ -32,10 +36,6 @@
 #include <linux/fs_context.h>
 #include <linux/shmem_fs.h>
 #include <linux/mnt_idmapping.h>
-#include <linux/fslog.h>
-#ifdef CONFIG_KDP_NS
-#include <linux/kdp.h>
-#endif
 
 #include "pnode.h"
 #include "internal.h"
