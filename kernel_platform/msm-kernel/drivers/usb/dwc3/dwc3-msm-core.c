@@ -5480,7 +5480,7 @@ static ssize_t mode_store(struct device *dev, struct device_attribute *attr,
 	else if (sysfs_streq(buf, "host"))
 		role = USB_ROLE_HOST;
 
-#ifdef CONFIG_USB_NOTIFIER
+#if IS_ENABLED(CONFIG_USB_NOTIFY_LAYER)
 	if (role == USB_ROLE_DEVICE) {
 		if (is_blocked(get_otg_notify(), NOTIFY_BLOCK_TYPE_CLIENT)) {
 			dev_err(dev, "blocked peripheral mode\n");
