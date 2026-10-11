@@ -177,7 +177,7 @@ static int ipa_get_generic_stats(unsigned long arg)
 	int i, j;
 	struct ipa_lnx_generic_stats *generic_stats;
 	struct ipa_drop_stats_all *out;
-	int alloc_size;
+	uint64_t alloc_size;
 	int reg_idx;
 	struct ipa_uc_holb_client_info *holb_client;
 	struct holb_discard_stats *holb_disc_stats_ptr;
