@@ -15,6 +15,7 @@
 #include <linux/user_namespace.h>
 #include <linux/namei.h>
 #include <linux/security.h>
+#include <linux/fslog.h>
 #include <linux/cred.h>
 #include <linux/idr.h>
 #include <linux/init.h>		/* init_rootfs */
@@ -32,7 +33,6 @@
 #include <linux/fs_context.h>
 #include <linux/shmem_fs.h>
 #include <linux/mnt_idmapping.h>
-#include <linux/fslog.h>
 
 #include "pnode.h"
 #include "internal.h"
