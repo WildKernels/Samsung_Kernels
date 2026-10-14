@@ -35,8 +35,6 @@ _COMMON_GKI_MODULES_LIST = [
     "drivers/net/usb/cdc_eem.ko",
     "drivers/net/usb/cdc_ether.ko",
     "drivers/net/usb/cdc_ncm.ko",
-    "drivers/net/usb/smsc75xx.ko",
-    "drivers/net/usb/smsc95xx.ko",
     "drivers/net/usb/r8152.ko",
     "drivers/net/usb/r8153_ecm.ko",
     "drivers/net/usb/rtl8150.ko",
