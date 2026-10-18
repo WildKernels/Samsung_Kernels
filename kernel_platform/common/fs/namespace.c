@@ -16,6 +16,10 @@
 #include <linux/namei.h>
 #include <linux/security.h>
 #include <linux/cred.h>
+#ifdef CONFIG_PROC_STLOG
+#include <linux/fslog.h>
+#endif
+#include <trace/hooks/fs.h>
 #include <linux/idr.h>
 #include <linux/init.h>		/* init_rootfs */
 #include <linux/fs_struct.h>	/* get_fs_root et.al. */
@@ -36,11 +40,6 @@
 #include "pnode.h"
 #include "internal.h"
 #include <trace/hooks/blk.h>
-
-#ifdef CONFIG_PROC_STLOG
-#include <linux/fslog.h>
-#endif
-#include <trace/hooks/fs.h>
 
 /* Maximum number of mounts in a mount namespace */
 static unsigned int sysctl_mount_max __read_mostly = 100000;
