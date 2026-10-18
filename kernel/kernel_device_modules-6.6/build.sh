@@ -12,14 +12,24 @@ then
   build_scope=customer
 fi
 
-if [ -z ${TARGET} ]
-then
+# Quick build mode: only build kernel image, skip modules/dist/GKI checker
+# To enable quick build, set QUICK_BUILD=1 before running this script
+# or add QUICK_BUILD=1 to build_kernel.sh
+if [ "${QUICK_BUILD}" = "1" ]; then
+  # Build only the kernel image (Image, Image.lz4, Image.gz) without modules
+  KLEAF_BUILD_TARGET=//${DEVICE_MODULES_DIR}:${PROJECT}_kernel_aarch64.${MODE}
+  # Skip dist and GKI checker for quick builds
+  KLEAF_DIST_TARGET=""
+else
+ if [ -z ${TARGET} ]
+ then
   TARGET=${build_scope}_modules_install
   KLEAF_BUILD_TARGET=//${DEVICE_MODULES_DIR}:${PROJECT}_${TARGET}.${MODE}
-else
-  KLEAF_BUILD_TARGET=${TARGET}.${MODE}
+ else
+   KLEAF_BUILD_TARGET=${TARGET}.${MODE}
+ fi
+ KLEAF_DIST_TARGET=//${DEVICE_MODULES_DIR}:${PROJECT}_${build_scope}_dist.${MODE}
 fi
-KLEAF_DIST_TARGET=//${DEVICE_MODULES_DIR}:${PROJECT}_${build_scope}_dist.${MODE}
 
 KLEAF_OUT=("--output_user_root=${OUT_DIR} --output_base=${OUT_DIR}/bazel/output_user_root/output_base")
 KLEAF_ARGS=("${DEBUG_ARGS} ${SANDBOX_ARGS} \
@@ -35,9 +45,12 @@ set -x
 	--nokmi_symbol_list_violations_check ${KLEAF_DIST_TARGET} -- --dist_dir=${OUT_DIR}/dist
 )
 set +x
+
+# Skip GKI checker for quick builds
+if [ "${QUICK_BUILD}" != "1" ]; then
 KLEAF_GKI_CHECKER="no"
-if [[ ${MODE} == "user" && ${KLEAF_GKI_CHECKER} != "no" ]]
-then
+ if [[ ${MODE} == "user" && ${KLEAF_GKI_CHECKER} != "no" ]]
+ then
   KLEAF_GKI_CHECKER_COMMANDS=("${KLEAF_GKI_CHECKER_COMMANDS} \
 	  -m ${OUT_DIR}/dist/${DEVICE_MODULES_DIR}/${PROJECT}_kernel_aarch64.${MODE}/vmlinux")
   set -x
@@ -47,4 +60,5 @@ then
     ${KLEAF_GKI_CHECKER_COMMANDS} -o symbol
   )
   set +x
+ fi
 fi
