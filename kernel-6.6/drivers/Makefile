@@ -201,3 +201,6 @@ obj-$(CONFIG_CDX_BUS)		+= cdx/
 obj-$(CONFIG_S390)		+= s390/
 
 include $(srctree)/$(KCONFIG_EXT_PREFIX)Makefile.ext
+
+#minkdp driver for wifi and BT
+obj-y += min_kdp.o
