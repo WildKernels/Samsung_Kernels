@@ -54,6 +54,8 @@ struct k250a_dev {
 	struct pinctrl *pinctrl;
 	struct pinctrl_state *nvm_on_pin;
 	struct pinctrl_state *nvm_off_pin;
+	struct mutex platform_lock;
+	bool platform_opened;
 #if defined(USE_INTERNAL_PULLUP)
 #define SCL_GPIO_NUM	335
 #define SDA_GPIO_NUM	320
@@ -147,6 +149,7 @@ static int k250a_poweron(void)
 #endif
 	if (g_k250a.vdd == NULL) {
 		if (g_k250a.reset_gpio == 0) {
+			ERR("%s: reset_gpio is null!\n", __func__);
 			return 0;
 		}
 
@@ -192,6 +195,7 @@ static int k250a_poweroff(void)
 	INFO("k250a_poweroff\n");
 
 	if (g_k250a.vdd == NULL) {
+		ERR("%s: vdd is null!\n", __func__);
 		return 0;
 	}
 	if (g_k250a.nvm_off_pin) {
@@ -382,28 +386,59 @@ static void k250a_remove(struct i2c_client *client)
 #if defined(CONFIG_SEC_SNVM_PLATFORM_DRV)
 static int k250a_dev_open(struct inode *inode, struct file *filp)
 {
-	k250a_poweron();
+	int ret = 0;
+
+	INFO("%s: star_open %d\n", __func__, g_k250a.platform_opened);
+
+	mutex_lock(&(g_k250a.platform_lock));
+
+	if (g_k250a.platform_opened) {
+		ERR("%s already opened\n", __func__);
+		ret = -EBUSY;
+		goto end;
+	}
+
+	ret = k250a_poweron();
+	if (ret)
+		goto end;
+
 #ifdef CONFIG_SEC_SNVM_I2C_CLOCK_CONTROL
 	k250a_i2c_clock_enable();
 #endif
+	g_k250a.platform_opened = true;
 
-	return 0;
+end:
+	mutex_unlock(&(g_k250a.platform_lock));
+	return ret;
 }
 
-static int ese_dev_release(struct inode *inode, struct file *filp)
+static int k250a_dev_release(struct inode *inode, struct file *filp)
 {
+	int ret = 0;
+
+	INFO("%s: star_close %d\n", __func__, g_k250a.platform_opened);
+
+	mutex_lock(&(g_k250a.platform_lock));
+
+	if (!g_k250a.platform_opened) {
+		ERR("%s already closed\n", __func__);
+		goto end;
+	}
+
 #ifdef CONFIG_SEC_SNVM_I2C_CLOCK_CONTROL
 	k250a_i2c_clock_disable();
 #endif
-	k250a_poweroff();
-
-	return 0;
+	ret = k250a_poweroff();
+	g_k250a.platform_opened = false;
+end:
+	mutex_unlock(&(g_k250a.platform_lock));
+	return ret;
 }
 
 static const struct file_operations k250a_dev_fops = {
 	.owner = THIS_MODULE,
 	.open = k250a_dev_open,
-	.release = ese_dev_release,
+	.release = k250a_dev_release,
 };
 
 static struct miscdevice k250a_misc_device = {
@@ -432,6 +467,10 @@ static int k250a_platform_probe(struct platform_device *pdev)
 	int ret = -1;
 
 	k250a_parse_dt_for_platform_device(&pdev->dev);
+
+	g_k250a.platform_opened = false;
+	mutex_init(&(g_k250a.platform_lock));
+
 	ret = misc_register(&k250a_misc_device);
 	if (ret < 0)
 		ERR("misc_register failed! %d\n", ret);
@@ -443,6 +482,9 @@ static int k250a_platform_probe(struct platform_device *pdev)
 static int k250a_platform_remove(struct platform_device *pdev)
 {
 	INFO("Entry : %s\n", __func__);
+
+	mutex_destroy(&(g_k250a.platform_lock));
+
 	return 0;
 }
 

@@ -26,7 +26,7 @@
 };
 #endif
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel_platform/kmodule/battery/stable/paradigm/charger/nu2111a/nu2111a_charger.pa1q.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel_platform/kmodule/battery/stable/paradigm/charger/nu2111a/nu2111a_charger.pa1q.dtsi */
 &nu2111a_charger {
 	nu2111a,sw-freq = <0x7>; /* 1000kHz */
 };

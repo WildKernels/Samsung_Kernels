@@ -175,7 +175,7 @@
 	};
 };
 
-/* /home/dpi/qb5_8814/workspace/P4_1716/android/kernel_platform/kmodule/battery/stable/paradigm/wireless/cps4038/cps4038_charger.pa1q.dtsi */
+/* /home/dpi/qb5_8815/workspace/P4_1716/android/kernel_platform/kmodule/battery/stable/paradigm/wireless/cps4038/cps4038_charger.pa1q.dtsi */
 #include <dt-bindings/battery/sec-battery.h>
 
 &cps_pdrc_default {
