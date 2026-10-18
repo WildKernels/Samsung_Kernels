@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set QUICK_BUILD=1 to only build the kernel image (skip modules, dist, GKI checker)
+export QUICK_BUILD=1
+
 cd kernel
 python kernel_device_modules-6.6/scripts/gen_build_config.py --kernel-defconfig mediatek-bazel_defconfig --kernel-defconfig-overlays "mt6833_overlay.config S96901AA1.config S96901AA1_debug.config" --kernel-build-config-overlays "" -m user -o ../out/target/product/a14xm/obj/KERNEL_OBJ/build.config
 
