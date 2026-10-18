@@ -2695,9 +2695,14 @@ static void max77775_chg_set_mode_state(struct max77775_charger_data *charger,
 			/* to prevent lx damage */
 			max77775_set_charge_path(charger, WC_CHG_ALL_OFF, WC_CHG_ALL_OFF);
 			charger->cnfg00_mode = MAX77775_MODE_D_BUCK_CHG_BOOST_UNO_ON;
-		}
-		else if (charger->cv_mode_check && (state == SEC_BAT_CHG_MODE_CHARGING))
+		} else if (charger->cv_mode_check && (state == SEC_BAT_CHG_MODE_CHARGING)) {
 			charger->cnfg00_mode = MAX77775_MODE_7_BUCK_LINEAR_CHG_ON;
+			/* to prevent lx damage */
+			pr_info("%s : set 0x04 mode before 0x07 mode\n", __func__);
+			max77775_update_reg(charger->i2c, MAX77775_CHG_REG_CNFG_00,
+			    MAX77775_MODE_4_BUCK_ON, CHG_CNFG_00_MODE_MASK);
+			usleep_range(100, 200);
+		}
 		else if (state == SEC_BAT_CHG_MODE_UNO_ONLY) {
 			/* to prevent lx damage */
 			max77775_set_charge_path(charger, WC_CHG_ALL_OFF, WC_CHG_ALL_OFF);
@@ -2863,7 +2868,9 @@ static void max77775_chg_set_mode_state(struct max77775_charger_data *charger,
 			charger->cnfg00_mode
 				= charger->cv_mode_check ? MAX77775_MODE_7_BUCK_LINEAR_CHG_ON : MAX77775_MODE_5_BUCK_CHG_ON;
 
-			if (charger->cnfg00_mode == MAX77775_MODE_5_BUCK_CHG_ON) {
+			if (charger->cnfg00_mode == MAX77775_MODE_7_BUCK_LINEAR_CHG_ON) {
+				/* to prevent lx damage */
+				pr_info("%s : set 0x04 mode before 0x07 mode\n", __func__);
 				max77775_update_reg(charger->i2c, MAX77775_CHG_REG_CNFG_00,
 				MAX77775_MODE_4_BUCK_ON, CHG_CNFG_00_MODE_MASK);
 				usleep_range(100, 200);
@@ -2916,6 +2923,14 @@ static void max77775_chg_set_mode_state(struct max77775_charger_data *charger,
 				= charger->cv_mode_check ? MAX77775_MODE_7_BUCK_LINEAR_CHG_ON : MAX77775_MODE_5_BUCK_CHG_ON;
 		}
 
+		if (charger->cnfg00_mode == MAX77775_MODE_7_BUCK_LINEAR_CHG_ON) {
+			/* to prevent lx damage */
+			pr_info("%s : set 0x04 mode before 0x07 mode\n", __func__);
+			max77775_update_reg(charger->i2c, MAX77775_CHG_REG_CNFG_00,
+			MAX77775_MODE_4_BUCK_ON, CHG_CNFG_00_MODE_MASK);
+			usleep_range(100, 200);
+		}
+
 		if (charger->cnfg00_mode != MAX77775_MODE_F_BUCK_CHG_BOOST_OTG_ON &&
 			charger->cnfg00_mode != MAX77775_MODE_3_BUCK_LINEAR_CHG_ON_BOOST_OTG_ON) {
 			max77775_chgrcv_ramp(true);
@@ -2930,7 +2945,6 @@ static void max77775_chg_set_mode_state(struct max77775_charger_data *charger,
 	/* disable wcinsel, chginsel */
 	if (charger->cnfg00_mode == MAX77775_MODE_0_ALL_OFF)
 		max77775_set_charge_path(charger, WC_CHG_ALL_OFF, WC_CHG_ALL_OFF);
-#ifdef CONFIG_IFPMIC_LIMITER
 	else if (charger->cnfg00_mode != MAX77775_MODE_2_BUCK_LINEAR_CHG_ON_BOOST_UNO_ON &&
 		charger->cnfg00_mode != MAX77775_MODE_3_BUCK_LINEAR_CHG_ON_BOOST_OTG_ON &&
 		charger->cnfg00_mode != MAX77775_MODE_8_BOOST_UNO_ON &&
@@ -2941,9 +2955,6 @@ static void max77775_chg_set_mode_state(struct max77775_charger_data *charger,
 		charger->cnfg00_mode != MAX77775_MODE_D_BUCK_CHG_BOOST_UNO_ON &&
 		charger->cnfg00_mode != MAX77775_MODE_E_BUCK_BOOST_OTG_ON &&
 		charger->cnfg00_mode != MAX77775_MODE_F_BUCK_CHG_BOOST_OTG_ON)
-#else
-	else
-#endif
 		max77775_check_charge_path(charger);
 
 	if (charger->cv_mode_check && (charger->cnfg00_mode == MAX77775_MODE_7_BUCK_LINEAR_CHG_ON)) {

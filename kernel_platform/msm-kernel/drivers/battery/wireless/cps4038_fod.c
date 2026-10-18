@@ -16,6 +16,7 @@
 #include <linux/device.h>
 #include <linux/module.h>
 
+#include "../common/sec_charging_common.h"
 #include <linux/battery/sb_wireless.h>
 #include <dt-bindings/battery/sec-battery.h>
 
@@ -37,6 +38,11 @@ struct mfc_fod_tx {
 	struct mfc_fod_op op_mc[WPC_OP_MODE_MAX]; /* Magnet Case FOD Opmode Data*/
 };
 
+struct mfc_fod_platform_data {
+	u32 epp_to_ppde_pad_list_size;
+	u32 *epp_to_ppde_pad_list;
+};
+
 struct mfc_fod {
 	struct device	*parent;
 	mfc_set_fod		cb_func;
@@ -54,6 +60,8 @@ struct mfc_fod {
 	unsigned int		cc_cv_thr;
 	unsigned int		high_swell_cc_cv_thr;
 	unsigned int		vendor_id;
+
+	struct mfc_fod_platform_data	*pdata;
 };
 
 static int get_op_mode_by_str(const char *str)
@@ -442,6 +450,27 @@ static int mfc_fod_thr_parse_dt(struct device_node *np, struct mfc_fod *fod)
 	return 0;
 }
 
+static int mfc_fod_pdata_parse_dt(struct device_node *np, struct mfc_fod_platform_data *pdata)
+{
+	int i = 0, len = 0, ret = 0;
+	const u32 *p = of_get_property(np, "battery,allow_epp_to_ppde", &len);
+
+	if (p) {
+		len = len / sizeof(u32);
+		pdata->epp_to_ppde_pad_list_size = len;
+		pdata->epp_to_ppde_pad_list = kcalloc(len, sizeof(*pdata->epp_to_ppde_pad_list), GFP_KERNEL);
+		ret = of_property_read_u32_array(np, "battery,allow_epp_to_ppde", pdata->epp_to_ppde_pad_list, len);
+
+		for (i = 0; i < len; i++)
+			pr_info("%s: epp_to_ppde_pad_list = PAD_0x%02X ", __func__, pdata->epp_to_ppde_pad_list[i]);
+	} else {
+		pdata->epp_to_ppde_pad_list_size = 0;
+		pdata->epp_to_ppde_pad_list = NULL;
+		pr_err("%s: there is no allow_epp_to_ppde list\n", __func__);
+	}
+	return ret;
+}
+
 static struct mfc_fod_tx *get_fod_tx(struct mfc_fod *fod, unsigned int tx_id)
 {
 	int i;
@@ -530,6 +559,12 @@ struct mfc_fod *mfc_fod_init(struct device *dev, unsigned int fod_size, mfc_set_
 	}
 	mfc_fod_thr_parse_dt(dev->of_node, fod);
 
+	fod->pdata = kzalloc(sizeof(struct mfc_fod_platform_data), GFP_KERNEL);
+	if (!fod->pdata)
+		return ERR_PTR(-ENOMEM);
+
+	mfc_fod_pdata_parse_dt(dev->of_node, fod->pdata);
+
 	mutex_init(&fod->lock);
 
 	fod->parent = dev;
@@ -570,6 +605,16 @@ int mfc_fod_refresh(struct mfc_fod *fod)
 }
 EXPORT_SYMBOL(mfc_fod_refresh);
 
+static bool in_epp_to_ppde_pad_list(struct mfc_fod_platform_data *pdata, int tx_id)
+{
+	int i = 0;
+	bool ret = false;
+
+	for (i = 0; i < pdata->epp_to_ppde_pad_list_size; i++)
+		ret |= (pdata->epp_to_ppde_pad_list[i] == tx_id);
+	return ret;
+}
+
 int mfc_fod_set_op_mode(struct mfc_fod *fod, int op_mode)
 {
 	if (IS_ERR(fod) ||
@@ -580,6 +625,12 @@ int mfc_fod_set_op_mode(struct mfc_fod *fod, int op_mode)
 	mutex_lock(&fod->lock);
 	switch (fod->state.op_mode) {
 	case WPC_OP_MODE_EPP:
+		if (op_mode == WPC_OP_MODE_PPDE && in_epp_to_ppde_pad_list(fod->pdata, fod->state.tx_id)) {
+			fod->state.op_mode = op_mode;
+			fod_log("Allow op mode change for EPP->PPDE with %d\n", fod->state.tx_id);
+			fod->cb_func(fod->parent, &fod->state, mfc_fod_get_data(fod));
+		}
+		break;
 	case WPC_OP_MODE_MPP:
 	case WPC_OP_MODE_PPDE:
 		fod_log("prevent op mode(%d)!!\n", op_mode);

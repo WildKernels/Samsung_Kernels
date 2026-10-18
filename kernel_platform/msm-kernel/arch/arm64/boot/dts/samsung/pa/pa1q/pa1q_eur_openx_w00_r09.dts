@@ -12345,6 +12345,7 @@
 				battery,epp_time_mid_2 = <0x3e8>;
 				battery,epp_time_final = <0xfa0>;
 				battery,fod_cnt_thresh = <0x0a>;
+				battery,allow_epp_to_ppde = <0xa5>;
 				phandle = <0x19f>;
 
 				fod_list {
@@ -24082,7 +24083,7 @@
 			tx-macro@6AE0000 {
 				phandle = <0x367>;
 				qcom,is-used-swr-gpio = <0x00>;
-				qcom,tx-dmic-clk-div-factor = <0x03 0x03 0x03 0x03>;
+				qcom,tx-dmic-clk-div-factor = <0x04 0x04 0x04 0x04>;
 				qcom,default-clk-id = <0x00>;
 				reg = <0x6ae0000 0x00>;
 				compatible = "qcom,lpass-cdc-tx-macro";

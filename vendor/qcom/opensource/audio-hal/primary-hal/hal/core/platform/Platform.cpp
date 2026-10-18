@@ -2455,6 +2455,8 @@ int Platform::match_device_enums(const AudioDevice& device) const noexcept {
     int ret = 0;
     if (device.type.type == AudioDeviceType::IN_MICROPHONE) { // AUDIO_DEVICE_IN_BUILTIN_MIC
         ret = AUDIO_DEVICE_IN_BUILTIN_MIC;
+    } else if (device.type.type == AudioDeviceType::IN_MICROPHONE_BACK) { // AUDIO_DEVICE_IN_BACK_MIC
+        ret = AUDIO_DEVICE_IN_BACK_MIC;
     } else if (device.type.type == AudioDeviceType::IN_HEADSET &&
                 device.type.connection == AudioDeviceDescription::CONNECTION_BT_SCO) { // AUDIO_DEVICE_IN_BLUETOOTH_SCO_HEADSET
         ret = AUDIO_DEVICE_IN_BLUETOOTH_SCO_HEADSET;

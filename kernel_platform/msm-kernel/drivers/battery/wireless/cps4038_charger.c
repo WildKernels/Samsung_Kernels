@@ -4066,6 +4066,9 @@ static int cps4038_chg_get_property(struct power_supply *psy,
 		case POWER_SUPPLY_EXT_PROP_WIRELESS_OP_MODE:
 			val->intval = charger->rx_op_mode;
 			break;
+		case POWER_SUPPLY_EXT_PROP_NEGO_DONE_PWR:
+			val->intval = charger->mpp_epp_nego_done_power * 100000;
+			break;
 		default:
 			return -ENODATA;
 		}
@@ -6843,7 +6846,7 @@ static irqreturn_t mfc_wpc_irq_thread(int irq, void *irq_data)
 			if (charger->magnet_case_det && !charger->pdata->mpp_disable)
 				mfc_protocol_selection(charger, MFC_PROTOCOL_MPP_FULL_MASK);
 			else
-				mfc_protocol_selection(charger, MFC_PROTOCOL_EPP_MASK);
+				mfc_protocol_selection(charger, MFC_PROTOCOL_BPP_MASK);
 		}
 		mfc_wpc_check_fod_count(charger, FOD_CNT_ADD);
 		if (charger->magnet_case_det && !charger->pdata->mpp_disable) {

@@ -1086,6 +1086,9 @@ static int nu2111a_set_reverse_mode(struct nu2111a_charger *chg, bool enable)
 		ret = nu2111a_update_reg(chg, NU2111A_REG_IBUS_OCP, NU2111A_BIT_IBUS_OCP_DIS, 0);
 		if (ret < 0)
 			goto error;
+		ret = nu2111a_set_vbat_reg(chg, chg->pdata->vbat_reg_max);
+		if (ret < 0)
+			goto error;
 
 		ret = nu2111a_set_charging(chg, true);
 		if (ret < 0)
@@ -1101,6 +1104,9 @@ static int nu2111a_set_reverse_mode(struct nu2111a_charger *chg, bool enable)
 		ret = nu2111a_update_reg(chg, NU2111A_REG_CONTROL2, NU2111A_BITS_SCC_MODE, 0x0);
 		if (ret < 0)
 			goto error;
+		ret = nu2111a_set_vbat_reg(chg, chg->pdata->vbat_reg);
+		if (ret < 0)
+			goto error;
 	}
 
 error:
@@ -1114,7 +1120,9 @@ static int nu2111a_stop_charging(struct nu2111a_charger *chg)
 
 	if (chg->charging_state != DC_STATE_NOT_CHARGING) {
 		LOG_DBG(chg, "charging_state--> Not Charging\n");
-		nu2111a_set_reverse_mode(chg, false);
+		if (chg->charging_state == DC_STATE_REVERSE_MODE)
+			nu2111a_set_reverse_mode(chg, false);
+
 		cancel_delayed_work(&chg->timer_work);
 		cancel_delayed_work(&chg->pps_work);
 		if (!chg->wdt_test_resume)
@@ -4657,12 +4665,12 @@ static void nu2111a_timer_work(struct work_struct *work)
 
 error:
 #if IS_ENABLED(CONFIG_BATTERY_SAMSUNG)
-if (chg->charging_state > DC_STATE_CHECK_VBAT)
+if (chg->charging_state != DC_STATE_NOT_CHARGING) {
 	chg->health_status = POWER_SUPPLY_EXT_HEALTH_DC_ERR;
-else
+	nu2111a_stop_charging(chg);
+} else
 	LOG_DBG(chg, "Charging not started[%d].\n", chg->health_status);
 #endif
-	nu2111a_stop_charging(chg);
 }
 
 static void nu2111a_pps_request_work(struct work_struct *work)

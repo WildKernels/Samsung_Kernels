@@ -231,6 +231,10 @@
 	battery,epp_time_final = <4000>;
 	battery,fod_cnt_thresh = <10>;
 
+	battery,allow_epp_to_ppde = <
+		0xA5 /* WC_PAD_P9500 P9500 Ultra Pad mode */
+	>;
+
 	battery,wireless20_vout_list = <WIRELESS_VOUT_9V /* 0xA0 */
 					WIRELESS_VOUT_12V /* 0xA1 */
 					WIRELESS_VOUT_12V /* 0xA2 */

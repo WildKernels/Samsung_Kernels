@@ -663,11 +663,9 @@ typedef struct {
 	cable_type == SEC_BATTERY_CABLE_WIRELESS_EPP || \
 	cable_type == SEC_BATTERY_CABLE_WIRELESS_MPP)
 
-#define is_epp_mpp_wireless_type(cable_type) ( \
+#define is_epp_wireless_type(cable_type) ( \
 	cable_type == SEC_BATTERY_CABLE_WIRELESS_EPP_FAKE || \
-	cable_type == SEC_BATTERY_CABLE_WIRELESS_EPP || \
-	cable_type == SEC_BATTERY_CABLE_WIRELESS_MPP_FAKE || \
-	cable_type == SEC_BATTERY_CABLE_WIRELESS_MPP)
+	cable_type == SEC_BATTERY_CABLE_WIRELESS_EPP)
 
 #define is_hv_wireless_type(cable_type) ( \
 	cable_type == SEC_BATTERY_CABLE_HV_WIRELESS || \

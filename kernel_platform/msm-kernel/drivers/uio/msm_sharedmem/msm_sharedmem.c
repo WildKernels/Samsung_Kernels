@@ -178,8 +178,10 @@ static int msm_sharedmem_probe(struct platform_device *pdev)
 
 		shared_mem = dma_alloc_coherent(&pdev->dev, shared_mem_tot_sz,
 					&shared_mem_pyhsical, GFP_KERNEL);
-		if (shared_mem == NULL)
-			return -ENOMEM;
+		if (shared_mem == NULL) {
+			pr_err("%s: shared mem allocation was failed! return EPROBE_DEFER\n", __func__);
+			return -EPROBE_DEFER;
+		}
 
 		if (guard_memory)
 			shared_mem_pyhsical += SZ_4K;

@@ -313,7 +313,7 @@ ssize_t nu2111a_chg_store_attrs(struct device *dev,
 /* i2c regmap init setting */
 #define NU2111A_REG_MAX         0x34
 #define NU2111A_I2C_NAME "nu2111a"
-#define NU2111A_MODULE_VERSION "JP7.5.9c2a"
+#define NU2111A_MODULE_VERSION "JP7.5.9c2c"
 
 #define CONFIG_PASS_THROUGH
 

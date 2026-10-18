@@ -611,7 +611,7 @@
 			alloc-ranges = <0x00 0x00 0x00 0xffffffff>;
 			reusable;
 			alignment = <0x00 0x400000>;
-			size = <0x00 0x2400000>;
+			size = <0x00 0x3000000>;
 			linux,cma-default;
 			phandle = <0x8d>;
 		};
@@ -5391,7 +5391,7 @@
 			};
 
 			cci_i2c_sda0_active {
-				phandle = <0x577>;
+				phandle = <0x576>;
 
 				mux {
 					function = "cci_i2c_sda0";
@@ -5407,7 +5407,7 @@
 			};
 
 			cci_i2c_sda0_suspend {
-				phandle = <0x579>;
+				phandle = <0x578>;
 
 				mux {
 					function = "cci_i2c_sda0";
@@ -5422,7 +5422,7 @@
 			};
 
 			cci_i2c_scl0_active {
-				phandle = <0x576>;
+				phandle = <0x575>;
 
 				mux {
 					function = "cci_i2c_scl0";
@@ -5438,7 +5438,7 @@
 			};
 
 			cci_i2c_scl0_suspend {
-				phandle = <0x578>;
+				phandle = <0x577>;
 
 				mux {
 					function = "cci_i2c_scl0";
@@ -5453,7 +5453,7 @@
 			};
 
 			cci_i2c_sda1_active {
-				phandle = <0x57b>;
+				phandle = <0x57a>;
 
 				mux {
 					function = "cci_i2c_sda1";
@@ -5469,7 +5469,7 @@
 			};
 
 			cci_i2c_sda1_suspend {
-				phandle = <0x57d>;
+				phandle = <0x57c>;
 
 				mux {
 					function = "cci_i2c_sda1";
@@ -5484,7 +5484,7 @@
 			};
 
 			cci_i2c_scl1_active {
-				phandle = <0x57a>;
+				phandle = <0x579>;
 
 				mux {
 					function = "cci_i2c_scl1";
@@ -5500,7 +5500,7 @@
 			};
 
 			cci_i2c_scl1_suspend {
-				phandle = <0x57c>;
+				phandle = <0x57b>;
 
 				mux {
 					function = "cci_i2c_scl1";
@@ -5515,7 +5515,7 @@
 			};
 
 			cci_i2c_sda2_active {
-				phandle = <0x57f>;
+				phandle = <0x57e>;
 
 				mux {
 					function = "cci_i2c_sda2";
@@ -5531,7 +5531,7 @@
 			};
 
 			cci_i2c_sda2_suspend {
-				phandle = <0x581>;
+				phandle = <0x580>;
 
 				mux {
 					function = "cci_i2c_sda2";
@@ -5546,7 +5546,7 @@
 			};
 
 			cci_i2c_scl2_active {
-				phandle = <0x57e>;
+				phandle = <0x57d>;
 
 				mux {
 					function = "cci_i2c_scl2";
@@ -5562,7 +5562,7 @@
 			};
 
 			cci_i2c_scl2_suspend {
-				phandle = <0x580>;
+				phandle = <0x57f>;
 
 				mux {
 					function = "cci_i2c_scl2";
@@ -5577,7 +5577,7 @@
 			};
 
 			cci_i2c_scl3_active {
-				phandle = <0x582>;
+				phandle = <0x581>;
 
 				mux {
 					function = "cci_i2c_scl3";
@@ -5593,7 +5593,7 @@
 			};
 
 			cci_i2c_sda3_suspend {
-				phandle = <0x585>;
+				phandle = <0x584>;
 
 				mux {
 					function = "cci_i2c_sda3";
@@ -5608,7 +5608,7 @@
 			};
 
 			cci_i2c_sda3_active {
-				phandle = <0x583>;
+				phandle = <0x582>;
 
 				mux {
 					function = "cci_i2c_sda3";
@@ -5624,7 +5624,7 @@
 			};
 
 			cci_i2c_scl3_suspend {
-				phandle = <0x584>;
+				phandle = <0x583>;
 
 				mux {
 					function = "cci_i2c_scl3";
@@ -5639,7 +5639,7 @@
 			};
 
 			cci_i2c_sda4_active {
-				phandle = <0x587>;
+				phandle = <0x586>;
 
 				mux {
 					function = "cci_i2c_sda4";
@@ -5655,7 +5655,7 @@
 			};
 
 			cci_i2c_sda4_suspend {
-				phandle = <0x589>;
+				phandle = <0x588>;
 
 				mux {
 					function = "cci_i2c_sda4";
@@ -5670,7 +5670,7 @@
 			};
 
 			cci_i2c_scl4_active {
-				phandle = <0x586>;
+				phandle = <0x585>;
 
 				mux {
 					function = "cci_i2c_scl4";
@@ -5686,7 +5686,7 @@
 			};
 
 			cci_i2c_scl4_suspend {
-				phandle = <0x588>;
+				phandle = <0x587>;
 
 				mux {
 					function = "cci_i2c_scl4";
@@ -5701,7 +5701,7 @@
 			};
 
 			cci_i2c_sda5_active {
-				phandle = <0x58b>;
+				phandle = <0x58a>;
 
 				mux {
 					function = "cci_i2c_sda5";
@@ -5717,7 +5717,7 @@
 			};
 
 			cci_i2c_sda5_suspend {
-				phandle = <0x58d>;
+				phandle = <0x58c>;
 
 				mux {
 					function = "cci_i2c_sda5";
@@ -5732,7 +5732,7 @@
 			};
 
 			cci_i2c_scl5_active {
-				phandle = <0x58a>;
+				phandle = <0x589>;
 
 				mux {
 					function = "cci_i2c_scl5";
@@ -5748,7 +5748,7 @@
 			};
 
 			cci_i2c_scl5_suspend {
-				phandle = <0x58c>;
+				phandle = <0x58b>;
 
 				mux {
 					function = "cci_i2c_scl5";
@@ -5763,7 +5763,7 @@
 			};
 
 			cam_sensor_mclk0_active {
-				phandle = <0x5a9>;
+				phandle = <0x5a8>;
 
 				mux {
 					function = "cam_mclk";
@@ -5778,7 +5778,7 @@
 			};
 
 			cam_sensor_mclk0_suspend {
-				phandle = <0x5aa>;
+				phandle = <0x5a9>;
 
 				mux {
 					function = "cam_mclk";
@@ -5793,7 +5793,7 @@
 			};
 
 			cam_sensor_mclk1_active {
-				phandle = <0x5ab>;
+				phandle = <0x5aa>;
 
 				mux {
 					function = "cam_mclk";
@@ -5808,7 +5808,7 @@
 			};
 
 			cam_sensor_mclk1_suspend {
-				phandle = <0x5ac>;
+				phandle = <0x5ab>;
 
 				mux {
 					function = "cam_mclk";
@@ -5823,7 +5823,7 @@
 			};
 
 			cam_sensor_mclk2_active {
-				phandle = <0x5ad>;
+				phandle = <0x5ac>;
 
 				mux {
 					function = "cam_asc_mclk2";
@@ -5838,7 +5838,7 @@
 			};
 
 			cam_sensor_mclk2_suspend {
-				phandle = <0x5ae>;
+				phandle = <0x5ad>;
 
 				mux {
 					function = "cam_asc_mclk2";
@@ -5853,7 +5853,7 @@
 			};
 
 			cam_sensor_mclk3_active {
-				phandle = <0x5af>;
+				phandle = <0x5ae>;
 
 				mux {
 					function = "cam_mclk";
@@ -5868,7 +5868,7 @@
 			};
 
 			cam_sensor_mclk3_suspend {
-				phandle = <0x5b0>;
+				phandle = <0x5af>;
 
 				mux {
 					function = "cam_mclk";
@@ -5883,7 +5883,7 @@
 			};
 
 			cam_sensor_mclk4_active {
-				phandle = <0x5b1>;
+				phandle = <0x5b0>;
 
 				mux {
 					function = "cam_asc_mclk4";
@@ -5898,7 +5898,7 @@
 			};
 
 			cam_sensor_mclk4_suspend {
-				phandle = <0x5b2>;
+				phandle = <0x5b1>;
 
 				mux {
 					function = "cam_asc_mclk4";
@@ -5913,7 +5913,7 @@
 			};
 
 			cam_sensor_mclk5_active {
-				phandle = <0x5b3>;
+				phandle = <0x5b2>;
 
 				mux {
 					function = "cam_mclk";
@@ -5928,7 +5928,7 @@
 			};
 
 			cam_sensor_mclk5_suspend {
-				phandle = <0x5b4>;
+				phandle = <0x5b3>;
 
 				mux {
 					function = "cam_mclk";
@@ -5943,7 +5943,7 @@
 			};
 
 			cam_sensor_mclk6_active {
-				phandle = <0x5b5>;
+				phandle = <0x5b4>;
 
 				mux {
 					function = "cam_mclk";
@@ -5958,7 +5958,7 @@
 			};
 
 			cam_sensor_mclk6_suspend {
-				phandle = <0x5b6>;
+				phandle = <0x5b5>;
 
 				mux {
 					function = "cam_mclk";
@@ -5973,7 +5973,7 @@
 			};
 
 			cam_sensor_mclk7_active {
-				phandle = <0x5b7>;
+				phandle = <0x5b6>;
 
 				mux {
 					function = "cam_mclk";
@@ -5988,7 +5988,7 @@
 			};
 
 			cam_sensor_mclk7_suspend {
-				phandle = <0x5b8>;
+				phandle = <0x5b7>;
 
 				mux {
 					function = "cam_mclk";
@@ -6003,7 +6003,7 @@
 			};
 
 			cam_sensor_active_rst0 {
-				phandle = <0x5b9>;
+				phandle = <0x5b8>;
 
 				mux {
 					function = "gpio";
@@ -6018,7 +6018,7 @@
 			};
 
 			cam_sensor_suspend_rst0 {
-				phandle = <0x5ba>;
+				phandle = <0x5b9>;
 
 				mux {
 					function = "gpio";
@@ -6034,7 +6034,7 @@
 			};
 
 			cam_sensor_active_rst1 {
-				phandle = <0x5bb>;
+				phandle = <0x5ba>;
 
 				mux {
 					function = "gpio";
@@ -6049,7 +6049,7 @@
 			};
 
 			cam_sensor_suspend_rst1 {
-				phandle = <0x5bc>;
+				phandle = <0x5bb>;
 
 				mux {
 					function = "gpio";
@@ -6065,7 +6065,7 @@
 			};
 
 			cam_sensor_active_rst2 {
-				phandle = <0x5bd>;
+				phandle = <0x5bc>;
 
 				mux {
 					function = "gpio";
@@ -6081,7 +6081,7 @@
 			};
 
 			cam_sensor_suspend_rst2 {
-				phandle = <0x5be>;
+				phandle = <0x5bd>;
 
 				mux {
 					function = "gpio";
@@ -6098,7 +6098,7 @@
 			};
 
 			cam_sensor_active_rst3 {
-				phandle = <0x5bf>;
+				phandle = <0x5be>;
 
 				mux {
 					function = "gpio";
@@ -6113,7 +6113,7 @@
 			};
 
 			cam_sensor_suspend_rst3 {
-				phandle = <0x5c0>;
+				phandle = <0x5bf>;
 
 				mux {
 					function = "gpio";
@@ -6129,7 +6129,7 @@
 			};
 
 			cam_sensor_active_rst4 {
-				phandle = <0x5c1>;
+				phandle = <0x5c0>;
 
 				mux {
 					function = "gpio";
@@ -6145,7 +6145,7 @@
 			};
 
 			cam_sensor_suspend_rst4 {
-				phandle = <0x5c2>;
+				phandle = <0x5c1>;
 
 				mux {
 					function = "gpio";
@@ -6162,7 +6162,7 @@
 			};
 
 			cam_sensor_active_rst5 {
-				phandle = <0x5c3>;
+				phandle = <0x5c2>;
 
 				mux {
 					function = "gpio";
@@ -6177,7 +6177,7 @@
 			};
 
 			cam_sensor_suspend_rst5 {
-				phandle = <0x5c4>;
+				phandle = <0x5c3>;
 
 				mux {
 					function = "gpio";
@@ -6193,7 +6193,7 @@
 			};
 
 			cam_sensor_active_rst6 {
-				phandle = <0x5c5>;
+				phandle = <0x5c4>;
 
 				mux {
 					function = "gpio";
@@ -6208,7 +6208,7 @@
 			};
 
 			cam_sensor_suspend_rst6 {
-				phandle = <0x5c6>;
+				phandle = <0x5c5>;
 
 				mux {
 					function = "gpio";
@@ -6224,7 +6224,7 @@
 			};
 
 			cam_sensor_active_rst7 {
-				phandle = <0x5c7>;
+				phandle = <0x5c6>;
 
 				mux {
 					function = "gpio";
@@ -6239,7 +6239,7 @@
 			};
 
 			cam_sensor_suspend_rst7 {
-				phandle = <0x5c8>;
+				phandle = <0x5c7>;
 
 				mux {
 					function = "gpio";
@@ -6255,7 +6255,7 @@
 			};
 
 			cam_sensor_i3cSelect_active {
-				phandle = <0x5c9>;
+				phandle = <0x5c8>;
 
 				mux {
 					function = "gpio";
@@ -6271,7 +6271,7 @@
 			};
 
 			cam_sensor_i3cSelect_suspend {
-				phandle = <0x5ca>;
+				phandle = <0x5c9>;
 
 				mux {
 					function = "gpio";
@@ -6287,7 +6287,7 @@
 			};
 
 			cam_sensor_ponv_rear_active {
-				phandle = <0x5cb>;
+				phandle = <0x5ca>;
 
 				mux {
 					function = "gpio";
@@ -6303,7 +6303,7 @@
 			};
 
 			cam_sensor_ponv_rear_suspend {
-				phandle = <0x5cc>;
+				phandle = <0x5cb>;
 
 				mux {
 					function = "gpio";
@@ -10484,7 +10484,7 @@
 				};
 
 				qcom,gpr {
-					phandle = <0x644>;
+					phandle = <0x645>;
 					reg = <0x02>;
 					qcom,ch-sched-rt;
 					qcom,intents = <0x200 0x14>;
@@ -10503,7 +10503,7 @@
 					};
 
 					q6prm {
-						phandle = <0x645>;
+						phandle = <0x646>;
 						reg = <0x07>;
 						qcom,sleep-api-supported = <0x01>;
 						compatible = "qcom,audio_prm";
@@ -13662,8 +13662,8 @@
 					reg = <0x00>;
 
 					endpoint {
-						phandle = <0x622>;
-						remote-endpoint = <0x623>;
+						phandle = <0x564>;
+						remote-endpoint = <0x565>;
 					};
 				};
 
@@ -13671,8 +13671,8 @@
 					reg = <0x01>;
 
 					endpoint {
-						phandle = <0x621>;
-						remote-endpoint = <0x624>;
+						phandle = <0x563>;
+						remote-endpoint = <0x566>;
 					};
 				};
 			};
@@ -21953,90 +21953,127 @@
 			compatible = "qcom,msm-mmrm\0qcom,sun-mmrm";
 		};
 
-		qcom,vidc@aa00000 {
-			phandle = <0x569>;
-			reset-names = "video_axi1_reset\0video_axi0_reset\0video_mvs0c_freerun_reset\0video_mvs0_freerun_reset";
-			resets = <0x34 0x20 0x34 0x1f 0x55 0x05 0x55 0x02>;
-			memory-region = <0x36a>;
-			interconnect-names = "venus-cnoc\0venus-ddr\0venus-llcc";
-			interconnects = <0x78 0x02 0x79 0x222 0x45 0x03 0x45 0x201 0x5c 0x21 0x78 0x229>;
-			clock-names = "gcc_video_axi1_clk\0gcc_video_axi0_clk\0video_cc_mvs0c_freerun_clk\0video_cc_mvs0_freerun_clk\0video_cc_mvs0c_clk\0video_cc_mvs0_clk\0video_cc_mvs0_clk_src";
-			clocks = <0x34 0xa9 0x34 0xa8 0x55 0x09 0x55 0x05 0x55 0x07 0x55 0x02 0x55 0x03>;
-			power-domain-names = "iris-ctl\0vcodec";
-			power-domains = <0x55 0x01 0x55 0x00>;
-			interrupts = <0x00 0xae 0x04>;
-			reg = <0xaa00000 0xf0000>;
-			#size-cells = <0x01>;
-			#address-cells = <0x01>;
-			status = "okay";
-			compatible = "qcom,sm8750-vidc-v2";
+		qcom,kgsl-iommu@3da0000 {
+			phandle = <0x567>;
+			power-domains = <0x50 0x00>;
+			reg = <0x3da0000 0x40000>;
+			compatible = "qcom,kgsl-smmu-v2";
 
-			iommu_region_partition {
+			gfx3d_user {
 				phandle = <0x568>;
-				iommu-addresses = <0x563 0x00 0x100000 0x563 0xe0000000 0x20000000 0x564 0x00 0x25800000 0x564 0xe0000000 0x20000000 0x565 0x00 0x1000000 0x565 0x25800000 0xda800000 0x566 0x00 0x500000 0x566 0xe0000000 0x20000000 0x567 0x00 0x500000 0x567 0xe0000000 0x20000000>;
+				qcom,iommu-dma = "disabled";
+				iommus = <0x26b 0x00 0x00>;
+				compatible = "qcom,smmu-kgsl-cb";
 			};
 
-			non_secure_pixel_cb {
-				phandle = <0x563>;
-				dma-coherent;
-				qcom,iova-max-align-shift = <0x08>;
-				qcom,iova-best-fit;
-				qcom,iommu-faults = "non-fatal";
-				memory-region = <0x568>;
-				iommus = <0x75 0x1947 0x00>;
-				compatible = "qcom,vidc,cb-ns-pxl";
+			gfx3d_lpac {
+				phandle = <0x569>;
+				qcom,iommu-dma = "disabled";
+				iommus = <0x26b 0x01 0x00>;
+				compatible = "qcom,smmu-kgsl-cb";
 			};
 
-			non_secure_cb {
-				phandle = <0x564>;
-				dma-coherent;
-				qcom,iova-max-align-shift = <0x08>;
-				qcom,iova-best-fit;
-				qcom,iommu-faults = "non-fatal";
-				memory-region = <0x568>;
-				iommus = <0x75 0x1940 0x00>;
-				compatible = "qcom,vidc,cb-ns";
-			};
-
-			secure_non_pixel_cb {
-				phandle = <0x565>;
-				qcom,secure-context-bank;
-				qcom,iova-max-align-shift = <0x08>;
-				qcom,iova-best-fit;
-				qcom,iommu-vmid = <0x0b>;
-				qcom,iommu-faults = "non-fatal";
-				memory-region = <0x568>;
-				iommus = <0x75 0x1944 0x00>;
-				compatible = "qcom,vidc,cb-sec-non-pxl";
-			};
-
-			secure_bitstream_cb {
-				phandle = <0x566>;
-				qcom,secure-context-bank;
-				qcom,iova-max-align-shift = <0x08>;
-				qcom,iova-best-fit;
-				qcom,iommu-vmid = <0x09>;
-				qcom,iommu-faults = "non-fatal";
-				memory-region = <0x568>;
-				iommus = <0x75 0x1941 0x04>;
-				compatible = "qcom,vidc,cb-sec-bitstream";
-			};
-
-			secure_pixel_cb {
-				phandle = <0x567>;
-				qcom,secure-context-bank;
-				qcom,iova-max-align-shift = <0x08>;
-				qcom,iova-best-fit;
-				qcom,iommu-vmid = <0x0a>;
-				qcom,iommu-faults = "non-fatal";
-				memory-region = <0x568>;
-				iommus = <0x75 0x1943 0x00>;
-				compatible = "qcom,vidc,cb-sec-pxl";
+			gfx3d_secure {
+				phandle = <0x56a>;
+				qcom,iommu-dma = "disabled";
+				iommus = <0x26b 0x02 0x00>;
+				compatible = "qcom,smmu-kgsl-cb";
 			};
 		};
 
+		qcom,gmu@3d37000 {
+			phandle = <0x56b>;
+			qcom,qmp = <0x19>;
+			qcom,soccp-controller = <0x465>;
+			qcom,ipc-core = <0x400000 0x140000>;
+			qcom,iommu-dma = "disabled";
+			iommus = <0x26b 0x05 0x00>;
+			qcom,gmu-perf-ddr-bw = <0x5caf6a>;
+			qcom,gmu-freq-table = <0x1dcd6500 0x40 0x26be3680 0x80>;
+			clock-names = "gmu_clk\0cxo_clk\0axi_clk\0memnoc_clk\0ahb_clk\0hub_clk";
+			clocks = <0x50 0x04 0x50 0x06 0x34 0x0d 0x34 0x22 0x50 0x00 0x50 0x14>;
+			power-domain-names = "cx\0gmu_cx\0gx";
+			power-domains = <0x50 0x00 0x50 0x02 0x59 0x00>;
+			interrupt-names = "hfi\0gmu";
+			interrupts = <0x00 0x130 0x04 0x00 0x131 0x04>;
+			reg-names = "gmu\0gmu_ao_blk_dec0";
+			reg = <0x3d37000 0x68000 0x3d40000 0x10000>;
+			compatible = "qcom,gen8-gmu";
+		};
+
+		qcom,gpu-coresight-cx {
+			phandle = <0x56c>;
+			coresight-name = "coresight-gfx-cx";
+			compatible = "qcom,gpu-coresight-cx";
+
+			out-ports {
+
+				port {
+
+					endpoint {
+						phandle = <0x566>;
+						remote-endpoint = <0x563>;
+					};
+				};
+			};
+		};
+
+		qcom,gpu-coresight-gx {
+			phandle = <0x56d>;
+			coresight-name = "coresight-gfx";
+			compatible = "qcom,gpu-coresight-gx";
+
+			out-ports {
+
+				port {
+
+					endpoint {
+						phandle = <0x565>;
+						remote-endpoint = <0x564>;
+					};
+				};
+			};
+		};
+
+		qcom,hw-fence {
+			phandle = <0x56e>;
+			qcom,hw-fence-client-type-ife0-extra = <0x14 0x1c 0x01 0x01>;
+			qcom,hw-fence-client-type-ife0 = <0x01 0x01 0x80 0x01>;
+			qcom,hw-fence-client-type-vpu = <0x01 0x02 0x320 0x00>;
+			qcom,hw-fence-client-type-ipe = <0x01 0x02 0x320 0x00>;
+			qcom,hw-fence-client-type-dpu = <0x06 0x02 0x80 0x01>;
+			qcom,hw-fence-ipc-ver = <0x20a02>;
+			qcom,qtime-reg = <0xc221000 0x1000>;
+			qcom,ipcc-reg = <0x400000 0x140000>;
+			qcom,hw-fence-queue-entries = <0x320>;
+			qcom,hw-fence-table-entries = <0x2000>;
+			soccp_controller = <0x465>;
+			dma-coherent;
+			iommus = <0x75 0x562 0x01>;
+			#interrupt-cells = <0x01>;
+			interrupt-controller;
+			interrupts = <0x00 0x46 0x04>;
+			status = "ok";
+			compatible = "qcom,msm-hw-fence";
+
+			hw_fence@1 {
+				shared-buffer = <0x36e>;
+				qcom,master;
+				compatible = "qcom,msm-hw-fence-mem";
+			};
+		};
+
+		qcom,mmrm-test {
+			phandle = <0x56f>;
+			clock_data = <0x01 0x0a 0x11e1a300 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x2b 0x17d78400 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x01 0x00 0x00 0x01 0x39 0x17d78400 0x1c9c3800 0x23c34600 0x23c34600 0x23c34600 0x01 0x00 0x00 0x01 0x3c 0x17d78400 0x1c9c3800 0x23c34600 0x23c34600 0x23c34600 0x01 0x00 0x00 0x01 0x3f 0x17d78400 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x01 0x00 0x00 0x01 0x45 0x1c4fecc0 0x2245cdc0 0x283baec0 0x312c8040 0x312c8040 0x01 0x00 0x00 0x01 0x4b 0xbebc200 0x17d78400 0x1c9c3800 0x23c34600 0x23c34600 0x01 0x00 0x00 0x01 0x4f 0x1cd94100 0x22eda680 0x29020c00 0x3220a440 0x3220a440 0x01 0x00 0x00 0x01 0x6c 0x1c9c3800 0x258d0980 0x2aad4b00 0x31a69240 0x31a69240 0x01 0x00 0x00 0x01 0x71 0x1c9c3800 0x258d0980 0x2aad4b00 0x31a69240 0x31a69240 0x01 0x00 0x00 0x01 0x76 0x1c9c3800 0x258d0980 0x2aad4b00 0x31a69240 0x31a69240 0x01 0x00 0x00 0x01 0x35 0x11e1a300 0x11e1a300 0x11e1a300 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x69 0x4c4b400 0x4c4b400 0x4c4b400 0x4c4b400 0x4c4b400 0x01 0x00 0x00 0x01 0x14 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x01 0x00 0x00 0x01 0x16 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x01 0x00 0x00 0x01 0x18 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x01 0x00 0x00 0x01 0x1d 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x1f 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x21 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x23 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x25 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x27 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x29 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x1a 0x17d78400 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x0a 0x00 0x00 0x01 0x42 0x17d78400 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x02 0x00 0x00 0x01 0x03 0x47868c00 0x50775d80 0x59682f00 0x62590080 0x62590080 0x01 0x00 0x00 0x01 0x42 0xc5691c0 0x14163640 0x18daea40 0x1fb5ad00 0x2245cdc0 0x01 0x00 0x00 0x01 0x03 0x3c706980 0x4b1a1300 0x4f64b500 0x5f5e1000 0x70a71c80 0x01 0x00 0x00>;
+			clocks = <0x3e 0x0a 0x3e 0x2b 0x3e 0x39 0x3e 0x3c 0x3e 0x3f 0x3e 0x45 0x3e 0x4b 0x3e 0x4f 0x3e 0x6c 0x3e 0x71 0x3e 0x76 0x3e 0x35 0x3e 0x69 0x3e 0x14 0x3e 0x16 0x3e 0x18 0x3e 0x1d 0x3e 0x1f 0x3e 0x21 0x3e 0x23 0x3e 0x25 0x3e 0x27 0x3e 0x29 0x3e 0x1a 0x3e 0x42 0x56 0x03 0x3f 0x42 0x55 0x03>;
+			clock-names = "cam_cc_camnoc_rt_axi_clk_src\0cam_cc_csid_clk_src\0cam_cc_icp_0_clk_src\0cam_cc_icp_1_clk_src\0cam_cc_ife_lite_clk_src\0cam_cc_ipe_nps_clk_src\0cam_cc_jpeg_clk_src\0cam_cc_ofe_clk_src\0cam_cc_tfe_0_clk_src\0cam_cc_tfe_1_clk_src\0cam_cc_tfe_2_clk_src\0cam_cc_fast_ahb_clk_src\0cam_cc_slow_ahb_clk_src\0cam_cc_cci_0_clk_src\0cam_cc_cci_1_clk_src\0cam_cc_cci_2_clk_src\0cam_cc_cre_clk_src\0cam_cc_csi0phytimer_clk_src\0cam_cc_csi1phytimer_clk_src\0cam_cc_csi2phytimer_clk_src\0cam_cc_csi3phytimer_clk_src\0cam_cc_csi4phytimer_clk_src\0cam_cc_csi5phytimer_clk_src\0cam_cc_cphy_rx_clk_src\0cam_cc_ife_lite_csid_clk_src\0eva_cc_mvs0_clk_src\0disp_cc_mdss_mdp_clk_src\0video_cc_mvs0_clk_src";
+			status = "disable";
+			compatible = "qcom,msm-mmrm-test\0qcom,sun-mmrm-test";
+		};
+
 		qcom,ipcc_compute_l0@443000 {
-			phandle = <0x56a>;
+			phandle = <0x570>;
 			#mbox-cells = <0x02>;
 			#interrupt-cells = <0x03>;
 			interrupt-controller;
@@ -22058,307 +22095,195 @@
 			compatible = "qcom,ipclite";
 
 			apss {
-				phandle = <0x56b>;
+				phandle = <0x571>;
 				label = "apss";
 				qcom,remote-pid = <0x00>;
 
 				ipclite_signal_0 {
 					interrupts = <0x08 0x00 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x08 0x00>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x08 0x00>;
 					index = <0x00>;
 				};
 
 				ipclite_signal_1 {
 					interrupts = <0xf000 0x01 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0xf000 0x01>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0xf000 0x01>;
 					index = <0x01>;
 				};
 
 				ipclite_signal_2 {
 					interrupts = <0x08 0x02 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x08 0x02>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x08 0x02>;
 					index = <0x02>;
 				};
 
 				ipclite_signal_3 {
 					interrupts = <0x08 0x03 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x08 0x03>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x08 0x03>;
 					index = <0x03>;
 				};
 
 				ipclite_signal_4 {
 					interrupts = <0x08 0x04 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x08 0x04>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x08 0x04>;
 					index = <0x04>;
 				};
 
 				ipclite_signal_5 {
 					interrupts = <0x08 0x05 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x08 0x05>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x08 0x05>;
 					index = <0x05>;
 				};
 			};
 
 			cdsp {
-				phandle = <0x56c>;
+				phandle = <0x572>;
 				label = "cdsp";
 				qcom,remote-pid = <0x05>;
 
 				ipclite_signal_0 {
 					interrupts = <0x06 0x00 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x06 0x00>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x06 0x00>;
 					index = <0x00>;
 				};
 
 				ipclite_signal_1 {
 					interrupts = <0x06 0x01 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x06 0x01>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x06 0x01>;
 					index = <0x01>;
 				};
 
 				ipclite_signal_2 {
 					interrupts = <0x06 0x02 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x06 0x02>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x06 0x02>;
 					index = <0x02>;
 				};
 
 				ipclite_signal_3 {
 					interrupts = <0x06 0x03 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x06 0x03>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x06 0x03>;
 					index = <0x03>;
 				};
 
 				ipclite_signal_4 {
 					interrupts = <0x06 0x04 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x06 0x04>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x06 0x04>;
 					index = <0x04>;
 				};
 
 				ipclite_signal_5 {
 					interrupts = <0x06 0x05 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x06 0x05>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x06 0x05>;
 					index = <0x05>;
 				};
 			};
 
 			cvp {
-				phandle = <0x56d>;
+				phandle = <0x573>;
 				label = "cvp";
 				qcom,remote-pid = <0x06>;
 
 				ipclite_signal_0 {
 					interrupts = <0x0a 0x00 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0a 0x00>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0a 0x00>;
 					index = <0x00>;
 				};
 
 				ipclite_signal_1 {
 					interrupts = <0x0a 0x01 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0a 0x01>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0a 0x01>;
 					index = <0x01>;
 				};
 
 				ipclite_signal_2 {
 					interrupts = <0x0a 0x02 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0a 0x02>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0a 0x02>;
 					index = <0x02>;
 				};
 
 				ipclite_signal_3 {
 					interrupts = <0x0a 0x03 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0a 0x03>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0a 0x03>;
 					index = <0x03>;
 				};
 
 				ipclite_signal_4 {
 					interrupts = <0x0a 0x04 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0a 0x04>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0a 0x04>;
 					index = <0x04>;
 				};
 
 				ipclite_signal_5 {
 					interrupts = <0x0a 0x05 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0a 0x05>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0a 0x05>;
 					index = <0x05>;
 				};
 			};
 
 			cam {
-				phandle = <0x56e>;
+				phandle = <0x574>;
 				label = "cam";
 				qcom,remote-pid = <0x07>;
 
 				ipclite_signal_0 {
 					interrupts = <0x0b 0x00 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0b 0x00>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0b 0x00>;
 					index = <0x00>;
 				};
 
 				ipclite_signal_1 {
 					interrupts = <0x0b 0x01 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0b 0x01>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0b 0x01>;
 					index = <0x01>;
 				};
 
 				ipclite_signal_2 {
 					interrupts = <0x0b 0x02 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0b 0x02>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0b 0x02>;
 					index = <0x02>;
 				};
 
 				ipclite_signal_3 {
 					interrupts = <0x0b 0x03 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0b 0x03>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0b 0x03>;
 					index = <0x03>;
 				};
 
 				ipclite_signal_4 {
 					interrupts = <0x0b 0x04 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0b 0x04>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0b 0x04>;
 					index = <0x04>;
 				};
 
 				ipclite_signal_5 {
 					interrupts = <0x0b 0x05 0x01>;
-					interrupt-parent = <0x56a>;
-					mboxes = <0x56a 0x0b 0x05>;
+					interrupt-parent = <0x570>;
+					mboxes = <0x570 0x0b 0x05>;
 					index = <0x05>;
 				};
-			};
-		};
-
-		qcom,cvp@ab00000 {
-			phandle = <0x575>;
-			cvp,firmware-name = "evass";
-			aon_mappings = <0xff80f000 0x1000 0xabe0000>;
-			hwmutex_mappings = <0xffb00000 0x2000 0x1f4a000>;
-			aon_timer_mappings = <0xffa00000 0x1000 0xc220000>;
-			ipclite_mappings = <0xfe500000 0x100000 0x82600000>;
-			memory-region = <0x36b>;
-			soc_ver = <0x20000>;
-			pas-id = <0x1a>;
-			qcom,gcc-reg = <0x110000 0x90000>;
-			qcom,ipcc-reg = <0x400000 0x100000>;
-			qcom,reg-presets = <0xb0088 0x00>;
-			reset-power-status = <0x00>;
-			reset-names = "cvp_core_reset";
-			resets = <0x56 0x03>;
-			qcom,allowed-clock-rates = <0x14dc9380 0x17d78400 0x1ad27480 0x1dcd6500 0x20c85580>;
-			qcom,clock-configs = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x01>;
-			qcom,proxy-clock-names = "cvp_axi_clock\0core_axi_clock\0sleep_clk\0cvp_freerun_clk\0core_freerun_clk\0cvp_clk\0core_clk\0eva_cc_mvs0_clk_src";
-			clocks = <0x34 0x13 0x34 0x12 0x56 0x0c 0x56 0x09 0x56 0x05 0x56 0x07 0x56 0x02 0x56 0x03>;
-			clock-ids = <0x13 0x12 0x0c 0x09 0x05 0x07 0x02 0x03>;
-			clock-names = "cvp_axi_clock\0core_axi_clock\0sleep_clk\0cvp_freerun_clk\0core_freerun_clk\0cvp_clk\0core_clk\0eva_cc_mvs0_clk_src";
-			cvp-core-supply = <0x43a>;
-			cvp-supply = <0x5e>;
-			cache-slice-names = "cvpfw\0cvp";
-			interrupts = <0x00 0x5e 0x04 0x00 0x5f 0x04>;
-			reg = <0xab00000 0x100000>;
-			status = "ok";
-			compatible = "qcom,msm-cvp\0qcom,sun-cvp";
-
-			cvp_cnoc {
-				interconnect-names = "eva-cfg";
-				interconnects = <0x78 0x02 0x79 0x209>;
-				qcom,bus-range-kbps = <0x3e8 0x3e8>;
-				qcom,bus-governor = "performance";
-				compatible = "qcom,msm-cvp,bus";
-			};
-
-			cvp_bus_ddr {
-				interconnect-names = "eva-ddr";
-				interconnects = <0x5c 0x20 0x45 0x201>;
-				qcom,bus-range-kbps = <0x3e8 0x63af88>;
-				qcom,bus-governor = "performance";
-				compatible = "qcom,msm-cvp,bus";
-			};
-
-			cvp_camera_cb {
-				qti,smmu-proxy-cb-id = <0x02>;
-				buffer-types = <0xfff>;
-				label = "cvp_camera";
-				compatible = "qcom,msm-cvp,context-bank";
-			};
-
-			cvp_non_secure_cb_group {
-				phandle = <0x573>;
-				qcom,iommu-faults = "non-fatal";
-			};
-
-			cvp_iommu_region_partition {
-				phandle = <0x574>;
-				iommu-addresses = <0x56f 0x00 0x4b000000 0x56f 0xdb000000 0x25000000 0x570 0x00 0x4b000000 0x570 0xdb000000 0x25000000 0x571 0x00 0x1000000 0x571 0x26800000 0xd9800000 0x572 0x00 0x26800000 0x572 0x4b000000 0xb5000000>;
-			};
-
-			cvp_non_secure_cb {
-				phandle = <0x56f>;
-				memory-region = <0x574>;
-				qcom,iommu-group = <0x573>;
-				dma-coherent;
-				buffer-types = <0xfff>;
-				iommus = <0x75 0x1920 0x20>;
-				label = "cvp_hlos";
-				compatible = "qcom,msm-cvp,context-bank";
-			};
-
-			cvp_secure_nonpixel_cb {
-				phandle = <0x571>;
-				qcom,iommu-vmid = <0x0b>;
-				memory-region = <0x574>;
-				qcom,iommu-faults = "non-fatal";
-				buffer-types = <0x741>;
-				iommus = <0x75 0x1924 0x20>;
-				label = "cvp_sec_nonpixel";
-				compatible = "qcom,msm-cvp,context-bank";
-			};
-
-			cvp_secure_pixel_cb {
-				phandle = <0x572>;
-				qcom,iommu-vmid = <0x0a>;
-				memory-region = <0x574>;
-				qcom,iommu-faults = "non-fatal";
-				buffer-types = <0x106>;
-				iommus = <0x75 0x1923 0x00>;
-				label = "cvp_sec_pixel";
-				compatible = "qcom,msm-cvp,context-bank";
-			};
-
-			cvp_dsp_cb {
-				phandle = <0x570>;
-				memory-region = <0x574>;
-				qcom,iommu-group = <0x573>;
-				buffer-types = <0xfff>;
-				iommus = <0x75 0x1920 0x20>;
-				label = "cvp_dsp";
-				compatible = "qcom,msm-cvp,context-bank";
-			};
-
-			qcom,msm-cvp,mem_cdsp {
-				memory-region = <0x371>;
-				compatible = "qcom,msm-cvp,mem-cdsp";
 			};
 		};
 
@@ -22381,7 +22306,7 @@
 		};
 
 		qcom,csiphy0@ada9000 {
-			phandle = <0x5cd>;
+			phandle = <0x5cc>;
 			status = "ok";
 			clock-rates = <0xfe502ab 0x00 0x17d78400 0x00 0x17d78400 0x00 0x17d78400 0x00 0x1c9c3800 0x00 0x17d78400 0x00>;
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -22407,7 +22332,7 @@
 		};
 
 		qcom,csiphy1@adab000 {
-			phandle = <0x5ce>;
+			phandle = <0x5cd>;
 			status = "ok";
 			clock-rates = <0xfe502ab 0x00 0x17d78400 0x00 0x17d78400 0x00 0x17d78400 0x00 0x1c9c3800 0x00 0x17d78400 0x00>;
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -22433,7 +22358,7 @@
 		};
 
 		qcom,csiphy2@adad000 {
-			phandle = <0x5cf>;
+			phandle = <0x5ce>;
 			status = "ok";
 			clock-rates = <0xfe502ab 0x00 0x17d78400 0x00 0x17d78400 0x00 0x17d78400 0x00 0x1c9c3800 0x00 0x17d78400 0x00>;
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -22459,7 +22384,7 @@
 		};
 
 		qcom,csiphy3@adaf000 {
-			phandle = <0x5d0>;
+			phandle = <0x5cf>;
 			status = "ok";
 			clock-rates = <0xfe502ab 0x00 0x17d78400 0x00 0x17d78400 0x00 0x17d78400 0x00 0x1c9c3800 0x00 0x17d78400 0x00>;
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -22485,7 +22410,7 @@
 		};
 
 		qcom,csiphy4@adb1000 {
-			phandle = <0x5d1>;
+			phandle = <0x5d0>;
 			status = "ok";
 			clock-rates = <0xfe502ab 0x00 0x17d78400 0x00 0x17d78400 0x00 0x17d78400 0x00 0x1c9c3800 0x00 0x17d78400 0x00>;
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -22511,7 +22436,7 @@
 		};
 
 		qcom,csiphy5@adb3000 {
-			phandle = <0x5d2>;
+			phandle = <0x5d1>;
 			status = "ok";
 			clock-rates = <0xfe502ab 0x00 0x17d78400 0x00 0x17d78400 0x00 0x17d78400 0x00 0x1c9c3800 0x00 0x17d78400 0x00>;
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -22537,12 +22462,12 @@
 		};
 
 		qcom,cci0@ac7b000 {
-			phandle = <0x5d3>;
+			phandle = <0x5d2>;
 			status = "ok";
-			pinctrl-3 = <0x57c 0x57d>;
-			pinctrl-2 = <0x57a 0x57b>;
-			pinctrl-1 = <0x578 0x579>;
-			pinctrl-0 = <0x576 0x577>;
+			pinctrl-3 = <0x57b 0x57c>;
+			pinctrl-2 = <0x579 0x57a>;
+			pinctrl-1 = <0x577 0x578>;
+			pinctrl-0 = <0x575 0x576>;
 			pinctrl-names = "m0_active\0m0_suspend\0m1_active\0m1_suspend";
 			pctrl-map-names = "m0\0m1";
 			pctrl-idx-mapping = <0x00 0x01>;
@@ -22562,7 +22487,7 @@
 			cell-index = <0x00>;
 
 			qcom,i2c_standard_mode {
-				phandle = <0x5d4>;
+				phandle = <0x5d3>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22578,7 +22503,7 @@
 			};
 
 			qcom,i2c_fast_mode {
-				phandle = <0x5d5>;
+				phandle = <0x5d4>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22594,7 +22519,7 @@
 			};
 
 			qcom,i2c_custom_mode {
-				phandle = <0x5d6>;
+				phandle = <0x5d5>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22610,7 +22535,7 @@
 			};
 
 			qcom,i2c_fast_plus_mode {
-				phandle = <0x5d7>;
+				phandle = <0x5d6>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22627,12 +22552,12 @@
 		};
 
 		qcom,cci1@ac7c000 {
-			phandle = <0x5d8>;
+			phandle = <0x5d7>;
 			status = "ok";
-			pinctrl-3 = <0x584 0x585>;
-			pinctrl-2 = <0x582 0x583>;
-			pinctrl-1 = <0x580 0x581>;
-			pinctrl-0 = <0x57e 0x57f>;
+			pinctrl-3 = <0x583 0x584>;
+			pinctrl-2 = <0x581 0x582>;
+			pinctrl-1 = <0x57f 0x580>;
+			pinctrl-0 = <0x57d 0x57e>;
 			pinctrl-names = "m0_active\0m0_suspend\0m1_active\0m1_suspend";
 			pctrl-map-names = "m0\0m1";
 			pctrl-idx-mapping = <0x00 0x01>;
@@ -22652,7 +22577,7 @@
 			cell-index = <0x01>;
 
 			qcom,i2c_standard_mode {
-				phandle = <0x5d9>;
+				phandle = <0x5d8>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22668,7 +22593,7 @@
 			};
 
 			qcom,i2c_fast_mode {
-				phandle = <0x5da>;
+				phandle = <0x5d9>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22684,7 +22609,7 @@
 			};
 
 			qcom,i2c_custom_mode {
-				phandle = <0x5db>;
+				phandle = <0x5da>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22700,7 +22625,7 @@
 			};
 
 			qcom,i2c_fast_plus_mode {
-				phandle = <0x5dc>;
+				phandle = <0x5db>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22717,12 +22642,12 @@
 		};
 
 		qcom,cci2@ac7d000 {
-			phandle = <0x5dd>;
+			phandle = <0x5dc>;
 			status = "ok";
-			pinctrl-3 = <0x58c 0x58d>;
-			pinctrl-2 = <0x58a 0x58b>;
-			pinctrl-1 = <0x588 0x589>;
-			pinctrl-0 = <0x586 0x587>;
+			pinctrl-3 = <0x58b 0x58c>;
+			pinctrl-2 = <0x589 0x58a>;
+			pinctrl-1 = <0x587 0x588>;
+			pinctrl-0 = <0x585 0x586>;
 			pinctrl-names = "m0_active\0m0_suspend\0m1_active\0m1_suspend";
 			pctrl-map-names = "m0\0m1";
 			pctrl-idx-mapping = <0x00 0x01>;
@@ -22742,7 +22667,7 @@
 			cell-index = <0x02>;
 
 			qcom,i2c_standard_mode {
-				phandle = <0x5de>;
+				phandle = <0x5dd>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22758,7 +22683,7 @@
 			};
 
 			qcom,i2c_fast_mode {
-				phandle = <0x5df>;
+				phandle = <0x5de>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22774,7 +22699,7 @@
 			};
 
 			qcom,i2c_custom_mode {
-				phandle = <0x5e0>;
+				phandle = <0x5df>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22790,7 +22715,7 @@
 			};
 
 			qcom,i2c_fast_plus_mode {
-				phandle = <0x5e1>;
+				phandle = <0x5e0>;
 				status = "ok";
 				cci-clk-src = <0x23c3460>;
 				hw-tsp = <0x03>;
@@ -22816,8 +22741,8 @@
 			compatible = "qcom,msm-cam-smmu\0simple-bus";
 
 			msm_cam_smmu_ife {
-				phandle = <0x58f>;
-				memory-region = <0x58e>;
+				phandle = <0x58e>;
+				memory-region = <0x58d>;
 				multiple-client-devices;
 				cam-smmu-label = "ife";
 				dma-coherent;
@@ -22826,12 +22751,12 @@
 				compatible = "qcom,msm-cam-smmu-cb";
 
 				cam_smmu_ife_resv_region {
-					phandle = <0x58e>;
-					iommu-addresses = <0x58f 0x00 0x00 0x00 0x100000 0x58f 0x0f 0xfff00000 0x00 0x100000>;
+					phandle = <0x58d>;
+					iommu-addresses = <0x58e 0x00 0x00 0x00 0x100000 0x58e 0x0f 0xfff00000 0x00 0x100000>;
 				};
 
 				iova-mem-map {
-					phandle = <0x5e2>;
+					phandle = <0x5e1>;
 
 					iova-mem-region-io {
 						status = "ok";
@@ -22844,8 +22769,8 @@
 			};
 
 			msm_cam_smmu_jpeg {
-				phandle = <0x591>;
-				memory-region = <0x590>;
+				phandle = <0x590>;
+				memory-region = <0x58f>;
 				dma-coherent;
 				qcom,iommu-faults = "stall-disable\0non-fatal";
 				cam-smmu-label = "jpeg";
@@ -22853,12 +22778,12 @@
 				compatible = "qcom,msm-cam-smmu-cb";
 
 				cam_smmu_jpeg_resv_region {
-					phandle = <0x590>;
-					iommu-addresses = <0x591 0x00 0x00 0x00 0x100000 0x591 0x00 0xfff00000 0x0f 0x100000>;
+					phandle = <0x58f>;
+					iommu-addresses = <0x590 0x00 0x00 0x00 0x100000 0x590 0x00 0xfff00000 0x0f 0x100000>;
 				};
 
 				iova-mem-map {
-					phandle = <0x5e3>;
+					phandle = <0x5e2>;
 
 					iova-mem-region-io {
 						status = "ok";
@@ -22871,8 +22796,8 @@
 			};
 
 			msm_cam_smmu_icp {
-				phandle = <0x593>;
-				memory-region = <0x592>;
+				phandle = <0x592>;
+				memory-region = <0x591>;
 				dma-coherent;
 				qcom,iommu-faults = "stall-disable\0non-fatal";
 				multiple-same-region-clients = "icp\0icp1";
@@ -22882,12 +22807,12 @@
 				compatible = "qcom,msm-cam-smmu-cb";
 
 				cam_smmu_icp_resv_region {
-					phandle = <0x592>;
-					iommu-addresses = <0x593 0x00 0x00 0x00 0xf1600000>;
+					phandle = <0x591>;
+					iommu-addresses = <0x592 0x00 0x00 0x00 0xf1600000>;
 				};
 
 				iova-mem-map {
-					phandle = <0x5e4>;
+					phandle = <0x5e3>;
 
 					iova-mem-region-shared1 {
 						status = "ok";
@@ -23014,8 +22939,8 @@
 			};
 
 			msm_cam_smmu_cdm {
-				phandle = <0x595>;
-				memory-region = <0x594>;
+				phandle = <0x594>;
+				memory-region = <0x593>;
 				multiple-client-devices;
 				dma-coherent;
 				qcom,iommu-faults = "stall-disable\0non-fatal";
@@ -23024,12 +22949,12 @@
 				compatible = "qcom,msm-cam-smmu-cb";
 
 				cam_smmu_cdm_resv_region {
-					phandle = <0x594>;
-					iommu-addresses = <0x595 0x00 0x00 0x00 0x100000 0x595 0x00 0xfff00000 0x0f 0x100000>;
+					phandle = <0x593>;
+					iommu-addresses = <0x594 0x00 0x00 0x00 0x100000 0x594 0x00 0xfff00000 0x0f 0x100000>;
 				};
 
 				iova-mem-map {
-					phandle = <0x5e5>;
+					phandle = <0x5e4>;
 
 					iova-mem-region-io {
 						status = "ok";
@@ -23111,7 +23036,7 @@
 					level-index = <0x03>;
 
 					level3-rt-rd-wr-sum {
-						phandle = <0x596>;
+						phandle = <0x595>;
 						rt-axi-port;
 						ib-bw-voting-needed;
 						traffic-merge-type = <0x00>;
@@ -23124,7 +23049,7 @@
 					};
 
 					level3-nrt0-rd-wr-sum {
-						phandle = <0x597>;
+						phandle = <0x596>;
 						traffic-merge-type = <0x00>;
 						node-name = "level3-nrt0-rd-wr-sum";
 						cell-index = <0x01>;
@@ -23135,7 +23060,7 @@
 					};
 
 					level3-nrt1-rd-wr-sum {
-						phandle = <0x598>;
+						phandle = <0x597>;
 						traffic-merge-type = <0x00>;
 						node-name = "level3-nrt1-rd-wr-sum";
 						cell-index = <0x02>;
@@ -23151,42 +23076,42 @@
 					level-index = <0x02>;
 
 					level2-rt-wr {
-						phandle = <0x599>;
+						phandle = <0x598>;
 						traffic-merge-type = <0x01>;
-						parent-node = <0x596>;
+						parent-node = <0x595>;
 						node-name = "level2-rt-wr";
 						cell-index = <0x03>;
 					};
 
 					level2-rt-rd {
-						phandle = <0x59a>;
+						phandle = <0x599>;
 						traffic-merge-type = <0x01>;
-						parent-node = <0x596>;
+						parent-node = <0x595>;
 						node-name = "level2-rt-rd";
 						cell-index = <0x04>;
 					};
 
 					level2-nrt-wr {
-						phandle = <0x59b>;
+						phandle = <0x59a>;
 						traffic-merge-type = <0x01>;
-						parent-node = <0x597>;
+						parent-node = <0x596>;
 						node-name = "level2-nrt-wr";
 						cell-index = <0x05>;
 					};
 
 					level2-nrt-rd {
-						phandle = <0x59c>;
+						phandle = <0x59b>;
 						traffic-merge-type = <0x01>;
-						parent-node = <0x597>;
+						parent-node = <0x596>;
 						node-name = "level2-nrt-rd";
 						cell-index = <0x06>;
 					};
 
 					level2-icp-rd {
-						phandle = <0x5a6>;
+						phandle = <0x5a5>;
 						bus-width-factor = <0x04>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x598>;
+						parent-node = <0x597>;
 						node-name = "level2-icp-rd";
 						cell-index = <0x07>;
 					};
@@ -23197,125 +23122,125 @@
 					level-index = <0x01>;
 
 					level1-rt1-wr {
-						phandle = <0x59d>;
+						phandle = <0x59c>;
 						priority-lut-high-offset = <0x4834>;
 						priority-lut-low-offset = <0x4830>;
 						niu-size = <0x86>;
 						rt-wr-niu;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x599>;
+						parent-node = <0x598>;
 						node-name = " level1-rt1-ife-ubwc-wr";
 						cell-index = <0x08>;
 					};
 
 					level1-rt2-wr {
-						phandle = <0x5a0>;
+						phandle = <0x59f>;
 						priority-lut-high-offset = <0x4a34>;
 						priority-lut-low-offset = <0x4a30>;
 						niu-size = <0x24>;
 						rt-wr-niu;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x599>;
+						parent-node = <0x598>;
 						node-name = "level1-rt2-ife-stats";
 						cell-index = <0x09>;
 					};
 
 					level1-rt3-wr {
-						phandle = <0x59f>;
+						phandle = <0x59e>;
 						priority-lut-high-offset = <0x4c34>;
 						priority-lut-low-offset = <0x4c30>;
 						niu-size = <0x5c>;
 						rt-wr-niu;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x599>;
+						parent-node = <0x598>;
 						node-name = "level1-rt3-ife-pdaf-lite";
 						cell-index = <0x0a>;
 					};
 
 					level1-rt4-wr1 {
-						phandle = <0x59e>;
+						phandle = <0x59d>;
 						priority-lut-high-offset = <0x5234>;
 						priority-lut-low-offset = <0x5230>;
 						niu-size = <0x86>;
 						rt-wr-niu;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x599>;
+						parent-node = <0x598>;
 						node-name = "level1-rt4-ife-rdi-wr";
 						cell-index = <0x0b>;
 					};
 
 					level1-rt3-rd {
-						phandle = <0x5a5>;
+						phandle = <0x5a4>;
 						priority-lut-high-offset = <0x4c34>;
 						priority-lut-low-offset = <0x4c30>;
 						niu-size = <0x5c>;
 						rt-wr-niu;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59a>;
+						parent-node = <0x599>;
 						node-name = "level1-rt3-cdm-rd";
 						cell-index = <0x0c>;
 					};
 
 					level1-nrt2-wr {
-						phandle = <0x5a1>;
+						phandle = <0x5a0>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59b>;
+						parent-node = <0x59a>;
 						node-name = "level1-nrt2-wr";
 						cell-index = <0x0d>;
 					};
 
 					level1-nrt6-wr {
-						phandle = <0x5a2>;
+						phandle = <0x5a1>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59b>;
+						parent-node = <0x59a>;
 						node-name = "level1-nrt6-wr";
 						cell-index = <0x0e>;
 					};
 
 					level1-nrt6-rd {
-						phandle = <0x5a4>;
+						phandle = <0x5a3>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59c>;
+						parent-node = <0x59b>;
 						node-name = "level1-nrt6-rd";
 						cell-index = <0x0f>;
 					};
 
 					level1-nrt0-rd {
-						phandle = <0x5e6>;
+						phandle = <0x5e5>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59c>;
+						parent-node = <0x59b>;
 						node-name = "level1-nrt0-rd";
 						cell-index = <0x10>;
 					};
 
 					level1-nrt5-rd {
-						phandle = <0x5a3>;
+						phandle = <0x5a2>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59c>;
+						parent-node = <0x59b>;
 						node-name = "level1-nrt5-rd";
 						cell-index = <0x11>;
 					};
 
 					level1-nrt4-rd {
-						phandle = <0x5a7>;
+						phandle = <0x5a6>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59c>;
+						parent-node = <0x59b>;
 						node-name = "level1-nrt4-rd";
 						cell-index = <0x12>;
 					};
 
 					level1-nrt3-wr {
-						phandle = <0x5a8>;
+						phandle = <0x5a7>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59c>;
+						parent-node = <0x59b>;
 						node-name = "level1-nrt3-wr";
 						cell-index = <0x13>;
 					};
 
 					level1-nrt9-rd {
-						phandle = <0x5e7>;
+						phandle = <0x5e6>;
 						traffic-merge-type = <0x00>;
-						parent-node = <0x59c>;
+						parent-node = <0x59b>;
 						node-name = "level1-nrt3-wr";
 						cell-index = <0x14>;
 					};
@@ -23325,8 +23250,8 @@
 					level-index = <0x00>;
 
 					ife0-ubwc-wr {
-						phandle = <0x5e8>;
-						parent-node = <0x59d>;
+						phandle = <0x5e7>;
+						parent-node = <0x59c>;
 						drv-voting-index = <0x01>;
 						constituent-paths = <0x0a 0x0b 0x0f>;
 						traffic-transaction-type = <0x01>;
@@ -23337,8 +23262,8 @@
 					};
 
 					ife1-ubwc-wr {
-						phandle = <0x5e9>;
-						parent-node = <0x59d>;
+						phandle = <0x5e8>;
+						parent-node = <0x59c>;
 						drv-voting-index = <0x02>;
 						constituent-paths = <0x0a 0x0b 0x0f>;
 						traffic-transaction-type = <0x01>;
@@ -23349,8 +23274,8 @@
 					};
 
 					ife2-ubwc-wr {
-						phandle = <0x5ea>;
-						parent-node = <0x59e>;
+						phandle = <0x5e9>;
+						parent-node = <0x59d>;
 						drv-voting-index = <0x03>;
 						constituent-paths = <0x0a 0x0b 0x0f>;
 						traffic-transaction-type = <0x01>;
@@ -23361,8 +23286,8 @@
 					};
 
 					ife0-rdi-pixel-raw-wr {
-						phandle = <0x5eb>;
-						parent-node = <0x59e>;
+						phandle = <0x5ea>;
+						parent-node = <0x59d>;
 						drv-voting-index = <0x01>;
 						constituent-paths = <0x04 0x05 0x06 0x07 0x0e 0x0c 0x0d 0x12>;
 						traffic-transaction-type = <0x01>;
@@ -23373,8 +23298,8 @@
 					};
 
 					ife1-rdi-pixel-raw-wr {
-						phandle = <0x5ec>;
-						parent-node = <0x59e>;
+						phandle = <0x5eb>;
+						parent-node = <0x59d>;
 						drv-voting-index = <0x02>;
 						constituent-paths = <0x04 0x05 0x06 0x07 0x0e 0x0c 0x0d 0x12>;
 						traffic-transaction-type = <0x01>;
@@ -23385,8 +23310,8 @@
 					};
 
 					ife2-rdi-pixel-raw-wr {
-						phandle = <0x5ed>;
-						parent-node = <0x59d>;
+						phandle = <0x5ec>;
+						parent-node = <0x59c>;
 						drv-voting-index = <0x03>;
 						constituent-paths = <0x04 0x05 0x06 0x07 0x0e 0x0c 0x0d 0x12>;
 						traffic-transaction-type = <0x01>;
@@ -23397,8 +23322,8 @@
 					};
 
 					ife0-pdaf-linear-wr {
-						phandle = <0x5ee>;
-						parent-node = <0x59f>;
+						phandle = <0x5ed>;
+						parent-node = <0x59e>;
 						drv-voting-index = <0x01>;
 						constituent-paths = <0x08 0x10 0x11 0x13>;
 						traffic-transaction-type = <0x01>;
@@ -23409,8 +23334,8 @@
 					};
 
 					ife1-pdaf-linear-wr {
-						phandle = <0x5ef>;
-						parent-node = <0x59f>;
+						phandle = <0x5ee>;
+						parent-node = <0x59e>;
 						drv-voting-index = <0x02>;
 						constituent-paths = <0x08 0x10 0x11 0x13>;
 						traffic-transaction-type = <0x01>;
@@ -23421,8 +23346,8 @@
 					};
 
 					ife2-pdaf-linear-wr {
-						phandle = <0x5f0>;
-						parent-node = <0x59f>;
+						phandle = <0x5ef>;
+						parent-node = <0x59e>;
 						drv-voting-index = <0x03>;
 						constituent-paths = <0x08 0x10 0x11 0x13>;
 						traffic-transaction-type = <0x01>;
@@ -23433,8 +23358,8 @@
 					};
 
 					ife4-rdi-stats-pixel-raw-wr {
-						phandle = <0x5f1>;
-						parent-node = <0x59f>;
+						phandle = <0x5f0>;
+						parent-node = <0x59e>;
 						constituent-paths = <0x04 0x05 0x06 0x07 0x03>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
@@ -23444,8 +23369,8 @@
 					};
 
 					ife3-rdi-stats-pixel-raw-wr {
-						phandle = <0x5f2>;
-						parent-node = <0x59f>;
+						phandle = <0x5f1>;
+						parent-node = <0x59e>;
 						constituent-paths = <0x04 0x05 0x06 0x07 0x03>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
@@ -23455,8 +23380,8 @@
 					};
 
 					ife0-stats-wr {
-						phandle = <0x5f3>;
-						parent-node = <0x5a0>;
+						phandle = <0x5f2>;
+						parent-node = <0x59f>;
 						drv-voting-index = <0x01>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x03>;
@@ -23466,8 +23391,8 @@
 					};
 
 					ife1-stats-wr {
-						phandle = <0x5f4>;
-						parent-node = <0x5a0>;
+						phandle = <0x5f3>;
+						parent-node = <0x59f>;
 						drv-voting-index = <0x02>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x03>;
@@ -23477,8 +23402,8 @@
 					};
 
 					ife2-stats-wr {
-						phandle = <0x5f5>;
-						parent-node = <0x5a0>;
+						phandle = <0x5f4>;
+						parent-node = <0x59f>;
 						drv-voting-index = <0x03>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x03>;
@@ -23488,8 +23413,8 @@
 					};
 
 					ipe0-all-wr {
-						phandle = <0x5f6>;
-						parent-node = <0x59b>;
+						phandle = <0x5f5>;
+						parent-node = <0x59a>;
 						constituent-paths = <0x22 0x23 0x24 0x25>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
@@ -23499,8 +23424,8 @@
 					};
 
 					cre0-all-wr {
-						phandle = <0x5f7>;
-						parent-node = <0x5a1>;
+						phandle = <0x5f6>;
+						parent-node = <0x5a0>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
 						client-name = "cre0";
@@ -23509,8 +23434,8 @@
 					};
 
 					jpeg-enc0-all-wr {
-						phandle = <0x5f8>;
-						parent-node = <0x5a2>;
+						phandle = <0x5f7>;
+						parent-node = <0x5a1>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
 						client-name = "jpeg-enc0";
@@ -23519,8 +23444,8 @@
 					};
 
 					jpeg-dma0-all-wr {
-						phandle = <0x5f9>;
-						parent-node = <0x5a2>;
+						phandle = <0x5f8>;
+						parent-node = <0x5a1>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
 						client-name = "jpeg-dma0";
@@ -23529,8 +23454,8 @@
 					};
 
 					jpeg-enc1-all-wr {
-						phandle = <0x5fa>;
-						parent-node = <0x5a2>;
+						phandle = <0x5f9>;
+						parent-node = <0x5a1>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
 						client-name = "jpeg-enc1";
@@ -23539,8 +23464,8 @@
 					};
 
 					jpeg-dma1-all-wr {
-						phandle = <0x5fb>;
-						parent-node = <0x5a2>;
+						phandle = <0x5fa>;
+						parent-node = <0x5a1>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
 						client-name = "jpeg-dma1";
@@ -23549,8 +23474,8 @@
 					};
 
 					cre0-all-rd {
-						phandle = <0x5fc>;
-						parent-node = <0x5a3>;
+						phandle = <0x5fb>;
+						parent-node = <0x5a2>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "cre0";
@@ -23559,8 +23484,8 @@
 					};
 
 					jpeg0-enc0-all-rd {
-						phandle = <0x5fd>;
-						parent-node = <0x5a4>;
+						phandle = <0x5fc>;
+						parent-node = <0x5a3>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "jpeg-enc0";
@@ -23569,8 +23494,8 @@
 					};
 
 					jpeg0-dma0-all-rd {
-						phandle = <0x5fe>;
-						parent-node = <0x5a4>;
+						phandle = <0x5fd>;
+						parent-node = <0x5a3>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "jpeg-dma0";
@@ -23579,8 +23504,8 @@
 					};
 
 					jpeg1-enc1-all-rd {
-						phandle = <0x5ff>;
-						parent-node = <0x5a4>;
+						phandle = <0x5fe>;
+						parent-node = <0x5a3>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "jpeg-enc1";
@@ -23589,8 +23514,8 @@
 					};
 
 					jpeg1-dma1-all-rd {
-						phandle = <0x600>;
-						parent-node = <0x5a4>;
+						phandle = <0x5ff>;
+						parent-node = <0x5a3>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "jpeg-dma1";
@@ -23599,8 +23524,8 @@
 					};
 
 					ipe0-ref-rd {
-						phandle = <0x601>;
-						parent-node = <0x59c>;
+						phandle = <0x600>;
+						parent-node = <0x59b>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x21>;
 						client-name = "ipe0";
@@ -23609,8 +23534,8 @@
 					};
 
 					ipe0-in-rd {
-						phandle = <0x602>;
-						parent-node = <0x59c>;
+						phandle = <0x601>;
+						parent-node = <0x59b>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x20>;
 						client-name = "ipe0";
@@ -23619,8 +23544,8 @@
 					};
 
 					rt-cdm0-all-rd {
-						phandle = <0x603>;
-						parent-node = <0x5a5>;
+						phandle = <0x602>;
+						parent-node = <0x5a4>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "rt-cdm0";
@@ -23629,8 +23554,8 @@
 					};
 
 					rt-cdm1-all-rd {
-						phandle = <0x604>;
-						parent-node = <0x5a5>;
+						phandle = <0x603>;
+						parent-node = <0x5a4>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "rt-cdm1";
@@ -23639,8 +23564,8 @@
 					};
 
 					rt-cdm2-all-rd {
-						phandle = <0x605>;
-						parent-node = <0x5a5>;
+						phandle = <0x604>;
+						parent-node = <0x5a4>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "rt-cdm2";
@@ -23649,8 +23574,8 @@
 					};
 
 					rt-cdm3-all-rd {
-						phandle = <0x606>;
-						parent-node = <0x5a5>;
+						phandle = <0x605>;
+						parent-node = <0x5a4>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "rt-cdm3";
@@ -23659,8 +23584,8 @@
 					};
 
 					rt-cdm4-all-rd {
-						phandle = <0x607>;
-						parent-node = <0x5a5>;
+						phandle = <0x606>;
+						parent-node = <0x5a4>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "rt-cdm4";
@@ -23669,8 +23594,8 @@
 					};
 
 					icp0-all-rd {
-						phandle = <0x608>;
-						parent-node = <0x5a6>;
+						phandle = <0x607>;
+						parent-node = <0x5a5>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "icp0";
@@ -23679,8 +23604,8 @@
 					};
 
 					icp1-all-rd {
-						phandle = <0x609>;
-						parent-node = <0x5a6>;
+						phandle = <0x608>;
+						parent-node = <0x5a5>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
 						client-name = "icp1";
@@ -23689,8 +23614,8 @@
 					};
 
 					ofe0-linear-wr {
-						phandle = <0x60a>;
-						parent-node = <0x5a1>;
+						phandle = <0x609>;
+						parent-node = <0x5a0>;
 						constituent-paths = <0xa7 0xa8 0xa9 0xaa 0xab>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
@@ -23700,8 +23625,8 @@
 					};
 
 					ofe0-in-rd {
-						phandle = <0x60b>;
-						parent-node = <0x5a7>;
+						phandle = <0x60a>;
+						parent-node = <0x5a6>;
 						constituent-paths = <0xa0 0xa1 0xa2>;
 						traffic-transaction-type = <0x00>;
 						traffic-data = <0x100>;
@@ -23711,8 +23636,8 @@
 					};
 
 					ofe0-ubwc-wr {
-						phandle = <0x60c>;
-						parent-node = <0x5a8>;
+						phandle = <0x60b>;
+						parent-node = <0x5a7>;
 						constituent-paths = <0xa3 0xa4 0xa5 0xa6>;
 						traffic-transaction-type = <0x01>;
 						traffic-data = <0x100>;
@@ -23865,7 +23790,7 @@
 		};
 
 		qcom,csid0@ad26000 {
-			phandle = <0x60d>;
+			phandle = <0x60c>;
 			status = "ok";
 			clock-control-debugfs = "true";
 			src-clock-name = "csid_clk_src";
@@ -23887,7 +23812,7 @@
 		};
 
 		qcom,ife0@ac86000 {
-			phandle = <0x60e>;
+			phandle = <0x60d>;
 			status = "ok";
 			cam_hw_pid = <0x08 0x0d 0x10 0x04>;
 			ubwc-static-cfg = <0x1026 0x1036>;
@@ -23911,7 +23836,7 @@
 		};
 
 		qcom,csid1@ad29000 {
-			phandle = <0x60f>;
+			phandle = <0x60e>;
 			status = "ok";
 			clock-control-debugfs = "true";
 			src-clock-name = "csid_clk_src";
@@ -23933,7 +23858,7 @@
 		};
 
 		qcom,ife1@ac96000 {
-			phandle = <0x610>;
+			phandle = <0x60f>;
 			status = "ok";
 			cam_hw_pid = <0x09 0x0e 0x11 0x05>;
 			ubwc-static-cfg = <0x1026 0x1036>;
@@ -23957,7 +23882,7 @@
 		};
 
 		qcom,csid2@ad2c000 {
-			phandle = <0x611>;
+			phandle = <0x610>;
 			status = "ok";
 			clock-control-debugfs = "true";
 			src-clock-name = "csid_clk_src";
@@ -23979,7 +23904,7 @@
 		};
 
 		qcom,ife2@aca6000 {
-			phandle = <0x612>;
+			phandle = <0x611>;
 			status = "ok";
 			cam_hw_pid = <0x0a 0x0c 0x12 0x06>;
 			ubwc-static-cfg = <0x1026 0x1036>;
@@ -24003,7 +23928,7 @@
 		};
 
 		qcom,csid-lite0@ad6c000 {
-			phandle = <0x613>;
+			phandle = <0x612>;
 			status = "ok";
 			clock-control-debugfs = "true";
 			src-clock-name = "ife_lite_csid_clk_src";
@@ -24025,7 +23950,7 @@
 		};
 
 		qcom,ife-lite0@ad6c000 {
-			phandle = <0x614>;
+			phandle = <0x613>;
 			status = "ok";
 			cam_hw_pid = <0x13>;
 			clock-control-debugfs = "true";
@@ -24048,7 +23973,7 @@
 		};
 
 		qcom,csid-lite1@ad71000 {
-			phandle = <0x615>;
+			phandle = <0x614>;
 			status = "ok";
 			clock-control-debugfs = "true";
 			src-clock-name = "ife_lite_csid_clk_src";
@@ -24070,7 +23995,7 @@
 		};
 
 		qcom,ife-lite1@ad71000 {
-			phandle = <0x616>;
+			phandle = <0x615>;
 			status = "ok";
 			cam_hw_pid = <0x14>;
 			clock-control-debugfs = "true";
@@ -24093,7 +24018,7 @@
 		};
 
 		qcom,tpg13@ad8b000 {
-			phandle = <0x617>;
+			phandle = <0x616>;
 			status = "ok";
 			src-clock-name = "cphy_rx_clk_src";
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -24114,7 +24039,7 @@
 		};
 
 		qcom,tpg14@ad8c000 {
-			phandle = <0x618>;
+			phandle = <0x617>;
 			status = "ok";
 			src-clock-name = "cphy_rx_clk_src";
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -24135,7 +24060,7 @@
 		};
 
 		qcom,tpg15@ad8d000 {
-			phandle = <0x619>;
+			phandle = <0x618>;
 			status = "ok";
 			src-clock-name = "cphy_rx_clk_src";
 			clock-cntl-level = "lowsvsd1\0lowsvs\0nominal";
@@ -24181,7 +24106,7 @@
 		};
 
 		qcom,icp0@ac05000 {
-			phandle = <0x61a>;
+			phandle = <0x619>;
 			status = "ok";
 			cam_hw_pid = <0x0b>;
 			fw-pas-id = <0x21>;
@@ -24210,7 +24135,7 @@
 		};
 
 		qcom,icp1@ac150000 {
-			phandle = <0x61b>;
+			phandle = <0x61a>;
 			status = "ok";
 			cam_hw_pid = <0x0a>;
 			fw-pas-id = <0x32>;
@@ -24239,7 +24164,7 @@
 		};
 
 		qcom,ipe0@ac42000 {
-			phandle = <0x61c>;
+			phandle = <0x61b>;
 			status = "ok";
 			cam_hw_pid = <0x0f 0x0e 0x1a 0x1b>;
 			clock-control-debugfs = "true";
@@ -24259,7 +24184,7 @@
 		};
 
 		qcom,ofe@ac2a000 {
-			phandle = <0x61d>;
+			phandle = <0x61c>;
 			status = "ok";
 			cam_hw_pid = <0x0d 0x1c 0x06>;
 			clock-control-debugfs = "true";
@@ -24287,7 +24212,7 @@
 		};
 
 		qcom,jpegenc0@ac25000 {
-			phandle = <0x61e>;
+			phandle = <0x61d>;
 			status = "ok";
 			cam_hw_wr_mid = <0x01>;
 			cam_hw_rd_mid = <0x00>;
@@ -24311,7 +24236,7 @@
 		};
 
 		qcom,jpegdma0@ac26000 {
-			phandle = <0x61f>;
+			phandle = <0x61e>;
 			status = "ok";
 			cam_hw_wr_mid = <0x01>;
 			cam_hw_rd_mid = <0x00>;
@@ -24334,150 +24259,253 @@
 			cell-index = <0x00>;
 		};
 
-		qcom,mmrm-test {
-			phandle = <0x620>;
-			clock_data = <0x01 0x0a 0x11e1a300 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x2b 0x17d78400 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x01 0x00 0x00 0x01 0x39 0x17d78400 0x1c9c3800 0x23c34600 0x23c34600 0x23c34600 0x01 0x00 0x00 0x01 0x3c 0x17d78400 0x1c9c3800 0x23c34600 0x23c34600 0x23c34600 0x01 0x00 0x00 0x01 0x3f 0x17d78400 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x01 0x00 0x00 0x01 0x45 0x1c4fecc0 0x2245cdc0 0x283baec0 0x312c8040 0x312c8040 0x01 0x00 0x00 0x01 0x4b 0xbebc200 0x17d78400 0x1c9c3800 0x23c34600 0x23c34600 0x01 0x00 0x00 0x01 0x4f 0x1cd94100 0x22eda680 0x29020c00 0x3220a440 0x3220a440 0x01 0x00 0x00 0x01 0x6c 0x1c9c3800 0x258d0980 0x2aad4b00 0x31a69240 0x31a69240 0x01 0x00 0x00 0x01 0x71 0x1c9c3800 0x258d0980 0x2aad4b00 0x31a69240 0x31a69240 0x01 0x00 0x00 0x01 0x76 0x1c9c3800 0x258d0980 0x2aad4b00 0x31a69240 0x31a69240 0x01 0x00 0x00 0x01 0x35 0x11e1a300 0x11e1a300 0x11e1a300 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x69 0x4c4b400 0x4c4b400 0x4c4b400 0x4c4b400 0x4c4b400 0x01 0x00 0x00 0x01 0x14 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x01 0x00 0x00 0x01 0x16 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x01 0x00 0x00 0x01 0x18 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x23c3460 0x01 0x00 0x00 0x01 0x1d 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x1f 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x21 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x23 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x25 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x27 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x29 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x17d78400 0x01 0x00 0x00 0x01 0x1a 0x17d78400 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x0a 0x00 0x00 0x01 0x42 0x17d78400 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x1c9c3800 0x02 0x00 0x00 0x01 0x03 0x47868c00 0x50775d80 0x59682f00 0x62590080 0x62590080 0x01 0x00 0x00 0x01 0x42 0xc5691c0 0x14163640 0x18daea40 0x1fb5ad00 0x2245cdc0 0x01 0x00 0x00 0x01 0x03 0x3c706980 0x4b1a1300 0x4f64b500 0x5f5e1000 0x70a71c80 0x01 0x00 0x00>;
-			clocks = <0x3e 0x0a 0x3e 0x2b 0x3e 0x39 0x3e 0x3c 0x3e 0x3f 0x3e 0x45 0x3e 0x4b 0x3e 0x4f 0x3e 0x6c 0x3e 0x71 0x3e 0x76 0x3e 0x35 0x3e 0x69 0x3e 0x14 0x3e 0x16 0x3e 0x18 0x3e 0x1d 0x3e 0x1f 0x3e 0x21 0x3e 0x23 0x3e 0x25 0x3e 0x27 0x3e 0x29 0x3e 0x1a 0x3e 0x42 0x56 0x03 0x3f 0x42 0x55 0x03>;
-			clock-names = "cam_cc_camnoc_rt_axi_clk_src\0cam_cc_csid_clk_src\0cam_cc_icp_0_clk_src\0cam_cc_icp_1_clk_src\0cam_cc_ife_lite_clk_src\0cam_cc_ipe_nps_clk_src\0cam_cc_jpeg_clk_src\0cam_cc_ofe_clk_src\0cam_cc_tfe_0_clk_src\0cam_cc_tfe_1_clk_src\0cam_cc_tfe_2_clk_src\0cam_cc_fast_ahb_clk_src\0cam_cc_slow_ahb_clk_src\0cam_cc_cci_0_clk_src\0cam_cc_cci_1_clk_src\0cam_cc_cci_2_clk_src\0cam_cc_cre_clk_src\0cam_cc_csi0phytimer_clk_src\0cam_cc_csi1phytimer_clk_src\0cam_cc_csi2phytimer_clk_src\0cam_cc_csi3phytimer_clk_src\0cam_cc_csi4phytimer_clk_src\0cam_cc_csi5phytimer_clk_src\0cam_cc_cphy_rx_clk_src\0cam_cc_ife_lite_csid_clk_src\0eva_cc_mvs0_clk_src\0disp_cc_mdss_mdp_clk_src\0video_cc_mvs0_clk_src";
-			status = "disable";
-			compatible = "qcom,msm-mmrm-test\0qcom,sun-mmrm-test";
-		};
-
-		qcom,kgsl-iommu@3da0000 {
+		qcom,cvp@ab00000 {
 			phandle = <0x625>;
-			power-domains = <0x50 0x00>;
-			reg = <0x3da0000 0x40000>;
-			compatible = "qcom,kgsl-smmu-v2";
+			cvp,firmware-name = "evass";
+			aon_mappings = <0xff80f000 0x1000 0xabe0000>;
+			hwmutex_mappings = <0xffb00000 0x2000 0x1f4a000>;
+			aon_timer_mappings = <0xffa00000 0x1000 0xc220000>;
+			ipclite_mappings = <0xfe500000 0x100000 0x82600000>;
+			memory-region = <0x36b>;
+			soc_ver = <0x20000>;
+			pas-id = <0x1a>;
+			qcom,gcc-reg = <0x110000 0x90000>;
+			qcom,ipcc-reg = <0x400000 0x100000>;
+			qcom,reg-presets = <0xb0088 0x00>;
+			reset-power-status = <0x00>;
+			reset-names = "cvp_core_reset";
+			resets = <0x56 0x03>;
+			qcom,allowed-clock-rates = <0x14dc9380 0x17d78400 0x1ad27480 0x1dcd6500 0x20c85580>;
+			qcom,clock-configs = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x01>;
+			qcom,proxy-clock-names = "cvp_axi_clock\0core_axi_clock\0sleep_clk\0cvp_freerun_clk\0core_freerun_clk\0cvp_clk\0core_clk\0eva_cc_mvs0_clk_src";
+			clocks = <0x34 0x13 0x34 0x12 0x56 0x0c 0x56 0x09 0x56 0x05 0x56 0x07 0x56 0x02 0x56 0x03>;
+			clock-ids = <0x13 0x12 0x0c 0x09 0x05 0x07 0x02 0x03>;
+			clock-names = "cvp_axi_clock\0core_axi_clock\0sleep_clk\0cvp_freerun_clk\0core_freerun_clk\0cvp_clk\0core_clk\0eva_cc_mvs0_clk_src";
+			cvp-core-supply = <0x43a>;
+			cvp-supply = <0x5e>;
+			cache-slice-names = "cvpfw\0cvp";
+			interrupts = <0x00 0x5e 0x04 0x00 0x5f 0x04>;
+			reg = <0xab00000 0x100000>;
+			status = "ok";
+			compatible = "qcom,msm-cvp\0qcom,sun-cvp";
 
-			gfx3d_user {
+			cvp_cnoc {
+				interconnect-names = "eva-cfg";
+				interconnects = <0x78 0x02 0x79 0x209>;
+				qcom,bus-range-kbps = <0x3e8 0x3e8>;
+				qcom,bus-governor = "performance";
+				compatible = "qcom,msm-cvp,bus";
+			};
+
+			cvp_bus_ddr {
+				interconnect-names = "eva-ddr";
+				interconnects = <0x5c 0x20 0x45 0x201>;
+				qcom,bus-range-kbps = <0x3e8 0x63af88>;
+				qcom,bus-governor = "performance";
+				compatible = "qcom,msm-cvp,bus";
+			};
+
+			cvp_camera_cb {
+				qti,smmu-proxy-cb-id = <0x02>;
+				buffer-types = <0xfff>;
+				label = "cvp_camera";
+				compatible = "qcom,msm-cvp,context-bank";
+			};
+
+			cvp_non_secure_cb_group {
+				phandle = <0x623>;
+				qcom,iommu-faults = "non-fatal";
+			};
+
+			cvp_iommu_region_partition {
+				phandle = <0x624>;
+				iommu-addresses = <0x61f 0x00 0x4b000000 0x61f 0xdb000000 0x25000000 0x620 0x00 0x4b000000 0x620 0xdb000000 0x25000000 0x621 0x00 0x1000000 0x621 0x26800000 0xd9800000 0x622 0x00 0x26800000 0x622 0x4b000000 0xb5000000>;
+			};
+
+			cvp_non_secure_cb {
+				phandle = <0x61f>;
+				memory-region = <0x624>;
+				qcom,iommu-group = <0x623>;
+				dma-coherent;
+				buffer-types = <0xfff>;
+				iommus = <0x75 0x1920 0x20>;
+				label = "cvp_hlos";
+				compatible = "qcom,msm-cvp,context-bank";
+			};
+
+			cvp_secure_nonpixel_cb {
+				phandle = <0x621>;
+				qcom,iommu-vmid = <0x0b>;
+				memory-region = <0x624>;
+				qcom,iommu-faults = "non-fatal";
+				buffer-types = <0x741>;
+				iommus = <0x75 0x1924 0x20>;
+				label = "cvp_sec_nonpixel";
+				compatible = "qcom,msm-cvp,context-bank";
+			};
+
+			cvp_secure_pixel_cb {
+				phandle = <0x622>;
+				qcom,iommu-vmid = <0x0a>;
+				memory-region = <0x624>;
+				qcom,iommu-faults = "non-fatal";
+				buffer-types = <0x106>;
+				iommus = <0x75 0x1923 0x00>;
+				label = "cvp_sec_pixel";
+				compatible = "qcom,msm-cvp,context-bank";
+			};
+
+			cvp_dsp_cb {
+				phandle = <0x620>;
+				memory-region = <0x624>;
+				qcom,iommu-group = <0x623>;
+				buffer-types = <0xfff>;
+				iommus = <0x75 0x1920 0x20>;
+				label = "cvp_dsp";
+				compatible = "qcom,msm-cvp,context-bank";
+			};
+
+			qcom,msm-cvp,mem_cdsp {
+				memory-region = <0x371>;
+				compatible = "qcom,msm-cvp,mem-cdsp";
+			};
+		};
+
+		qcom,vidc@aa00000 {
+			phandle = <0x62c>;
+			reset-names = "video_axi1_reset\0video_axi0_reset\0video_mvs0c_freerun_reset\0video_mvs0_freerun_reset";
+			resets = <0x34 0x20 0x34 0x1f 0x55 0x05 0x55 0x02>;
+			memory-region = <0x36a>;
+			interconnect-names = "venus-cnoc\0venus-ddr\0venus-llcc";
+			interconnects = <0x78 0x02 0x79 0x222 0x45 0x03 0x45 0x201 0x5c 0x21 0x78 0x229>;
+			clock-names = "gcc_video_axi1_clk\0gcc_video_axi0_clk\0video_cc_mvs0c_freerun_clk\0video_cc_mvs0_freerun_clk\0video_cc_mvs0c_clk\0video_cc_mvs0_clk\0video_cc_mvs0_clk_src";
+			clocks = <0x34 0xa9 0x34 0xa8 0x55 0x09 0x55 0x05 0x55 0x07 0x55 0x02 0x55 0x03>;
+			power-domain-names = "iris-ctl\0vcodec";
+			power-domains = <0x55 0x01 0x55 0x00>;
+			interrupts = <0x00 0xae 0x04>;
+			reg = <0xaa00000 0xf0000>;
+			#size-cells = <0x01>;
+			#address-cells = <0x01>;
+			status = "okay";
+			compatible = "qcom,sm8750-vidc-v2";
+
+			iommu_region_partition {
+				phandle = <0x62b>;
+				iommu-addresses = <0x626 0x00 0x100000 0x626 0xe0000000 0x20000000 0x627 0x00 0x25800000 0x627 0xe0000000 0x20000000 0x628 0x00 0x1000000 0x628 0x25800000 0xda800000 0x629 0x00 0x500000 0x629 0xe0000000 0x20000000 0x62a 0x00 0x500000 0x62a 0xe0000000 0x20000000>;
+			};
+
+			non_secure_pixel_cb {
 				phandle = <0x626>;
-				qcom,iommu-dma = "disabled";
-				iommus = <0x26b 0x00 0x00>;
-				compatible = "qcom,smmu-kgsl-cb";
+				dma-coherent;
+				qcom,iova-max-align-shift = <0x08>;
+				qcom,iova-best-fit;
+				qcom,iommu-faults = "non-fatal";
+				memory-region = <0x62b>;
+				iommus = <0x75 0x1947 0x00>;
+				compatible = "qcom,vidc,cb-ns-pxl";
 			};
 
-			gfx3d_lpac {
+			non_secure_cb {
 				phandle = <0x627>;
-				qcom,iommu-dma = "disabled";
-				iommus = <0x26b 0x01 0x00>;
-				compatible = "qcom,smmu-kgsl-cb";
+				dma-coherent;
+				qcom,iova-max-align-shift = <0x08>;
+				qcom,iova-best-fit;
+				qcom,iommu-faults = "non-fatal";
+				memory-region = <0x62b>;
+				iommus = <0x75 0x1940 0x00>;
+				compatible = "qcom,vidc,cb-ns";
 			};
 
-			gfx3d_secure {
+			secure_non_pixel_cb {
 				phandle = <0x628>;
-				qcom,iommu-dma = "disabled";
-				iommus = <0x26b 0x02 0x00>;
-				compatible = "qcom,smmu-kgsl-cb";
+				qcom,secure-context-bank;
+				qcom,iova-max-align-shift = <0x08>;
+				qcom,iova-best-fit;
+				qcom,iommu-vmid = <0x0b>;
+				qcom,iommu-faults = "non-fatal";
+				memory-region = <0x62b>;
+				iommus = <0x75 0x1944 0x00>;
+				compatible = "qcom,vidc,cb-sec-non-pxl";
 			};
-		};
 
-		qcom,gmu@3d37000 {
-			phandle = <0x629>;
-			qcom,qmp = <0x19>;
-			qcom,soccp-controller = <0x465>;
-			qcom,ipc-core = <0x400000 0x140000>;
-			qcom,iommu-dma = "disabled";
-			iommus = <0x26b 0x05 0x00>;
-			qcom,gmu-perf-ddr-bw = <0x5caf6a>;
-			qcom,gmu-freq-table = <0x1dcd6500 0x40 0x26be3680 0x80>;
-			clock-names = "gmu_clk\0cxo_clk\0axi_clk\0memnoc_clk\0ahb_clk\0hub_clk";
-			clocks = <0x50 0x04 0x50 0x06 0x34 0x0d 0x34 0x22 0x50 0x00 0x50 0x14>;
-			power-domain-names = "cx\0gmu_cx\0gx";
-			power-domains = <0x50 0x00 0x50 0x02 0x59 0x00>;
-			interrupt-names = "hfi\0gmu";
-			interrupts = <0x00 0x130 0x04 0x00 0x131 0x04>;
-			reg-names = "gmu\0gmu_ao_blk_dec0";
-			reg = <0x3d37000 0x68000 0x3d40000 0x10000>;
-			compatible = "qcom,gen8-gmu";
-		};
-
-		qcom,gpu-coresight-cx {
-			phandle = <0x62a>;
-			coresight-name = "coresight-gfx-cx";
-			compatible = "qcom,gpu-coresight-cx";
-
-			out-ports {
-
-				port {
-
-					endpoint {
-						phandle = <0x624>;
-						remote-endpoint = <0x621>;
-					};
-				};
+			secure_bitstream_cb {
+				phandle = <0x629>;
+				qcom,secure-context-bank;
+				qcom,iova-max-align-shift = <0x08>;
+				qcom,iova-best-fit;
+				qcom,iommu-vmid = <0x09>;
+				qcom,iommu-faults = "non-fatal";
+				memory-region = <0x62b>;
+				iommus = <0x75 0x1941 0x04>;
+				compatible = "qcom,vidc,cb-sec-bitstream";
 			};
-		};
 
-		qcom,gpu-coresight-gx {
-			phandle = <0x62b>;
-			coresight-name = "coresight-gfx";
-			compatible = "qcom,gpu-coresight-gx";
-
-			out-ports {
-
-				port {
-
-					endpoint {
-						phandle = <0x623>;
-						remote-endpoint = <0x622>;
-					};
-				};
+			secure_pixel_cb {
+				phandle = <0x62a>;
+				qcom,secure-context-bank;
+				qcom,iova-max-align-shift = <0x08>;
+				qcom,iova-best-fit;
+				qcom,iommu-vmid = <0x0a>;
+				qcom,iommu-faults = "non-fatal";
+				memory-region = <0x62b>;
+				iommus = <0x75 0x1943 0x00>;
+				compatible = "qcom,vidc,cb-sec-pxl";
 			};
 		};
 
 		qcom,msm-stub-codec {
-			phandle = <0x630>;
+			phandle = <0x631>;
 			compatible = "qcom,msm-stub-codec";
 		};
 
 		qcom,audio-pkt-core-platform {
-			phandle = <0x631>;
+			phandle = <0x632>;
 			compatible = "qcom,audio-pkt-core-platform";
 		};
 
 		qcom,msm-adsp-loader {
-			phandle = <0x632>;
+			phandle = <0x633>;
 			qcom,rproc-handle = <0x82>;
 			compatible = "qcom,adsp-loader";
 			status = "disabled";
 		};
 
 		qcom,msm-adsp-notify {
-			phandle = <0x633>;
+			phandle = <0x634>;
 			qcom,rproc-handle = <0x82>;
 			compatible = "qcom,adsp-notify";
 			status = "ok";
 		};
 
 		spf_core_platform {
-			phandle = <0x634>;
+			phandle = <0x635>;
 			compatible = "qcom,spf-core-platform";
 
 			qcom,msm-audio-ion {
-				phandle = <0x62d>;
+				phandle = <0x62e>;
 				dma-coherent;
 				qcom,smmu-sid-mask = <0x00 0x0f>;
 				qcom,iommu-group = <0x469>;
-				memory-region = <0x62c>;
+				memory-region = <0x62d>;
 				iommus = <0x75 0x1001 0x80 0x75 0x1041 0x20>;
 				qcom,smmu-enabled;
 				qcom,smmu-version = <0x02>;
 				compatible = "qcom,msm-audio-ion";
 
 				audio_cnss_resv_region {
-					phandle = <0x62c>;
-					iommu-addresses = <0x62d 0x00 0x18000000 0x62d 0xb0000000 0x50000000>;
+					phandle = <0x62d>;
+					iommu-addresses = <0x62e 0x00 0x18000000 0x62e 0xb0000000 0x50000000>;
 				};
 			};
 
 			qcom,msm-audio-ion-cma {
-				phandle = <0x635>;
+				phandle = <0x636>;
 				compatible = "qcom,msm-audio-ion-cma";
 			};
 
 			lpi_pinctrl@07760000 {
-				phandle = <0x636>;
-				clocks = <0x62e 0x00 0x62f 0x00>;
+				phandle = <0x637>;
+				clocks = <0x62f 0x00 0x630 0x00>;
 				clock-names = "lpass_core_hw_vote\0lpass_audio_hw_vote";
 				qcom,lpi-slew-base-tbl = <0x7760000 0x7761000 0x7762000 0x7763000 0x7764000 0x7765000 0x7766000 0x7767000 0x7768000 0x7769000 0x776a000 0x776b000 0x776c000 0x776d000 0x776e000 0x776f000 0x7770000 0x7771000 0x7772000 0x7773000 0x7774000 0x7775000 0x7776000>;
 				qcom,lpi-slew-offset-tbl = <0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b 0x0b>;
@@ -24491,8 +24519,8 @@
 			};
 
 			lpass-cdc {
-				phandle = <0x637>;
-				clocks = <0x62e 0x00 0x62f 0x00>;
+				phandle = <0x638>;
+				clocks = <0x62f 0x00 0x630 0x00>;
 				clock-names = "lpass_core_hw_vote\0lpass_audio_hw_vote";
 				compatible = "qcom,lpass-cdc";
 
@@ -24501,54 +24529,54 @@
 				};
 
 				va-macro@7660000 {
-					phandle = <0x638>;
+					phandle = <0x639>;
 
 					va_swr_master {
-						phandle = <0x639>;
+						phandle = <0x63a>;
 					};
 				};
 
 				tx-macro@6AE0000 {
-					phandle = <0x63a>;
+					phandle = <0x63b>;
 				};
 
 				rx-macro@6AC0000 {
-					phandle = <0x63b>;
+					phandle = <0x63c>;
 
 					rx_swr_master {
-						phandle = <0x63c>;
+						phandle = <0x63d>;
 					};
 				};
 
 				wsa-macro@6B00000 {
-					phandle = <0x63d>;
+					phandle = <0x63e>;
 
 					wsa_swr_master {
-						phandle = <0x63e>;
+						phandle = <0x63f>;
 					};
 				};
 
 				wsa2-macro@6AA0000 {
-					phandle = <0x63f>;
+					phandle = <0x640>;
 
 					wsa2_swr_master {
-						phandle = <0x640>;
+						phandle = <0x641>;
 					};
 				};
 			};
 
 			lpass_bt_swr@6CA0000 {
-				phandle = <0x641>;
+				phandle = <0x642>;
 				compatible = "qcom,lpass-bt-swr";
 
 				bt_swr_mstr {
-					phandle = <0x642>;
+					phandle = <0x643>;
 				};
 			};
 
 			sound {
-				phandle = <0x643>;
-				clocks = <0x62f 0x00>;
+				phandle = <0x644>;
+				clocks = <0x630 0x00>;
 				clock-names = "lpass_audio_hw_vote";
 				qcom,afe-rxtx-lb = <0x00>;
 				qcom,ext-disp-audio-rx = <0x00>;
@@ -24561,45 +24589,17 @@
 		};
 
 		vote_lpass_core_hw {
-			phandle = <0x62e>;
+			phandle = <0x62f>;
 			#clock-cells = <0x01>;
 			qcom,codec-ext-clk-src = <0x09>;
 			compatible = "qcom,audio-ref-clk";
 		};
 
 		vote_lpass_audio_hw {
-			phandle = <0x62f>;
+			phandle = <0x630>;
 			#clock-cells = <0x01>;
 			qcom,codec-ext-clk-src = <0x0b>;
 			compatible = "qcom,audio-ref-clk";
-		};
-
-		qcom,hw-fence {
-			phandle = <0x646>;
-			qcom,hw-fence-client-type-ife0-extra = <0x14 0x1c 0x01 0x01>;
-			qcom,hw-fence-client-type-ife0 = <0x01 0x01 0x80 0x01>;
-			qcom,hw-fence-client-type-vpu = <0x01 0x02 0x320 0x00>;
-			qcom,hw-fence-client-type-ipe = <0x01 0x02 0x320 0x00>;
-			qcom,hw-fence-client-type-dpu = <0x06 0x02 0x80 0x01>;
-			qcom,hw-fence-ipc-ver = <0x20a02>;
-			qcom,qtime-reg = <0xc221000 0x1000>;
-			qcom,ipcc-reg = <0x400000 0x140000>;
-			qcom,hw-fence-queue-entries = <0x320>;
-			qcom,hw-fence-table-entries = <0x2000>;
-			soccp_controller = <0x465>;
-			dma-coherent;
-			iommus = <0x75 0x562 0x01>;
-			#interrupt-cells = <0x01>;
-			interrupt-controller;
-			interrupts = <0x00 0x46 0x04>;
-			status = "ok";
-			compatible = "qcom,msm-hw-fence";
-
-			hw_fence@1 {
-				shared-buffer = <0x36e>;
-				qcom,master;
-				compatible = "qcom,msm-hw-fence-mem";
-			};
 		};
 	};
 
@@ -24617,7 +24617,6 @@
 	};
 
 	__symbols__ {
-		msm_hw_fence = "/soc/qcom,hw-fence";
 		audio_prm = "/soc/remoteproc-adsp@03000000/glink-edge/qcom,gpr/q6prm";
 		audio_gpr = "/soc/remoteproc-adsp@03000000/glink-edge/qcom,gpr";
 		lpass_audio_hw_vote = "/soc/vote_lpass_audio_hw";
@@ -24644,18 +24643,20 @@
 		adsp_loader = "/soc/qcom,msm-adsp-loader";
 		audio_pkt_core_platform = "/soc/qcom,audio-pkt-core-platform";
 		stub_codec = "/soc/qcom,msm-stub-codec";
-		funnel_gfx_in_cx_dbgc = "/soc/funnel@10963000/in-ports/port@1/endpoint";
-		funnel_gfx_in_gx_dbgc = "/soc/funnel@10963000/in-ports/port@0/endpoint";
-		gx_dbgc_out_funnel_gfx = "/soc/qcom,gpu-coresight-gx/out-ports/port/endpoint";
-		coresight_gx_dgbc = "/soc/qcom,gpu-coresight-gx";
-		cx_dbgc_out_funnel_gfx = "/soc/qcom,gpu-coresight-cx/out-ports/port/endpoint";
-		coresight_cx_dgbc = "/soc/qcom,gpu-coresight-cx";
-		gmu = "/soc/qcom,gmu@3d37000";
-		gfx3d_secure = "/soc/qcom,kgsl-iommu@3da0000/gfx3d_secure";
-		gfx3d_lpac = "/soc/qcom,kgsl-iommu@3da0000/gfx3d_lpac";
-		gfx3d_user = "/soc/qcom,kgsl-iommu@3da0000/gfx3d_user";
-		kgsl_msm_iommu = "/soc/qcom,kgsl-iommu@3da0000";
-		msm_mmrm_test = "/soc/qcom,mmrm-test";
+		secure_pixel_cb = "/soc/qcom,vidc@aa00000/secure_pixel_cb";
+		secure_bitstream_cb = "/soc/qcom,vidc@aa00000/secure_bitstream_cb";
+		secure_non_pixel_cb = "/soc/qcom,vidc@aa00000/secure_non_pixel_cb";
+		non_secure_cb = "/soc/qcom,vidc@aa00000/non_secure_cb";
+		non_secure_pixel_cb = "/soc/qcom,vidc@aa00000/non_secure_pixel_cb";
+		iommu_region_partition = "/soc/qcom,vidc@aa00000/iommu_region_partition";
+		msm_vidc = "/soc/qcom,vidc@aa00000";
+		cvp_dsp_cb = "/soc/qcom,cvp@ab00000/cvp_dsp_cb";
+		cvp_secure_pixel_cb = "/soc/qcom,cvp@ab00000/cvp_secure_pixel_cb";
+		cvp_secure_nonpixel_cb = "/soc/qcom,cvp@ab00000/cvp_secure_nonpixel_cb";
+		cvp_non_secure_cb = "/soc/qcom,cvp@ab00000/cvp_non_secure_cb";
+		cvp_iommu_region_partition = "/soc/qcom,cvp@ab00000/cvp_iommu_region_partition";
+		non_secure_cb_group = "/soc/qcom,cvp@ab00000/cvp_non_secure_cb_group";
+		msm_cvp = "/soc/qcom,cvp@ab00000";
 		cam_jpeg_dma0 = "/soc/qcom,jpegdma0@ac26000";
 		cam_jpeg_enc0 = "/soc/qcom,jpegenc0@ac25000";
 		cam_ofe = "/soc/qcom,ofe@ac2a000";
@@ -24826,25 +24827,24 @@
 		cci_i2c_scl0_active = "/soc/pinctrl@f000000/cci_i2c_scl0_active";
 		cci_i2c_sda0_suspend = "/soc/pinctrl@f000000/cci_i2c_sda0_suspend";
 		cci_i2c_sda0_active = "/soc/pinctrl@f000000/cci_i2c_sda0_active";
-		cvp_dsp_cb = "/soc/qcom,cvp@ab00000/cvp_dsp_cb";
-		cvp_secure_pixel_cb = "/soc/qcom,cvp@ab00000/cvp_secure_pixel_cb";
-		cvp_secure_nonpixel_cb = "/soc/qcom,cvp@ab00000/cvp_secure_nonpixel_cb";
-		cvp_non_secure_cb = "/soc/qcom,cvp@ab00000/cvp_non_secure_cb";
-		cvp_iommu_region_partition = "/soc/qcom,cvp@ab00000/cvp_iommu_region_partition";
-		non_secure_cb_group = "/soc/qcom,cvp@ab00000/cvp_non_secure_cb_group";
-		msm_cvp = "/soc/qcom,cvp@ab00000";
 		ipclite_cam = "/soc/ipclite/cam";
 		ipclite_cvp = "/soc/ipclite/cvp";
 		ipclite_cdsp = "/soc/ipclite/cdsp";
 		ipclite_apss = "/soc/ipclite/apss";
 		ipcc_compute_l0 = "/soc/qcom,ipcc_compute_l0@443000";
-		secure_pixel_cb = "/soc/qcom,vidc@aa00000/secure_pixel_cb";
-		secure_bitstream_cb = "/soc/qcom,vidc@aa00000/secure_bitstream_cb";
-		secure_non_pixel_cb = "/soc/qcom,vidc@aa00000/secure_non_pixel_cb";
-		non_secure_cb = "/soc/qcom,vidc@aa00000/non_secure_cb";
-		non_secure_pixel_cb = "/soc/qcom,vidc@aa00000/non_secure_pixel_cb";
-		iommu_region_partition = "/soc/qcom,vidc@aa00000/iommu_region_partition";
-		msm_vidc = "/soc/qcom,vidc@aa00000";
+		msm_mmrm_test = "/soc/qcom,mmrm-test";
+		msm_hw_fence = "/soc/qcom,hw-fence";
+		funnel_gfx_in_cx_dbgc = "/soc/funnel@10963000/in-ports/port@1/endpoint";
+		funnel_gfx_in_gx_dbgc = "/soc/funnel@10963000/in-ports/port@0/endpoint";
+		gx_dbgc_out_funnel_gfx = "/soc/qcom,gpu-coresight-gx/out-ports/port/endpoint";
+		coresight_gx_dgbc = "/soc/qcom,gpu-coresight-gx";
+		cx_dbgc_out_funnel_gfx = "/soc/qcom,gpu-coresight-cx/out-ports/port/endpoint";
+		coresight_cx_dgbc = "/soc/qcom,gpu-coresight-cx";
+		gmu = "/soc/qcom,gmu@3d37000";
+		gfx3d_secure = "/soc/qcom,kgsl-iommu@3da0000/gfx3d_secure";
+		gfx3d_lpac = "/soc/qcom,kgsl-iommu@3da0000/gfx3d_lpac";
+		gfx3d_user = "/soc/qcom,kgsl-iommu@3da0000/gfx3d_user";
+		kgsl_msm_iommu = "/soc/qcom,kgsl-iommu@3da0000";
 		nfc_enable_suspend = "/soc/pinctrl@f000000/nfc/nfc_enable_suspend";
 		nfc_enable_active = "/soc/pinctrl@f000000/nfc/nfc_enable_active";
 		nfc_int_suspend = "/soc/pinctrl@f000000/nfc/nfc_int_suspend";

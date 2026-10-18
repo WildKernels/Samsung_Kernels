@@ -147,7 +147,7 @@
 };
 
 &tx_macro {
-	qcom,tx-dmic-clk-div-factor = <3 3 3 3>;
+	qcom,tx-dmic-clk-div-factor = <4 4 4 4>;
 };
 
 &wsa_macro{
