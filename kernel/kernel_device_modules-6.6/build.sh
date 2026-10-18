@@ -41,8 +41,11 @@ KLEAF_ARGS=("${DEBUG_ARGS} ${SANDBOX_ARGS} \
 set -x
 (
   tools/bazel ${KLEAF_OUT} build ${KLEAF_ARGS} ${KLEAF_BUILD_TARGET}
-  tools/bazel ${KLEAF_OUT} run ${KLEAF_ARGS} \
-	--nokmi_symbol_list_violations_check ${KLEAF_DIST_TARGET} -- --dist_dir=${OUT_DIR}/dist
+  # Only run dist if KLEAF_DIST_TARGET is set (skip for QUICK_BUILD)
+  if [ -n "${KLEAF_DIST_TARGET}" ]; then
+    tools/bazel ${KLEAF_OUT} run ${KLEAF_ARGS} \
+	  --nokmi_symbol_list_violations_check ${KLEAF_DIST_TARGET} -- --dist_dir=${OUT_DIR}/dist
+  fi
 )
 set +x
 
