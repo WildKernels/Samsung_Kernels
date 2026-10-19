@@ -21,7 +21,7 @@
 #include <linux/shmem_fs.h>
 #include <linux/uaccess.h>
 #include <linux/pkeys.h>
-#include <trace/hooks/blk.h>
+#include <trace/hooks/mm.h>
 
 #include <asm/elf.h>
 #include <asm/tlb.h>
