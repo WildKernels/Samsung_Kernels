@@ -15,5 +15,5 @@ export DEPMOD=depmod
 export ARCH=arm64
 export TARGET_SOC=s5e8835
 export BUILD_NUMBER=A546BXXSNFZI1
-make s5e8835-a54xnaxx_defconfig
+make s5e8835-a54xnsxx_defconfig
 make -j$(nproc) Image
