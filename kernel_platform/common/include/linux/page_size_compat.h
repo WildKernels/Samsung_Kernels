@@ -147,6 +147,8 @@ static __always_inline unsigned long __filemap_len(struct inode *inode, unsigned
 		return len;
 }
 
+extern void __fold_filemap_fixup_entry(struct vma_iterator *iter, unsigned long *end);
+
 static __always_inline void __filemap_fixup(unsigned long addr, unsigned long prot,
 					    unsigned long old_len, unsigned long new_len)
 {
