@@ -1184,11 +1184,6 @@ static int dwc3_exynos_probe(struct platform_device *pdev)
 		goto populate_err;
 	}
 
-#if IS_ENABLED(CONFIG_SND_EXYNOS_USB_AUDIO) && !IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
-	ret = xhci_exynos_audio_alloc(dev);
-	if (ret < 0)
-		dev_err(dev, "xhci_exynos_audio_alloc failed\n");
-#endif
 	dev_info(dev, "Configuration exynos OTG\n");
 	dwc3_exynos_otg_init(exynos->dwc, exynos);
 

@@ -4729,12 +4729,12 @@ static void nu2111a_timer_work(struct work_struct *work)
 
 error:
 #if IS_ENABLED(CONFIG_BATTERY_SAMSUNG)
-if (chg->charging_state > DC_STATE_CHECK_VBAT)
+if (chg->charging_state != DC_STATE_NOT_CHARGING) {
 	chg->health_status = POWER_SUPPLY_EXT_HEALTH_DC_ERR;
-else
+	nu2111a_stop_charging(chg);
+} else
 	LOG_DBG(chg, "Charging not started[%d].\n", chg->health_status);
 #endif
-	nu2111a_stop_charging(chg);
 }
 
 static void nu2111a_pps_request_work(struct work_struct *work)

@@ -11,7 +11,9 @@
 
 #include <sound/samsung/abox.h>
 #include <../sound/usb/usbaudio.h>
+#if IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
 #include <linux/usb/xhci-sideband.h>
+#endif
 
 /* for KM */
 
@@ -105,6 +107,8 @@
 #define PHY_MODE_CALL_ENTER	0x33
 #define PHY_MODE_CALL_EXIT	0x34
 
+#define XHCI_USE_URAM_FOR_EXYNOS_AUDIO        BIT_ULL(62)
+
 enum USB_GIC_MSG_TYPE {
 	GIC_USB_PCM_OPEN,	/* USB -> ABOX */
 	GIC_USB_DESC,
@@ -184,7 +188,9 @@ struct exynos_usb_audio {
 
 	bool use_uram;
 
+#if IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
 	struct xhci_sideband *sb;
+#endif
 };
 
 struct hcd_hw_info {

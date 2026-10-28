@@ -477,7 +477,6 @@
   __kmalloc
   kmalloc_caches
   kmalloc_large
-  kmalloc_node_trace
   kmalloc_trace
   kmem_cache_alloc
   kmem_cache_create
@@ -825,7 +824,6 @@
   set_cpus_allowed_ptr
   set_normalized_timespec64
   sg_alloc_table
-  sg_alloc_table_from_pages_segment
   sg_free_table
   sg_init_table
   sg_next
@@ -1033,7 +1031,6 @@
   usb_ep_queue
   usb_function_register
   usb_function_unregister
-  usb_hcd_is_primary_hcd
   usb_hub_find_child
   usb_interface_id
   usb_put_function_instance
@@ -1118,7 +1115,6 @@
   work_busy
   xa_find
   xa_find_after
-  xhci_get_endpoint_index
 
 # required by abc.ko
   strlcpy
@@ -1300,6 +1296,7 @@
   pm_runtime_allow
   usb_ep_set_halt
   usb_gadget_set_state
+  usb_hcd_is_primary_hcd
   usb_otg_state_string
   usb_role_switch_set_role
 
@@ -1682,7 +1679,14 @@
   usb_altnum_to_altsetting
   usb_choose_configuration
   usb_ifnum_to_if
+  xhci_enable_interrupter
+  xhci_get_endpoint_index
   xhci_get_ep_ctx
+  xhci_set_interrupter_moderation
+  xhci_sideband_add_endpoint
+  xhci_sideband_create_interrupter
+  xhci_sideband_register
+  xhci_sideband_unregister
 
 # required by exynos8855_audio.ko
   dapm_regulator_event
@@ -2415,6 +2419,7 @@
   reclaim_shmem_address_space
   request_firmware_into_buf
   set_page_dirty
+  sg_alloc_table_from_pages_segment
   shmem_file_setup
   shmem_read_mapping_page_gfp
   si_meminfo
@@ -2599,6 +2604,7 @@
   elv_rqhash_add
   elv_rqhash_del
   elv_unregister
+  kmalloc_node_trace
   of_css
   radix_tree_lookup
   sbitmap_queue_min_shallow_depth
@@ -2797,16 +2803,6 @@
   zs_pool_stats
   zs_unmap_object
 
-# required by xhci-sideband.ko
-  dma_get_sgtable_attrs
-  xhci_create_secondary_interrupter
-  xhci_disable_interrupter
-  xhci_enable_interrupter
-  xhci_initialize_ring_info
-  xhci_remove_secondary_interrupter
-  xhci_set_interrupter_moderation
-  xhci_stop_endpoint_sync
-
 # required by xperf.ko
   cpufreq_quick_get_max
 
@@ -2840,6 +2836,7 @@
   devres_free
   devres_release
   dev_set_threaded
+  dma_get_sgtable_attrs
   drm_add_edid_modes
   drm_connector_atomic_hdr_metadata_equal
   drm_connector_attach_hdr_output_metadata_property
@@ -2960,3 +2957,8 @@
   ttm_pool_free
   v4l2_match_dv_timings
   wait_for_completion_killable
+  xhci_create_secondary_interrupter
+  xhci_disable_interrupter
+  xhci_initialize_ring_info
+  xhci_remove_secondary_interrupter
+  xhci_stop_endpoint_sync

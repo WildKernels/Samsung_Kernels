@@ -95,6 +95,10 @@
 	samsung,mem-to-file-allow = <0>;
 };
 
+&dss {
+	scratch-disable = <1>;
+};
+
 &itmon {
 	/* S2D NOT default at User Binary */
 	err_tmout	= <GO_S2D_ID>;

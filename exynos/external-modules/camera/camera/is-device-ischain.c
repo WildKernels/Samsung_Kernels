@@ -1889,6 +1889,13 @@ static void is_ischain_update_otf_data(struct is_device_ischain *device, struct 
 			(sensor->exposure_value[frame->fcount % IS_EXP_BACKUP_COUNT] / 1000) +
 			SHOT_TIMEOUT;
 		resourcemgr->shot_timeout_tick = KEEP_FRAME_TICK_DEFAULT;
+	} else if (frame->shot->ctl.aa.vendor_captureExposureTime >= ((SHOT_TIMEOUT * 1000) - 1000000)) {
+		/*
+		 * Adjust the shot timeout value based on sensor exposure time control.
+		 * Exposure Time >= (SHOT_TIMEOUT - 1sec): Increase shot timeout value.
+		 */
+		resourcemgr->shot_timeout = (frame->shot->ctl.aa.vendor_captureExposureTime / 1000) + SHOT_TIMEOUT;
+		resourcemgr->shot_timeout_tick = KEEP_FRAME_TICK_DEFAULT;
 	} else if (resourcemgr->shot_timeout_tick > 0) {
 		resourcemgr->shot_timeout_tick--;
 	} else {

@@ -1547,6 +1547,8 @@ const u16 sensor_3lc_setfile_A_Global[] = {
 	0x6F12, 0x0005, 0x02,
 	0x602A, 0x20CE, 0x02,
 	0x6F12, 0x0680, 0x02,
+	0x602A, 0x211C, 0x02,
+	0x6F12, 0x0000, 0x02,
 	0x602A, 0x21D8, 0x02,
 	0x6F12, 0x0010, 0x02,
 	0x602A, 0x21E0, 0x02,
@@ -6495,7 +6497,7 @@ static const struct sensor_3lc_private_data sensor_3lc_private_data_A = {
 
 static const struct sensor_cis_info sensor_3lc_info_A = {
 	.name = "3LC",
-	.version = "S5K3LCSX_ReferenceSetfile_v0.8_241203",
+	.version = "S5K3LCSX_ReferenceSetfile_v1.0_250210",
 	.max_width = 4000,
 	.max_height = 3000,
 	.min_analog_gain = 0x20,

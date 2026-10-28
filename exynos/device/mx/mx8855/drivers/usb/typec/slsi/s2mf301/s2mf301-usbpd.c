@@ -126,6 +126,7 @@ static void _s2mf301_self_soft_reset(struct s2mf301_usbpd_data *pdic_data);
 static int s2mf301_op_mode_set(void *_data);
 static void s2mf301_usbpd_check_hardreset(void *_data);
 static void s2mf301_usbpd_set_usbpd_reset(void *_data);
+static void s2mf301_usbpd_reset_osc_clk(struct s2mf301_usbpd_data *_data);
 
 static char *s2m_cc_state_str[] = {
 	"CC_OPEN",
@@ -150,7 +151,7 @@ const char *WATER_STATUS_TO_STR[] = {
 static void s2mf301_usbpd_test_read(struct s2mf301_usbpd_data *usbpd_data)
 {
 	struct i2c_client *i2c = usbpd_data->i2c;
-	static int reg_list[] = {0x01, 0x18, 0x1b, 0x27, 0x28, 0x2e,
+	static int reg_list[] = {0x01, 0x0a, 0x15, 0x18, 0x1b, 0x27, 0x28, 0x2e,
 		0x40, 0xe2, 0xb2, 0xb3, 0xb4, 0xf7};
 	u8 data = 0;
 	char str[1016] = {0,};
@@ -308,11 +309,18 @@ void s2mf301_usbpd_check_pps_irq_reduce_clk(void *_data, int reduce)
 	/* normal PPS -> TxReq ~ RxPsReady <= 30ms */
 	if ((!reduce) || (pdic_data->osc_clk == S2MF301_OSC_CLK_250) || (ms > 180)) {
 		pdic_data->osc_clk = S2MF301_OSC_CLK_DEFAULT;
-
-		otp_0a &= ~(0x7F);
-		otp_0a |= (saved_data & 0x7F);
 		if (!reduce)
 			policy->need_check_pps_clk = 0;
+
+		if (saved_data & 0x80) {
+			pdic_data->osc_clk = S2MF301_OSC_CLK_DEFAULT;
+
+			otp_0a &= ~(0x7F);
+			otp_0a |= (saved_data & 0x7F);
+		} else {
+			s2mf301_usbpd_reset_osc_clk(pdic_data);
+			return;
+		}
 	} else {
 		s2mf301_info("%s, osc_clk(%d), msgIRQ(%d), passIRQ(%d)\n", __func__,
 				pdic_data->osc_clk, pdic_data->check_pps_irq_msg,
@@ -1839,6 +1847,7 @@ static void s2mf301_usbpd_set_usbpd_reset(void *_data)
 	s2mf301_set_normal_mode(pdic_data);
 	s2mf301_usbpd_reg_init(pdic_data);
 	s2mf301_usbpd_test_read(pdic_data);
+	s2mf301_usbpd_reset_osc_clk(pdic_data);
 
 	SET_STATUS(pdic_data->status_reg, PLUG_ATTACH);
 	schedule_delayed_work(&pdic_data->plug_work, 0);

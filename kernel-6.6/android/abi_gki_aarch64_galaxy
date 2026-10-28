@@ -63,8 +63,17 @@
   scsi_device_quiesce
   scsi_device_resume
   smpboot_unregister_percpu_thread
+  snd_ctl_remove
+  snd_ctl_remove_id
   stack_trace_save_regs
   swp_swapcount
+  xhci_sideband_add_endpoint
+  xhci_sideband_create_interrupter
+  xhci_sideband_enable_interrupt
+  xhci_sideband_register
+  xhci_sideband_remove_endpoint
+  xhci_sideband_remove_interrupter
+  xhci_sideband_unregister
   __kfree_skb
   __traceiter_android_rvh_arm64_serror_panic
   __traceiter_android_rvh_die_kernel_fault

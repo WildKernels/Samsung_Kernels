@@ -59,6 +59,8 @@ static int exynos_usb_audio_unmap_all(void);
 static void exynos_usb_audio_offload_init(void);
 #if IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
 static void exynos_usb_audio_offload_store_sideband_info(struct usb_device *udev);
+#else
+static void exynos_usb_audio_offload_store_hw_info(void);
 #endif
 void exynos_usb_xhci_recover(void);
 
@@ -91,7 +93,8 @@ struct xhci_exynos_audio {
 	void *in_addr;
 	struct xhci_hcd	*xhci;
 	int feedback;
-
+	struct xhci_interrupter ir_data;
+	struct xhci_interrupter *ir;
 };
 
 struct xhci_exynos_audio *g_xhci_exynos_audio;
@@ -215,6 +218,20 @@ static int usb_audio_iommu_unmap(unsigned long iova, size_t bytes)
 	return ret;
 }
 
+#if IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
+static int xhci_exynos_enable_interrupt(struct xhci_sideband *sb, u32 imod_interval)
+{
+	if (!sb || !sb->ir)
+		return -ENODEV;
+
+	xhci_set_interrupter_moderation(sb->ir, imod_interval);
+	sb->ir->skip_events = false;
+	xhci_enable_interrupter(sb->ir);
+
+	return 0;
+}
+#endif
+
 static int exynos_usb_audio_set_device(struct usb_device *udev)
 {
 	int ret = 0;
@@ -229,7 +246,7 @@ static int exynos_usb_audio_set_device(struct usb_device *udev)
 	}
 
 	xhci_sideband_create_interrupter(usb_audio.sb, 1, 1, 1);
-	xhci_sideband_enable_interrupt(usb_audio.sb, 40000);
+	ret = xhci_exynos_enable_interrupt(usb_audio.sb, 40000);
 #endif
 	return ret;
 }
@@ -279,6 +296,8 @@ static int exynos_usb_audio_hcd(struct usb_device *udev)
 
 #if IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
 	exynos_usb_audio_offload_store_sideband_info(udev);
+#else
+	exynos_usb_audio_offload_store_hw_info();
 #endif
 
 	if (DEBUG) {
@@ -953,8 +972,10 @@ void exynos_usb_audio_get_deq(struct usb_device *udev, int interface, int altern
 		pr_debug("%s: bEndpointAddress = %x\n", __func__, desc->bEndpointAddress);
 		pr_debug("%s: bSynchAddress = %x\n", __func__, desc->bSynchAddress);
 
+#if IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
 		xhci_sideband_add_endpoint(usb_audio.sb, host_ep);
 		pr_info("%s xhci_sideband_add_endpoint ep_index: %d\n", __func__, ep_index);
+#endif
 
 		/* Only Feedback endpoint(Not implict feedback data endpoint) */
 		if ((desc->bmAttributes & USB_ENDPOINT_USAGE_MASK) == USB_ENDPOINT_USAGE_FEEDBACK) {
@@ -1505,11 +1526,14 @@ void exynos_usb_audio_offload_store_sideband_info(struct usb_device *udev)
 	pr_info("<<< %s\n", __func__);
 }
 #else
-void exynos_usb_audio_offload_store_hw_info(void)
+static void exynos_usb_audio_offload_store_hw_info(void)
 {
 	struct xhci_hcd *xhci = g_xhci_exynos_audio->xhci;
 	struct xhci_virt_device *virt_dev;
-	struct xhci_erst_entry *entry = &g_xhci_exynos_audio->ir->erst.entries[0];
+	struct xhci_erst_entry *entry;
+
+	g_xhci_exynos_audio->ir = &(g_xhci_exynos_audio->ir_data);
+	entry = &g_xhci_exynos_audio->ir->erst.entries[0];
 
 	virt_dev = xhci->devs[usb_audio.udev->slot_id];
 
@@ -1542,9 +1566,6 @@ void usb_probe_work(void)
 		pr_info("%s, already disconnected, return \n", __func__);
 		return;
 	}
-#if !IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
-	exynos_usb_audio_offload_store_hw_info();
-#endif
 
 	exynos_usb_audio_hcd(audio_work_data.work_udev);
 	exynos_usb_audio_conn(audio_work_data.work_udev);
@@ -1665,7 +1686,9 @@ int exynos_usb_audio_offload_probe(struct platform_device *pdev)
 	//exynos_usb_audio_offload_init();
 	usb_audio.usb_audio_state = USB_AUDIO_DISCONNECT;
 	atomic_set(&usb_audio.unmap_all_done, 1);
+#if IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
 	usb_audio.sb = NULL;
+#endif
 
 	exynos_usb_vendor_helper_init();
 
@@ -1673,9 +1696,7 @@ int exynos_usb_audio_offload_probe(struct platform_device *pdev)
 	memset(g_hwinfo, 0, sizeof(struct hcd_hw_info));
 
 	snd_usb_register_platform_ops(&platform_ops);
-#if IS_ENABLED(CONFIG_USB_XHCI_SIDEBAND)
 	xhci_exynos_audio_alloc(usb_audio.dev);
-#endif
 
 	return 0;
 

@@ -29,7 +29,6 @@ _COMMON_KERNEL_MODULE_LIST = [
     "drivers/gpu/drm/display/drm_display_helper.ko",
 #    "drivers/firmware/cirrus/cs_dsp.ko",
     "drivers/spi/spidev.ko",
-    "drivers/usb/host/xhci-sideband.ko",
 ]
 
 _COMMON_KERNEL_VENDOR_DLKM_MODULE_LIST = [

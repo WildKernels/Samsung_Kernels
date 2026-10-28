@@ -205,6 +205,7 @@ static bool bt_stop_on_failure(struct scsc_service_client *client, struct mx_sys
 	SCSC_TAG_ERR(BT_COMMON, "Error level %d\n", err->level);
 
 	reinit_completion(&bt_svc->recovery_probe_complete);
+
 	bt_svc->recovery_level = err->level;
 
 	/* Allocate system_error_info and build hci_vse_system_error_info */
@@ -260,7 +261,7 @@ static void bt_failure_reset(struct scsc_service_client *client, u8 level, u16 s
 #endif
 
 	wake_up(&bt_svc->read_wait);
-	if (bt_svc->user_type == SCSC_USER_TYPE_HCIUART)
+	if (bt_svc->user_type == SCSC_USER_TYPE_HCIUART && bt_svc->service_started)
 		queue_work(bt_svc->wq, &bt_svc->work_rx);
 }
 

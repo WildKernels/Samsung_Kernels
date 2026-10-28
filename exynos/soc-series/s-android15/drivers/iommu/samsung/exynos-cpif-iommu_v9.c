@@ -24,6 +24,7 @@
 #include <linux/genalloc.h>
 #include <linux/kmemleak.h>
 #include <linux/dma-map-ops.h>
+#include <linux/of_reserved_mem.h>
 
 #include <asm/cacheflush.h>
 #include <linux/pgtable.h>
@@ -1289,7 +1290,26 @@ static int __init sysmmu_parse_dt(struct device *sysmmu,
 	unsigned int qos = DEFAULT_QOS_VALUE;
 	int ret = 0;
 	struct stream_props *props;
+	struct device_node *np;
+	struct reserved_mem *rmem;
 
+	/* Try to get reserved memory */
+	drvdata->rmem_pbase = 0;
+	np = of_parse_phandle(sysmmu->of_node, "memory-region", 0);
+	if (!np) {
+		dev_err(sysmmu, "Cannot find sysmmu rmem node\n");
+		goto no_rmem;
+	}
+
+	rmem = of_reserved_mem_lookup(np);
+	if (!rmem) {
+		dev_err(sysmmu, "Cannot find sysmmu rmem region!\n");
+	} else
+		drvdata->rmem_pbase = rmem->base;
+
+	dev_info(sysmmu, "sysmmu rmem base: 0x%llx\n", drvdata->rmem_pbase);
+
+no_rmem:
 	/* Parsing QoS */
 	ret = of_property_read_u32_index(sysmmu->of_node, "qos", 0, &qos);
 	if (!ret && (qos > 15)) {
@@ -1379,6 +1399,10 @@ static int __init exynos_sysmmu_probe(struct platform_device *pdev)
 	struct sysmmu_drvdata *data;
 	struct resource *res;
 	int __maybe_unused i;
+#ifndef USE_DYNAMIC_MEM_ALLOC
+	u8 *gen_buff;
+	phys_addr_t buff_paddr;
+#endif
 
 	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
 	if (!data)
@@ -1423,6 +1447,34 @@ static int __init exynos_sysmmu_probe(struct platform_device *pdev)
 		dev_err(dev, "Failed to parse DT\n");
 		return ret;
 	}
+
+#ifndef USE_DYNAMIC_MEM_ALLOC /* If it doesn't use genpool */
+	buff_paddr = data->rmem_pbase;
+
+	/* if reserved region not exist, try to alloc gen pool */
+	if (!buff_paddr) {
+		gen_buff = kzalloc(LV2_GENPOOL_SZIE, GFP_KERNEL);
+		if (gen_buff == NULL)
+			return -ENOMEM;
+		buff_paddr = virt_to_phys(gen_buff);
+	} else {
+		gen_buff = phys_to_virt(buff_paddr);
+		memset(gen_buff, 0, LV2_GENPOOL_SZIE);
+	}
+
+	lv2table_pool = gen_pool_create(ilog2(LV2TABLE_AND_REFBUF_SZ), -1);
+	if (!lv2table_pool) {
+		dev_err(dev, "Failed to allocate lv2table gen pool\n");
+		return -ENOMEM;
+	}
+
+	ret = gen_pool_add(lv2table_pool, (unsigned long)buff_paddr,
+			LV2_GENPOOL_SZIE, -1);
+	if (ret) {
+		gen_pool_destroy(lv2table_pool);
+		return -ENOMEM;
+	}
+#endif
 
 	/* Create Temp Domain */
 	data->domain = exynos_iommu_domain_alloc();
@@ -1485,10 +1537,6 @@ static struct platform_driver exynos_sysmmu_driver __refdata = {
 
 static int __init cpif_iommu_init(void)
 {
-#ifndef USE_DYNAMIC_MEM_ALLOC /* If it doesn't use genpool */
-	u8 *gen_buff;
-#endif
-	phys_addr_t buff_paddr;
 	int ret;
 
 	if (lv2table_kmem_cache)
@@ -1501,30 +1549,10 @@ static int __init cpif_iommu_init(void)
 		return -ENOMEM;
 	}
 
-#ifndef USE_DYNAMIC_MEM_ALLOC /* If it doesn't use genpool */
-	gen_buff = kzalloc(LV2_GENPOOL_SZIE, GFP_KERNEL);
-	if (gen_buff == NULL)
-		return -ENOMEM;
-	buff_paddr = virt_to_phys(gen_buff);
-	lv2table_pool = gen_pool_create(ilog2(LV2TABLE_AND_REFBUF_SZ), -1);
-	if (!lv2table_pool) {
-		pr_err("Failed to allocate lv2table gen pool\n");
-		return -ENOMEM;
-	}
-
-	ret = gen_pool_add(lv2table_pool, (unsigned long)buff_paddr,
-			LV2_GENPOOL_SZIE, -1);
-	if (ret)
-		return -ENOMEM;
-#endif
-
-
 	ret = platform_driver_probe(&exynos_sysmmu_driver, exynos_sysmmu_probe);
 	if (ret != 0) {
 		kmem_cache_destroy(lv2table_kmem_cache);
-#ifndef USE_DYNAMIC_MEM_ALLOC /* If it doesn't use genpool */
-		gen_pool_destroy(lv2table_pool);
-#endif
+		pr_err("%s: platform driver probe failed: %d\n", __func__, ret);
 	}
 
 	return ret;
