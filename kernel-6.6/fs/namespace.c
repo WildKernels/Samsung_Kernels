@@ -14,6 +14,9 @@
 #include <linux/mnt_namespace.h>
 #include <linux/user_namespace.h>
 #include <linux/namei.h>
+#ifdef CONFIG_PROC_STLOG
+#include <linux/fslog.h>
+#endif
 #include <linux/security.h>
 #include <linux/cred.h>
 #include <linux/idr.h>
@@ -37,10 +40,6 @@
 #include "internal.h"
 #include <trace/hooks/blk.h>
 #include <trace/hooks/fs.h>
-
-#ifdef CONFIG_PROC_STLOG
-#include <linux/fslog.h>
-#endif
 
 /* Maximum number of mounts in a mount namespace */
 static unsigned int sysctl_mount_max __read_mostly = 100000;
