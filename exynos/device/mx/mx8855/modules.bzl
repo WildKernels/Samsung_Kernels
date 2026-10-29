@@ -29,10 +29,11 @@ _COMMON_KERNEL_MODULE_LIST = [
     "drivers/gpu/drm/display/drm_display_helper.ko",
 #    "drivers/firmware/cirrus/cs_dsp.ko",
     "drivers/spi/spidev.ko",
+    "net/wireless/cfg80211.ko",
+    "net/mac80211/mac80211.ko",
 ]
 
 _COMMON_KERNEL_VENDOR_DLKM_MODULE_LIST = [
-    "net/wireless/cfg80211.ko",
 ]
 
 # vendor_boot modules. In vendor_boot
