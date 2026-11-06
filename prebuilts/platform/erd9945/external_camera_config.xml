@@ -1,0 +1,81 @@
+<ExternalCamera>
+    <Provider>
+        <ignore> <!-- Internal video devices to be ignored by external camera HAL -->
+            <id>6</id> <!-- No leading/trailing spaces -->
+            <id>7</id>
+            <id>8</id>
+            <id>9</id>
+            <id>10</id>
+            <id>11</id>
+            <id>12</id>
+            <id>13</id>
+            <id>50</id>
+            <id>100</id>
+            <id>101</id>
+            <id>102</id>
+            <id>103</id>
+            <id>104</id>
+            <id>105</id>
+            <id>110</id>
+            <id>111</id>
+            <id>112</id>
+            <id>113</id>
+            <id>120</id>
+            <id>130</id>
+            <id>140</id>
+            <id>150</id>
+            <id>151</id>
+            <id>155</id>
+            <id>156</id>
+            <id>160</id>
+            <id>170</id>
+            <id>210</id>
+            <id>211</id>
+            <id>212</id>
+            <id>213</id>
+            <id>214</id>
+            <id>215</id>
+            <id>216</id>
+            <id>217</id>
+            <id>218</id>
+            <id>219</id>
+            <id>220</id>
+            <id>221</id>
+            <id>222</id>
+            <id>223</id>
+            <id>224</id>
+            <id>225</id>
+            <id>226</id>
+            <id>227</id>
+            <id>228</id>
+            <id>229</id>
+            <id>240</id>
+            <id>241</id>
+            <id>242</id>
+            <id>243</id>
+        </ignore>
+        <CameraIdOffset>8</CameraIdOffset>
+    </Provider>
+    <!-- See ExternalCameraUtils.cpp for default values of Device configurations below -->
+    <Device>
+        <!-- Max JPEG buffer size in bytes-->
+        <MaxJpegBufferSize bytes="3145728"/> <!-- 3MB (~= 1080p YUV420) -->
+        <!-- Size of v4l2 buffer queue when streaming >= 30fps -->
+        <!-- Larger value: more request can be cached pipeline (less janky)  -->
+        <!-- Smaller value: use less memory -->
+        <NumVideoBuffers count="4"/>
+        <!-- Size of v4l2 buffer queue when streaming < 30fps -->
+        <NumStillBuffers count="2"/>
+
+        <!-- List of maximum fps for various output sizes -->
+        <!-- Any image size smaller than the size listed in Limit row will report
+            fps (as minimum frame duration) up to the fpsBound value. -->
+        <FpsList>
+            <!-- width/height must be increasing, fpsBound must be decreasing-->
+            <Limit width="640" height="480" fpsBound="30.0"/>
+            <Limit width="1280" height="720" fpsBound="30.0"/>
+            <Limit width="1920" height="1080" fpsBound="30.0"/>
+            <!-- image size larger than the last entry will not be supported-->
+        </FpsList>
+    </Device>
+</ExternalCamera>
