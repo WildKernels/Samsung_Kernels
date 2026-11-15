@@ -2676,6 +2676,10 @@ int __prepare_IMB_info(struct npu_session *session, struct addr_info *IMB_av, st
 
 p_err:
 	if (likely(IMB_mem_buf)) {
+		mutex_lock(session->global_lock);
+		session->IMB_info = NULL;
+		session->IMB_mem_buf = NULL;
+		mutex_unlock(session->global_lock);
 		kfree(IMB_mem_buf);
 		IMB_mem_buf = NULL;
 	}
