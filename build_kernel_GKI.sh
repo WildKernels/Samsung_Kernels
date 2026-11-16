@@ -1,16 +1,17 @@
 #!/bin/bash
 
 #1. target config
-BUILD_TARGET=$1
+BUILD_TARGET=e3q_eur_openx
 export MODEL=$(echo $BUILD_TARGET | cut -d'_' -f1)
 export PROJECT_NAME=${MODEL}
 export REGION=$(echo $BUILD_TARGET | cut -d'_' -f2)
 export CARRIER=$(echo $BUILD_TARGET | cut -d'_' -f3)
-export TARGET_BUILD_VARIANT=$2
+export TARGET_BUILD_VARIANT=user
+export BUILD_NUMBER=S928BXXS6EZJ1
 		
 		
 #2. sm8650 common config
-CHIPSET_NAME=$3
+CHIPSET_NAME=pineapple
 
 export ANDROID_BUILD_TOP=$(pwd)
 export TARGET_PRODUCT=gki
