@@ -4,7 +4,7 @@ ALL of these Samsung Kernels are from Samsung Opensource website.
 They all include the toolchain specific from Samsung.
 to go around git lfs, files larger than 50MB are compressed as .tar.xz
 
-NOTE: Each branch is its own Kernel source. Kernels are set as the model number, oneui version, and bit revision, see more information below:
+NOTE: Each branch is its own Kernel source. Kernels are set as the model number and oneui version, see more information below:
 
 Example build number: S926BXXS7BYEC
 the first 5 digits are the model number: S926B
