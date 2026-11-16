@@ -27,6 +27,9 @@
 #include <linux/personality.h>
 #include <linux/security.h>
 #include <linux/ima.h>
+#ifdef CONFIG_SECURITY_DEFEX
+#include <linux/defex.h>
+#endif
 #include <linux/syscalls.h>
 #include <linux/mount.h>
 #include <linux/audit.h>
@@ -40,10 +43,6 @@
 #include <linux/bitops.h>
 #include <linux/init_task.h>
 #include <linux/uaccess.h>
-
-#ifdef CONFIG_SECURITY_DEFEX
-#include <linux/defex.h>
-#endif
 
 #include "internal.h"
 #include "mount.h"
