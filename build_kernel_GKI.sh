@@ -7,6 +7,7 @@ export PROJECT_NAME=${MODEL}
 export REGION=$(echo $BUILD_TARGET | cut -d'_' -f2)
 export CARRIER=$(echo $BUILD_TARGET | cut -d'_' -f3)
 export TARGET_BUILD_VARIANT=user
+export BUILD_NUMBER=S936NKSU1AYA2
 		
 		
 #2. sm8650 common config
@@ -24,6 +25,10 @@ export KBUILD_EXTRA_SYMBOLS=${ANDROID_BUILD_TOP}/out/vendor/qcom/opensource/mmrm
 
 # for Audio(techpack) driver build
 export MODNAME=audio_dlkm
+
+# Set KERNEL_ONLY=1 to build only the kernel Image (no modules, dtbo, boot.img, etc.)
+# This significantly speeds up builds when you only need the kernel image
+export KERNEL_ONLY=1
 
 export KBUILD_EXT_MODULES="\
 	../vendor/qcom/opensource/mmrm-driver \
