@@ -32,7 +32,6 @@ _COMMON_KERNEL_MODULE_LIST = [
 ]
 
 _COMMON_KERNEL_VENDOR_DLKM_MODULE_LIST = [
-    "net/wireless/cfg80211.ko",
 ]
 
 # vendor_boot modules. In vendor_boot
