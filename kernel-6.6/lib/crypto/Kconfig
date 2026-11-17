@@ -14,8 +14,8 @@ config CRYPTO_LIB_AESGCM
 	select CRYPTO_LIB_GF128MUL
 	select CRYPTO_LIB_UTILS
 
-config CRYPTO_LIB_ARC4
-	tristate
+#config CRYPTO_LIB_ARC4
+#	tristate
 
 config CRYPTO_LIB_GF128MUL
 	tristate
