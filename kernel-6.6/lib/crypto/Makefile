@@ -13,7 +13,7 @@ libaes-y					:= aes.o
 obj-$(CONFIG_CRYPTO_LIB_AESGCM)			+= libaesgcm.o
 libaesgcm-y					:= aesgcm.o
 
-obj-$(CONFIG_CRYPTO_LIB_ARC4)			+= libarc4.o
+obj-y			+= libarc4.o
 libarc4-y					:= arc4.o
 
 obj-$(CONFIG_CRYPTO_LIB_GF128MUL)		+= gf128mul.o
