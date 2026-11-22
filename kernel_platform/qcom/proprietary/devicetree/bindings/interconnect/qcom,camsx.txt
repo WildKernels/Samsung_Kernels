@@ -1,0 +1,25 @@
+Qualcomm Technologies, Inc. CamSx interconnect driver
+-----------------------------------------------------------
+
+CamSx interconnect providers allows for different camera subsystem
+users to share resources w/o conflicting each other.
+
+Required properties :
+- compatible : "qcom,camsx-icc"
+- reg = <addr size>;
+- #interconnect-cells : should contain 1
+
+Examples:
+
+camsx_noc: camsx_noc {
+	compatible = "qcom,camsx-icc";
+	reg = <0x1500000 0x13080>;
+	#interconnect-cells = <1>;
+	clock-names =
+		"cphy_rx_clk_src",
+		"ife_lite_csid_clk";
+
+	clocks =
+		<&camcc CAM_CC_CPHY_RX_CLK_SRC>,
+		<&camcc CAM_CC_IFE_LITE_CSID_CLK>;
+};

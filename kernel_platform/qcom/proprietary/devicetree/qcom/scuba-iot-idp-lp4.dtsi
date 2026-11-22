@@ -1,0 +1,38 @@
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "scuba-iot-idp.dtsi"
+
+
+&qupv3_se2_i2c {
+	status = "ok";
+	qcom,i2c-touch-active= "focaltech,fts_ts";
+
+		focaltech@38 {
+		status = "okay";
+		compatible = "focaltech,fts_ts";
+		reg = <0x38>;
+
+		interrupt-parent = <&tlmm>;
+		interrupts = <80 0x2008>;
+		focaltech,reset-gpio = <&tlmm 71 0x00>;
+		focaltech,irq-gpio = <&tlmm 80 0x2008>;
+		focaltech,display-coords = <0 0 1080 2408>;
+		focaltech,max-touch-number = <10>;
+		focaltech,ic-type = <0x8726081C>;
+		focaltech,touch-type = "primary";
+
+		pinctrl-names = "pmx_ts_active","pmx_ts_suspend",
+			"pmx_ts_release";
+		pinctrl-0 = <&ts_int_active &ts_reset_active>;
+		pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
+		pinctrl-2 = <&ts_release>;
+	};
+
+
+	novatek@62 {
+		status = "disabled";
+	};
+
+	synaptics_tcm@20 {
+		status = "disabled";
+	};
+};

@@ -1,0 +1,263 @@
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/clock/qcom,camcc-kalama.h>
+#include <dt-bindings/clock/qcom,dispcc-kalama.h>
+#include <dt-bindings/clock/qcom,gcc-kalama.h>
+#include <dt-bindings/clock/qcom,gpucc-kalama.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/clock/qcom,tcsrcc-kalama.h>
+#include <dt-bindings/clock/qcom,videocc-kalama.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include <dt-bindings/interconnect/qcom,kalama.h>
+#include <dt-bindings/soc/qcom,ipcc.h>
+#include <dt-bindings/soc/qcom,rpmh-rsc.h>
+#include <dt-bindings/interconnect/qcom,icc.h>
+#include <dt-bindings/spmi/spmi.h>
+#include <dt-bindings/power/qcom-aoss-qmp.h>
+#include <dt-bindings/clock/qcom,aop-qmp.h>
+
+#include "camss-cci.dtsi"
+
+&soc {
+	#address-cells = <1>;
+	#size-cells = <1>;
+
+	camss_lite: camss@ac00000 {
+		compatible = "qcom,sm8550-camss-gen2";
+		status = "disabled";
+
+		reg = <0x0acca000 0x0a00>,
+		      <0x0acce000 0x0a00>,
+		      <0x0ace4000 0x2000>,
+		      <0x0ace6000 0x2000>,
+		      <0x0ace8000 0x2000>,
+		      <0x0acea000 0x2000>,
+		      <0x0acec000 0x2000>,
+		      <0x0acee000 0x2000>,
+		      <0x0acf0000 0x2000>,
+		      <0x0acf2000 0x2000>,
+		      <0x0accb000 0x1800>,
+		      <0x0accf000 0x1800>;
+		reg-names = "csid_lite0",
+			    "csid_lite1",
+			    "csiphy0",
+			    "csiphy1",
+			    "csiphy2",
+			    "csiphy3",
+			    "csiphy4",
+			    "csiphy5",
+			    "csiphy6",
+			    "csiphy7",
+			    "vfe_lite0",
+			    "vfe_lite1";
+
+		clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
+			 <&camcc CAM_CC_CPAS_AHB_CLK>,
+			 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
+			 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
+			 <&camcc CAM_CC_CSID_CLK>,
+			 <&camcc CAM_CC_CSIPHY0_CLK>,
+			 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
+			 <&camcc CAM_CC_CSIPHY1_CLK>,
+			 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
+			 <&camcc CAM_CC_CSIPHY2_CLK>,
+			 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
+			 <&camcc CAM_CC_CSIPHY3_CLK>,
+			 <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
+			 <&camcc CAM_CC_CSIPHY4_CLK>,
+			 <&camcc CAM_CC_CSI4PHYTIMER_CLK>,
+			 <&camcc CAM_CC_CSIPHY5_CLK>,
+			 <&camcc CAM_CC_CSI5PHYTIMER_CLK>,
+			 <&camcc CAM_CC_CSIPHY6_CLK>,
+			 <&camcc CAM_CC_CSI6PHYTIMER_CLK>,
+			 <&camcc CAM_CC_CSIPHY7_CLK>,
+			 <&camcc CAM_CC_CSI7PHYTIMER_CLK>,
+			 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
+			 <&gcc GCC_CAMERA_HF_AXI_CLK>,
+			 <&camcc CAM_CC_IFE_LITE_CLK>,
+			 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
+			 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
+			 <&camcc CAM_CC_IFE_LITE_CSID_CLK>,
+			 <&gcc GCC_CAMERA_AHB_CLK>,
+			 <&gcc GCC_CAMERA_SF_AXI_CLK>,
+			 <&camcc CAM_CC_CAMNOC_AXI_CLK_SRC>,
+			 <&camcc CAM_CC_CORE_AHB_CLK>,
+			 <&camcc CAM_CC_CSID_CLK_SRC>,
+			 <&camcc CAM_CC_CPHY_RX_CLK_SRC>;
+
+		clock-names = "camnoc_axi",
+			      "cpas_ahb",
+			      "cpas_fast_ahb_clk",
+			      "cpas_ife_lite",
+			      "csid",
+			      "csiphy0",
+			      "csiphy0_timer",
+			      "csiphy1",
+			      "csiphy1_timer",
+			      "csiphy2",
+			      "csiphy2_timer",
+			      "csiphy3",
+			      "csiphy3_timer",
+			      "csiphy4",
+			      "csiphy4_timer",
+			      "csiphy5",
+			      "csiphy5_timer",
+			      "csiphy6",
+			      "csiphy6_timer",
+			      "csiphy7",
+			      "csiphy7_timer",
+			      "csid_csiphy_rx",
+			      "gcc_axi_hf",
+			      "vfe_lite",
+			      "vfe_lite_ahb",
+			      "vfe_lite_cphy_rx",
+			      "vfe_lite_csid",
+			      "gcc_camera_ahb",
+			      "gcc_camera_sf_axi",
+			      "camnoc_axi_src",
+			      "core_ahb",
+			      "csid_src",
+			      "cphy_rx_src";
+
+		interrupts = <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 376 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 448 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 122 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 89 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 278 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 277 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 606 IRQ_TYPE_EDGE_RISING>,
+			     <GIC_SPI 377 IRQ_TYPE_EDGE_RISING>;
+		interrupt-names = "csid_lite0",
+				  "csid_lite1",
+				  "csiphy0",
+				  "csiphy1",
+				  "csiphy2",
+				  "csiphy3",
+				  "csiphy4",
+				  "csiphy5",
+				  "csiphy6",
+				  "csiphy7",
+				  "vfe_lite0",
+				  "vfe_lite1";
+
+		interconnects = <&gem_noc MASTER_APPSS_PROC
+				 &config_noc SLAVE_CAMERA_CFG >,
+				<&mmss_noc MASTER_CAMNOC_HF
+				 &mc_virt SLAVE_EBI1 >,
+				<&camsx_noc CAMSX_CAMNOC_CSIPHY0_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CSIPHY1_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CSIPHY2_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CSIPHY3_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CSIPHY4_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CSIPHY5_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CSIPHY6_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CSIPHY7_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CSID_CSIPHY_RX_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_IFE_LITE_CPHY_RX_CLK
+				 &camsx_noc CAMSX_CAMNOC_CPHY_RX_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_IFE_LITE_CSID_CLK
+				 &camsx_noc CAMSX_CAMNOC_IFE_LITE_CSID_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CPAS_AHB_CLK
+				 &camsx_noc CAMSX_CAMNOC_SLOW_AHB_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_IFE_LITE_AHB_CLK
+				 &camsx_noc CAMSX_CAMNOC_SLOW_AHB_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CPAS_FAST_AHB_CLK
+				 &camsx_noc CAMSX_CAMNOC_FAST_AHB_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_AXI_CLK
+				 &camsx_noc CAMSX_CAMNOC_AXI_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_CPAS_IFE_LITE_CLK
+				 &camsx_noc CAMSX_CAMNOC_IFE_LITE_CLK_SRC>,
+				<&camsx_noc CAMSX_CAMNOC_IFE_LITE_CLK
+				 &camsx_noc CAMSX_CAMNOC_IFE_LITE_CLK_SRC>;
+
+		interconnect-names = "ahb",
+				     "hf_0_mnoc",
+				     "csiphy0_clk",
+				     "csiphy1_clk",
+				     "csiphy2_clk",
+				     "csiphy3_clk",
+				     "csiphy4_clk",
+				     "csiphy5_clk",
+				     "csiphy6_clk",
+				     "csiphy7_clk",
+				     "csid_csiphy_rx_clk",
+				     "ife_lite_cphy_rx_clk",
+				     "ife_lite_csid_clk",
+				     "cpas_ahb_clk",
+				     "ife_lite_ahb_clk",
+				     "cpas_fast_ahb_clk",
+				     "camnoc_axi_clk",
+				     "cpas_ife_lite_clk",
+				     "ife_lite_clk";
+
+
+		iommus = <&apps_smmu 0x800 0x20>;
+
+		vdda-phy-supply = <&L1E>;
+		vdda-pll-supply = <&L3E>;
+
+		regulator-names = "gdscr";
+		gdscr-supply = <&cam_cc_titan_top_gdsc>;
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				csiphy0_ep: endpoint {
+					clock-lanes = <0>;
+					data-lanes = <0>;
+					remote-endpoint = <&ov9282_ep0>;
+				};
+			};
+		};
+	};
+};
+
+&cci1 {
+	status = "disabled";
+};
+
+&cci1_i2c1 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "disabled";
+
+	camera@60 {
+		compatible = "ovti,ov9282";
+		reg = <0x60>;
+
+		reset-gpios = <&tlmm 116 0>;
+		pinctrl-names = "default", "suspend";
+		pinctrl-0 = <&cam0_default>;
+		pinctrl-1 = <&cam0_suspend>;
+
+		clocks = <&camcc CAM_CC_MCLK0_CLK>;
+		assigned-clocks = <&camcc CAM_CC_MCLK0_CLK>;
+		assigned-clock-rates = <24000000>;
+
+		dvdd-supply = <&L15B>;
+		dovdd-supply = <&cam_cc_titan_top_gdsc>;
+
+		port {
+			ov9282_ep0: endpoint {
+				link-frequencies = /bits/ 64 <400000000>;
+				data-lanes = <1>;
+				remote-endpoint = <&csiphy0_ep>;
+			};
+		};
+	};
+};
