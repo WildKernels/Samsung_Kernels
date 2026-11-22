@@ -20,6 +20,9 @@
 #include <linux/kernel.h>
 #include <linux/slab.h>
 #include <linux/fs.h>
+#ifdef CONFIG_SECURITY_DEFEX
+#include <linux/defex.h>
+#endif
 #include <linux/namei.h>
 #include <linux/pagemap.h>
 #include <linux/fsnotify.h>
@@ -39,10 +42,6 @@
 #include <linux/bitops.h>
 #include <linux/init_task.h>
 #include <linux/uaccess.h>
-
-#ifdef CONFIG_SECURITY_DEFEX
-#include <linux/defex.h>
-#endif
 
 #include "internal.h"
 #include "mount.h"
