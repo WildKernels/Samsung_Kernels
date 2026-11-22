@@ -42,6 +42,7 @@
 #include <linux/pagemap.h>
 #include <linux/perf_event.h>
 #include <linux/highmem.h>
+#include <linux/task_integrity.h>
 #include <linux/spinlock.h>
 #include <linux/key.h>
 #include <linux/personality.h>
@@ -65,7 +66,6 @@
 #include <linux/vmalloc.h>
 #include <linux/io_uring.h>
 #include <linux/syscall_user_dispatch.h>
-#include <linux/task_integrity.h>
 
 #include <linux/uaccess.h>
 #include <asm/mmu_context.h>
