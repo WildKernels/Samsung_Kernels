@@ -48,6 +48,7 @@
 #include <linux/binfmts.h>
 #include <linux/utsname.h>
 #include <linux/pid_namespace.h>
+#include <linux/task_integrity.h>
 #include <linux/module.h>
 #include <linux/namei.h>
 #include <linux/mount.h>
@@ -64,7 +65,6 @@
 #include <linux/compat.h>
 #include <linux/vmalloc.h>
 #include <linux/io_uring.h>
-#include <linux/task_integrity.h>
 
 #include <linux/uaccess.h>
 #include <asm/mmu_context.h>
