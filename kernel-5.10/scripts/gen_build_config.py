@@ -33,12 +33,12 @@ def get_config_in_defconfig(file_name, kernel_dir):
     return (special_defconfig, build_config, ext_modules)
 
 def help():
-    print 'Usage:'
-    print '  python scripts/gen_build_config.py --project <project> --kernel-defconfig <kernel project defconfig file> --kernel-defconfig-overlays <kernel project overlay defconfig files> --kernel-build-config-overlays <kernel build config overlays> --build-mode <mode> --out-file <gen build.config>'
-    print 'Or:'
-    print '  python scripts/gen_build_config.py -p <project> --kernel-defconfig <kernel project defconfig file> --kernel-defconfig-overlays <kernel project overlay defconfig files> --kernel-build-config-overlays <kernel build config overlays> -m <mode> -o <gen build.config>'
-    print ''
-    print 'Attention: Must set generated build.config, and project or kernel project defconfig file!!'
+    print('Usage:')
+    print('  python scripts/gen_build_config.py --project <project> --kernel-defconfig <kernel project defconfig file> --kernel-defconfig-overlays <kernel project overlay defconfig files> --kernel-build-config-overlays <kernel build config overlays> --build-mode <mode> --out-file <gen build.config>')
+    print('Or:')
+    print('  python scripts/gen_build_config.py -p <project> --kernel-defconfig <kernel project defconfig file> --kernel-defconfig-overlays <kernel project overlay defconfig files> --kernel-build-config-overlays <kernel build config overlays> -m <mode> -o <gen build.config>')
+    print('')
+    print('Attention: Must set generated build.config, and project or kernel project defconfig file!!')
     sys.exit(2)
 
 def main(**args):
@@ -79,7 +79,7 @@ def main(**args):
     elif os.path.exists('%s/arch/arm64/configs/%s' % (abs_kernel_dir, project_defconfig_name)):
         defconfig_dir = 'arch/arm64/configs'
     else:
-        print 'Error: cannot find project defconfig file under ' + abs_kernel_dir
+        print('Error: cannot find project defconfig file under ' + abs_kernel_dir)
         sys.exit(2)
     project_defconfig = '%s/%s/%s' % (abs_kernel_dir, defconfig_dir, project_defconfig_name)
 
@@ -110,8 +110,8 @@ def main(**args):
                 kernel_dir = result.group(1).strip('')
         file_handle.close()
     else:
-        print 'Error: cannot get build.config under ' + abs_kernel_dir + '.'
-        print 'Please check whether ' + project_defconfig + ' defined CONFIG_BUILD_CONFIG_FILE.'
+        print('Error: cannot get build.config under ' + abs_kernel_dir + '.')
+        print('Please check whether ' + project_defconfig + ' defined CONFIG_BUILD_CONFIG_FILE.')
         sys.exit(2)
 
     file_text.append("PATH=${ROOT_DIR}/../prebuilts/perl/linux-x86/bin:${ROOT_DIR}/build/build-tools/path/linux-x86:/usr/bin:/bin")
